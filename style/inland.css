@@ -1,0 +1,66 @@
+
+   
+
+
+/* 效果CSS开始 */
+.mBan2 { overflow: hidden;height:auto;width:100%;float:left; }
+.mBan2 .slideBox{ width:100%; height:auto; position:relative;}
+.mBan2 .slideBox .hd{ height: 10px; overflow: hidden; position: absolute; bottom: 4px; z-index: 1; width: 81px; background: url(../images/btnBg.png)/*tpa=http://m.jx516.com/images/btnBg.png*/ no-repeat; margin-left: -46px; left: 50%; padding: 4px 0px 0px 11px; }
+.mBan2 .slideBox .hd ul{ zoom: 1; }
+.mBan2 .slideBox .hd ul li{ float: left; width: 6px; height: 6px; background: url(../images/btn1.png)/*tpa=http://m.jx516.com/images/btn1.png*/ no-repeat; cursor: pointer; margin-right: 10px; }
+.mBan2 .slideBox .hd ul li.on{ background: url(../images/btn2.png)/*tpa=http://m.jx516.com/images/btn2.png*/ no-repeat; }
+.mBan2 .slideBox .bd{ position:relative; height:100%; z-index:0;   }
+.mBan2 .slideBox .bd ul,.slideBox .bd ul li{width:100%!important}
+.mBan2 .slideBox .bd img{ width:100%; height:auto; display:block;  }
+/* 效果CSS结束 */
+
+/*大海报*/
+.head-poster {
+    width:100%;
+    float:left;
+    padding:5px 0;
+}
+/*推荐海报*/
+.ad-list {
+    width:100%;
+    height:auto;
+    float:left;
+    border-bottom:1px solid #dcdcdc;
+    box-shadow:0 0 3px #dcdcdc;
+}
+.ad-list ul {
+    width:100%;
+    height:auto;
+    float:left;
+    list-style-type:none;
+}
+.ad-list ul li{
+    width:49.5%;
+    height:70px;
+    float:left;
+}
+.ad-list-a{
+   width:70%;
+   height:70px;
+   float:left;
+}
+.ad-list-b {
+    width: 30%;
+    height: 70px;
+    float: left;
+}
+.ad-list-tit {
+    width:100%;
+    float:left;
+    text-align:left;
+    padding-left:12px;
+    padding-top:15px;
+    font-size:16px;
+}
+.ad-list-p {
+    width:100%;
+    float:left;
+    text-align:left;
+    padding-left:12px;
+    font-size:12px;
+}

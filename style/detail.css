@@ -1,0 +1,601 @@
+
+
+/*头部海报*/
+
+
+/* 效果CSS开始 */
+.mBan2 { overflow: hidden;width:100%; height:auto;float:left; }
+.mBan2 .slideBox{ width:100%; height:auto; position:relative; }
+.mBan2 .slideBox .hd{ height: 10px; overflow: hidden; position: absolute; bottom: 4px; z-index: 1; width:85px; background: url(../image/btnBg.png)/*tpa=http://m.jx516.com/image/btnBg.png*/ no-repeat; margin-left: -46px; left: 50%; padding: 4px 0px 0px 11px; }
+.mBan2 .slideBox .hd ul{ zoom: 1; }
+.mBan2 .slideBox .hd ul li{ float: left; width: 7px; height: 7px; background:#fff;border-radius:100px; cursor: pointer; margin-right:6px; }
+.mBan2 .slideBox .hd ul li.on{ background:#3db4ff;border-radius:100px;  }
+.mBan2 .slideBox .bd{ position:relative; height:100%; z-index:0;   }
+.mBan2 .slideBox .bd ul,.slideBox .bd ul li{width:100%!important}
+.mBan2 .slideBox .bd img{ width:100%; height:auto; display:block;  }
+/* 效果CSS结束 */
+.head-img {
+    width: 100%;
+    height:auto;
+    
+    float: left;
+}
+.detail-tit {
+    width: 100%;
+    float: left;
+    height:auto;
+    line-height: 1.8em;
+    font-size: 14px;
+    overflow: hidden;
+    font-style: normal;
+    padding: 0 .35em 0 .35em;
+}
+
+.detail-tit-sign {
+    width: 100%;
+    float: left;
+    height: 2.5em;
+    line-height: 2.5em;
+    font-style: normal;
+    padding: 0.35em .35em 0.35em .35em;
+}
+
+.detail-sign-left {
+    width: 30%;
+    float: left;
+    font-size: 14px;
+}
+
+.detail-sign-right {
+    width: auto;
+    float: right;
+    color: #fff;
+}
+
+.detail-money-left {
+    width: auto;
+    float: left;
+    font-size: 20px;
+    line-height:1.3em;
+}
+
+/*.detail-money-right {
+    width: auto;
+    float: right;
+    padding-left: 5px;
+    padding-top: 3px;
+    font-size: 12px;
+}*/
+
+/*选择日期和人数*/
+.detail-choose {
+    width: 99.5%;
+    height:2.5em;
+    line-height: 2.5em;
+    float: left;
+    border: 1px solid #3db4ff;
+    font-style: normal;
+    color: #3db4ff;
+    font-size: 16px;
+}
+.detail-choose a{
+    color: #3db4ff;
+    text-decoration:none;
+}
+.detail-choose a:hover{
+    color: #3db4ff;
+    text-decoration:none;
+}
+
+.detail-choose span {
+    float: left;
+}
+
+#showbtn {
+    width: 0;
+    height: 0;
+    float: right;
+    margin-top:15px;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 14px solid #3db4ff;
+}
+
+#hidebtn {
+    width: 0;
+    height: 0;
+    float: right;
+    margin-top: 13px;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 14px solid #949191;
+}
+
+.detail-choose-hide {
+    width: 100%;
+    height: auto;
+    float: left;
+    display: none;
+    margin-top:5px;
+    border-bottom: 1px solid #3db4ff;
+    padding: 0 .35em 0 .35em;
+}
+
+.choose-hide {
+    width: 100%;
+    height: 6.2em;
+    float: left;
+    padding: 0 .35em 0 .35em;
+}
+
+.choose-hide ul {
+    width: 100%;
+    height: 6.2em;
+    float: left;
+    font-style: normal;
+    color: #3db4ff;
+    font-size: 14px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0 .35em 0 .35em;
+    list-style-type: none;
+}
+
+.choose-hide ul li {
+    width: 100%;
+    height: 2em;
+    line-height: 2em;
+    border-bottom: 1px dashed #3db4ff;
+    float: left;
+    cursor: pointer;
+}
+
+.choose-hide ul li div {
+    width: 100%;
+    height: 2em;
+    line-height: 2em;
+    float: left;
+}
+
+.choose-hide li div a:visited {
+    width: 100%;
+    background: #ccc;
+    color: #3db4ff;
+}
+
+.choose-hide li div a:hover {
+    width: 100%;
+    background: #ccc;
+    color: #3db4ff;
+}
+
+.choose-hide li div a:active {
+    width: 100%;
+    background: #ccc;
+    color: #3db4ff;
+}
+
+/*选择日期和人数---新版*/
+.detail-date {
+    width: auto;
+    height: 2em;
+    padding: 3px 3px;
+    float: left;
+}
+
+.detail-pep {
+    width: auto;
+    height: 3em;
+    line-height: 2em;
+    font-size: 14px;
+    float: left;
+}
+
+.detail-input {
+    width: 70px;
+    height: 2em;
+    text-align: center;
+    float: left;
+    padding: 0 3px 0 3px;
+}
+
+/*选择成人儿童
+.choose-people {
+    width:93%;
+    height:2em;
+    line-height:2em;
+    float:left;
+    font-size:14px;
+}*/
+/*选择价格，下一步*/
+.choose-money {
+    width: 93%;
+    height: 3em;
+    padding: .5em .35em 0 .35em;
+    float: left;
+}
+
+.choose-moneyLeft {
+    width: auto;
+    height: 2em;
+    line-height: 2em;
+    float: left;
+    color: #F46C14;
+    font-size: 18px;
+}
+
+.choose-moneyRight {
+    width: 6em;
+    height: 2.2em;
+    line-height: 2.2em;
+    float: right;
+    color: #fff;
+    background: #F46C14;
+    font-size: 14px;
+    text-align: center;
+}
+/*线路特色*/
+.detail-line {
+    width: 100%;
+    height: 2.5em;
+    float: left;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-right: none;
+    background:#fff;
+}
+
+.detail-line ul {
+    width: 100%;
+    height: 2.5em;
+    line-height: 2.5em;
+    float: left;
+    list-style-type: none;
+}
+
+.detail-line ul li {
+    width: 33%;
+    font-size: 14px;
+    color: #000;
+    text-align: center;
+    float: left;
+    cursor: pointer;
+}
+.detail-line ul li a{
+    color: #000;
+    text-decoration:none;
+}
+.detail-line ul li a:hover{
+    color: #000;
+    text-decoration:none;
+}
+.line-cont-one {
+    width: 96%;
+    height: auto;
+    float: left;
+    font-size: 14px;
+    padding: .35em .35em 0 .35em;
+}
+
+.line-cont-one p {
+    width: 100%;
+    line-height: 2em;
+    float: left;
+    padding: .35em .35em 0 .35em;
+    font-size: 14px;
+}
+
+.line-cont-one p span {
+    float: left;
+    color: #ccc;
+}
+
+/*#dayUp {
+    width: 0;
+    height: 0;
+    margin-top: 8px;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 14px solid #ccc;
+    color:#3db4ff;
+    font-size:14px;
+}
+
+#dayDown {
+    width: 0;
+    height: 0;
+    margin-top: 8px;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 14px solid #ccc;
+    color:#3db4ff;
+    font-size:14px;
+}*/
+
+/*底部浮动层*/
+.detail-foot {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    z-index:50;
+    bottom: 0px;
+    margin: 0 auto;
+    background:#fff;
+    border-top:1px solid #ccc;
+    left: 0;
+    color:#B9B9B9;
+    font-size:14px;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+.detail-foot a{
+    color:#B9B9B9;
+    text-decoration:none;
+}
+.detail-foot a:hover{
+    color:#B9B9B9;
+    text-decoration:none;
+}
+/*舱房选择*/
+.room-title {
+    width:100%;
+    float:left;
+}
+.room-title ul{
+    width:100%;
+    float:left;
+    list-style-type:none;
+}
+.room-title ul li{
+    width:24.55%;
+    float:left;
+    color:#fff;
+    text-align:center;
+    line-height:2.5em;
+    margin-left:0.6%;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+/*.room-title li:link {
+    border-bottom: 2px solid #000;
+}
+.room-title li:hover {
+    border-bottom: 2px solid #000;
+}
+.room-title li:active {
+    border-bottom: 2px solid #000;
+}
+.room-title li:visited {
+    border-bottom: 2px solid #000;
+}*/
+.room-cont {
+    width:100%;
+    height:auto;
+    overflow:hidden;
+    float:left;
+}
+.room-cont-one{
+    width:100%;
+    height:auto;
+    float:left;
+}
+.room-cont-one ul{
+    width:100%;
+    height:auto;
+    float:left;
+}
+.room-cont-one ul li{
+    width:100%;
+    line-height:2.5em;
+    float:left;
+    background:#E9EDEE;
+    border-bottom:2px solid #fff;
+    color:#000;
+    font-size:14px;
+    cursor:pointer;
+}
+.room-cont-one ul li p{
+    width:100%;
+    height:auto;
+    float:left;
+    padding-left:5px;
+}
+
+
+/*确认产品页*/
+.product-background {
+    width:100%;
+    height:auto;
+    float:left;
+    /*background:#949191;*/
+}
+input {
+    height:20px; 
+    font-size:14px; 
+}
+.choose-product {
+    width: 100%;
+    height: auto;
+    float: left;
+    /*border-radius: 5px;*/
+}
+.choose-product-tit {
+    width:95%;
+    text-align:center;
+    height:2.5em;
+    line-height:2.5em;
+    border-bottom:1px solid #F8F8F8;
+    font-size:14px;
+    padding:0 2%;
+    float:left;
+    overflow:hidden;
+}
+.order-product-tit {
+    width:100%;
+    height:3em;
+    line-height:3em;
+    /*background:#ccc;*/
+    font-size:14px;
+    float:left;
+    margin-top:.5em;
+    border-top:1px solid #F8F8F8;
+    border-bottom:1px solid #F8F8F8;
+    /*border-top-left-radius: 5px;
+    border-top-right-radius: 5px;*/
+}
+.order-product-tit span{
+    margin-left:2%;
+    padding-left:2%;
+    border-left:3px solid #F9AC1E;
+}
+.order-product-total {
+    width:100%;
+    height:2.5em;
+    line-height:2.5em;
+    background:#FB9153;
+    font-size:14px;
+    float:left;
+    color:#fff;
+    margin-top:1em;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.order-product-font {
+    width:100%;
+    font-size:14px;
+    float:left;
+    border-bottom:1px solid #F8F8F8;
+}
+.order-product-font span{
+    line-height:2.5em;
+}
+.order-product-font input{
+    line-height:2.5em;
+}
+.choose-product-font {
+    width:100%;
+    line-height:2.5em;
+    font-size:14px;
+    float:left;
+    white-space:nowrap;
+}
+.choose-product-font1 {
+    width:100%;
+    height:auto;
+    line-height:2.5em;
+    font-size:14px;
+    float:left;
+}
+.order-cue {
+    width:100%;
+    line-height:1.5em;
+    text-align:center; 
+    /*color:#fff;*/
+    /*background:#9FA3A6;*/
+    font-size:14px;
+    float:left;
+    word-wrap:normal;
+}
+.order-mag {
+    width:100%;
+    height:2em;
+    line-height:2em;
+    text-align:center; 
+    margin-top:10px; 
+    color:#fff;
+    font-size:14px;
+    float:left;
+    white-space:nowrap;
+}
+.order-mag a{
+    color:#fff;
+}
+.order-mag a:hover{
+    color:#fff;
+}
+.Product-detail-foot {
+    width: 100%;
+    height: 3.75em;
+    line-height:3.75em;
+    margin-top:10px;
+    float:left;
+    font-size:14px;
+    background:#F8AD1E;
+    position: fixed;
+    bottom: 0px;
+    margin: 0 auto;
+}
+/*黑色遮罩层*/
+.order-look{
+	   width:100%;
+	   height:100%;
+		display:none;
+        float:left;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        background:rgba(72,72,72,0.9);
+	}
+.order-black{
+       width:100%;
+       text-align:center;
+	   bottom:50px;
+	   color:#fff;
+	   display:none;
+       cursor:pointer;
+	}
+.order-look-font {
+    width:100%;
+    height:70%;
+    overflow-y:scroll;
+    padding:0 10px;
+    font-size:14px;
+    color:#fff;
+    border-right:3px solid #fff; 
+}
+.order-look-font p{
+    line-height:1.5em;
+}
+
+/*签证、门票详情*/
+.visa-pel {
+    width:auto;
+    height:auto;
+    float:left;
+    font-size:14px;
+    color:#C7AA44;
+}
+
+
+
+
+
+
+/*2015-10-24*/
+.detail-time {
+    width:100%;
+    height:3em;
+    line-height:3em;
+    float:left;
+    font-size:14px;
+}
+.detail-time-tit {
+    width:33%;
+    padding-right:10%;
+    float:left;
+}
+.detail-time-tit span{
+    float:left;
+}
+.detail-time-cont {
+    width:51%;
+    float:right;
+    text-align:right;
+    color:#999;
+    padding-top:5px;
+    padding-right:3%;
+    font-size:12px;
+    overflow:hidden;
+}

@@ -1,0 +1,131 @@
+
+.login-input {
+    width:90%;
+    height:auto;
+    float:left;
+    margin-left:5%;
+    border:1px solid #ccc;
+    margin-top:1em;
+}
+.login-name {
+    width:80%;
+    height:1.5em;
+    float:left;
+    margin-left:10%;
+    margin-top:1em;
+}
+.login-font {
+    width:auto;
+    height:1.5em;
+    float:left;
+    font-size:14px;
+}
+.login-psd {
+    float: right;
+    font-size:14px; 
+    color: #51aad5;
+}
+.login-psd a{ 
+    color: #51aad5;
+    text-decoration:none;
+}
+.login-psd a:hover{ 
+    color: #51aad5;
+    text-decoration:none;
+}
+.login-btn {
+    width:80%;
+    height:3em;
+    line-height:3em;
+    float:left;
+    margin-left:10%;
+    margin-top:1em;
+    text-align:center;
+    font-size:16px;
+    color:#fff;
+    border-radius:5px;
+    -webkit-appearance: none;
+}
+.login-p {
+    width:80%;
+    height:3em;
+    line-height:3em;
+    float:left;
+    margin-left:10%;
+    margin-top:1em;
+    text-align:center;
+    font-size:14px;
+    font-weight:600;
+    color:#FA9A10;
+}
+.login-p a{
+    color:#FA9A10;
+    text-decoration:none;
+}
+.login-p a:hover{
+    color:#FA9A10;
+    text-decoration:none;
+}
+
+
+/*员工登陆*/
+.staff-head {
+    width:100%;
+    text-align:center;
+    height:16em;
+    float:left;
+}
+.staff-head img{
+    width:8em;
+    float:left;
+    position:relative;
+    left:50%;
+    margin-left:-4em;
+    margin-top:6%;
+}
+.staff-login {
+    width:90%;
+    margin:0 5%;
+    height:3.5em;
+    line-height:3.5em;
+    border-bottom:1px solid #fff;
+    float:left;
+    font-size:14px;
+    color:#fff;
+}
+.staff-login input{
+    width:57%;
+    height:25px;
+    padding:0 5px;
+    font-size:14px;
+    color:#fff;
+    border:none;
+    outline:medium;
+    background:#85D3C5;
+}
+
+
+
+
+.login-tab {
+    width:90%;
+    height:3em;
+    line-height:3em;
+    padding:4% 5%;
+    padding-bottom:0;
+    float:left;
+}
+.login-tab ul{
+    width:100%;
+    border:1px solid #389CCC;
+    border-radius:3px;
+    float:left;
+}
+.login-tab ul li{
+    width:50%;
+    font-size:14px;
+    font-weight:bold;
+    text-align:center;
+    float:left;
+    cursor:pointer;
+}

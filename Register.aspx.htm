@@ -1,0 +1,660 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/javascript"> var _tcopentime = new Date().getTime(); var _hmt = _hmt || []; </script>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="format-detection" content="telephone=no" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" /><meta name="apple-mobile-web-app-capable" content="yes" /><meta name="apple-mobile-web-app-status-bar-style" content="black" /><meta name="apple-mobile-web-app-title" content="嘉信旅游" /><meta name="keywords" content="旅游,嘉信国旅,嘉信旅游,天津嘉信，旅游社，旅游线路,旅游网站,自助游,国内游,出境游,景点门票，出境度假" /><meta name="description" content="嘉信旅游是中国领先的手机一站式旅游预订平台，提供30000多家景点门票、特价机票、特惠酒店等预订服务；专业服务、品质保障，让您的旅行更安心；实惠的价格、简单的流程，让您的旅行更贴心！" />
+    <!-- UC默认竖屏 ，UC强制全屏 -->
+    <meta name="full-screen" content="yes" /><meta name="browsermode" content="application" />
+    <!-- QQ强制竖屏 QQ强制全屏 -->
+    <meta name="x5-orientation" content="portrait" /><meta name="x5-fullscreen" content="true" /><meta name="x5-page-mode" content="app" /><title>
+	【嘉信旅游】一路欢笑一生情
+</title><link href="style/public.css" tppabs="http://m.jx516.com/style/public.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        #site ul li{
+        width:20%;
+        padding:8px 2.5%;
+        float:left;
+        }
+        #site ul li div{
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        
+        }
+        #st1 li{
+        border:none;
+        background-color:#FFF;
+        color:#000;
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        }
+        #st2 li{
+        border:none;
+        background-color:#FFF;
+        color:#000;
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        }
+        #st3 li{
+        border:none;
+        background-color:#FFF;
+        color:#000;
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        }
+        #st4 li{
+        border:none;
+        background-color:#FFF;
+        color:#000;
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        }
+        .bd1 {
+            border:1px solid #c7dbeb;
+        }
+        .bd2 {
+            border:1px solid #43b1f0;
+        }
+    </style>
+    <script type="text/javascript">
+       
+        document.onreadystatechange = loading;
+        function loading() {
+            if (document.readyState == "complete") {
+                $("#loading").hide();
+                $("#Mcont").show();
+            }
+        }
+        function setTab(name) {
+            for (var i = 1; i < 5; i++) {
+                var menu = document.getElementById("st" + i);
+                var menubt = document.getElementById("bt" + i);
+                if (i == name) {
+                    menu.style.display = "inline";
+                    menubt.style.backgroundColor = "#43b1f0";
+                }
+                else {
+                    menu.style.display = "none";
+                    menubt.style.backgroundColor = "#c7dbeb";
+                }
+            }
+        }
+        function showSite() {
+            $("#site").show();
+        }
+        function hideSite() {
+            $("#site").hide();
+        }
+        function setSite() {
+            if (site_txt == "" || site_val == "") {
+                alert(请选择出发地);
+            } else {
+                $.ajax({
+                    type: "Post",
+                    url: "/Index.aspx/SetSite",
+                    data: "{'txt':'" + site_txt + "','val':'" + site_val + "'}",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        location.href = location.href;
+                    },
+                    error: function (d, e, f) {
+                    }
+                });
+            }
+        }
+        function defaultSite() {
+            if (site_txt == "" || site_val == "") {
+                alert(请选择出发地);
+            } else {
+                $.ajax({
+                    type: "Post",
+                    url: "/Index.aspx/defaultSite",
+                    data: "{'txt':'" + site_txt + "','val':'" + site_val + "'}",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        location.href = location.href;
+                    },
+                    error: function (d, e, f) {
+                    }
+                });
+            }
+        }
+
+        //图片加载失败，用默认图片
+        function func(obj, id, index) {
+            if (index == 1) {
+                obj.src = "Image_product/a.jpg"/*tpa=http://m.jx516.com/Image_product/a.jpg*/;
+            } else {
+                //var filespec = "/Image_product/" + id + "_1.jpg";
+                //var fso,s = filespec; // filespec="C:/path/myfile.txt"
+                //fso = new ActiveXObject("Scripting.FileSystemObject");
+                //if (fso.FileExists(filespec)) {
+                //    obj.src = "/Image_product/" + id + "_1.jpg";
+                //} else {
+                //    obj.src = "Image_product/a.jpg"/*tpa=http://m.jx516.com/Image_product/a.jpg*/;
+                //}
+                obj.src = "Image_product/a.jpg"/*tpa=http://m.jx516.com/Image_product/a.jpg*/;
+            }
+        }
+    </script>
+    
+    <link href="style/psd.css" tppabs="http://m.jx516.com/style/psd.css" rel="stylesheet" type="text/css" />
+     <script type="text/javascript" src="js/jquery.min.js" tppabs="http://m.jx516.com/js/jquery.min.js"></script>
+      <script type="text/javascript">
+          var t = 60;//设置验证码发送等待的时间 
+          var i_code = "";
+          var tel = "tel:4001566776";
+          $(document).ready(function () {
+              $("#tel").attr("href", tel);
+
+              //$("#ContentPlaceHolder1_register_btn").bind("click", function () {
+
+                  
+              //      var sex = $(':radio[name="travel"]:checked').val();
+              //      var name = $.trim($("#ContentPlaceHolder1_pet_name").val());
+              //      var user = $.trim($("#ContentPlaceHolder1_mobile_num").val());
+              //      var email = $.trim($("#ContentPlaceHolder1_email").val());
+              //      var pwd = $.trim($("#password").val());
+              //      var pwd1 = $.trim($("#password2").val());
+              //      var code = $.trim($("#ContentPlaceHolder1_code").val());
+
+              //      if (user == "" || user == "请输入手机号码") {
+              //          alert("请输入手机号码！");
+              //          $("#ContentPlaceHolder1_mobile_num").focus();
+              //          return false;
+              //      }
+              //      else if (code == "" || code == "输入手机验证码") {
+              //              alert("请输入手机验证码！");
+              //              $("#ContentPlaceHolder1_code").focus();
+                           
+              //      }
+              //      else if (email == "" || email == "请输入邮箱") {
+              //          alert("请输入邮箱！");
+              //          $("#ContentPlaceHolder1_email").focus();
+              //          return false;
+              //      }
+              //      else if (pwd == "" || pwd == "请输入密码") {
+
+              //          alert("请输入密码！");
+              //          $("#ContentPlaceHolder1_password").focus();
+              //          return false;
+              //      }
+                    
+              //      else if (pwd1 == "" || pwd1 == "请再次输入密码") {
+              //          alert("请再次输入密码！");
+              //          $("#password2").focus();
+              //          return false;
+              //      }
+              //      else {
+              //          //if (code != i_code) {
+              //          //    alert("验证码不正确！");
+              //          //    return false;
+              //          //}
+              //          //else
+              //          if (!PasswordYanZheng()) {
+              //              alert("密码长度不能少于6位,并且由数字和字符组成");
+              //          }
+              //          else if (!PhoneYanZheng()) {
+              //                  alert("请填写正确的手机号码");
+              //              } else if (!MailYanZheng()) {
+              //                  alert("请填写正确的电子邮箱");
+              //              } else if (pwd != pwd1) {
+              //                  alert("密码与重复密码不同，请重新输入");
+              //                  $("#password").focus();
+              //              } else {
+              //                  $.ajax({
+              //                      type: "Post",
+              //                      url: "/Register.aspx/btnclick",
+              //                      data: "{'mobile_num':'" + user + "','password':'" + pwd + "','email':'" + email + "','sex':'" + sex + "','name':'" + name + "'}",
+              //                      contentType: "application/json;charset=utf-8",
+              //                      dataType: "json",
+              //                      success: function (data) {
+              //                          //var i_data = data.d;
+              //                          alert(1);
+              //                          //if (i_data == "1") {
+              //                          //    alert("注册成功！");
+              //                          //    window.location.href = "login.aspx.htm"/*tpa=http://m.jx516.com/login.aspx*/;
+              //                          //} else{
+              //                          //    alert("用户名已被注册！");
+              //                          //}
+              //                      },
+              //                      error: function (err0, err1, err2) {
+              //                          alert(2);
+              //                      }
+              //                  });
+
+              //              }
+              //      }
+
+              //});
+
+
+
+              $("#getcode").bind("click", function () {
+                    $("#getcode").attr("src", "Verify.aspx?id=" + Math.random());
+                });
+                
+            });
+            function PhoneYanZheng() {
+                var str = $("#mobile_num").val();
+                var b = false;
+                if (/^1[3|4|5|8]\d{9}$/.test(str)) {
+                    b = true;
+                }
+                return b;
+            }
+            function PasswordYanZheng(){
+            
+                var str = $("#password").val();
+                var b = false;
+                if (/^[0-9A-Za-z]{6,}$/.test(str)) {
+                    b = true;
+                }
+                return b;
+            } 
+
+            function MailYanZheng() {
+                var str = $("#email").val();
+                var b = false;
+                if (/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/.test(str)) {
+                    b = true;
+                }
+                return b;
+            }
+            function Resigte()
+            {
+                    var sex = $(':radio[name="travel"]:checked').val();
+                    var name = $.trim($("#pet_name").val());
+                    var user = $.trim($("#mobile_num").val());
+                    
+                    var pwd = $.trim($("#password").val());
+                    var pwd1 = $.trim($("#password2").val());
+                    var code = $.trim($("#code").val());
+                    if (user == "" || user == "请输入手机号码") {
+                        alert("请输入手机号码！");
+                        $("#mobile_num").focus();
+                        return false;
+                    }
+                    else if (code == "" || code == "输入手机验证码") {
+                        alert("请输入手机验证码！");
+                        $("#code").focus();
+
+                    }
+                   
+                    else if (pwd == "" || pwd == "请输入密码") {
+
+                        alert("请输入密码！");
+                        $("#password").focus();
+                        return false;
+                    }
+                    else if (pwd1 == "" || pwd1 == "请再次输入密码") {
+                        alert("请再次输入密码！");
+                        $("#password2").focus();
+                        return false;
+                    }
+                    else {
+                        if (code != i_code) {
+                            alert("验证码不正确！");
+                            return false;
+                        }
+                        else
+                        if (!PasswordYanZheng()) {
+                            alert("密码长度不能少于6位,并且由数字和字符组成");
+                        }
+                        else if (!PhoneYanZheng()) {
+                            alert("请填写正确的手机号码");
+                        } else if (pwd != pwd1) {
+                            alert("密码与重复密码不同，请重新输入");
+                            $("#password").focus();
+                        } else {
+                            $.ajax({
+                                type: "Post",
+                                url: "/Register.aspx/btnclick",
+                                data: "{'mobile_num':'" + user + "','password':'" + pwd + "','email':'" + "" + "','sex':'" + sex + "','name':'" + name + "'}",
+                                contentType: "application/json;charset=utf-8",
+                                dataType: "json",
+                                success: function (data) {
+                                    var i_data = data.d;
+                                    //alert(1);
+                                    if (i_data == "1") {
+                                        alert("注册成功！");
+                                        window.location.href = "login.aspx.htm"/*tpa=http://m.jx516.com/login.aspx*/;
+                                    } else{
+                                        alert("用户名已被注册！");
+                                    }
+                                },
+                                error: function (err0, err1, err2) {
+                                    alert(err0+err1+err2);
+                                }
+                            });
+
+                        }
+                    }
+            }
+
+            function getcode() {
+                    if (PhoneYanZheng()) {
+                        var phone = $("#mobile_num").val() + "";
+                        var check = Math.random().toString().substr(2, 6);
+                        $.ajax({
+                            type: "Post",
+                            url: "/Register.aspx/saveCheckNum",
+                            data: "{'checkNumber': '" + check + "','checkPhone':'" + phone + "'}",
+                            contentType: "application/json;charset=utf-8",
+                            dataType: "json",
+                            success: function (data) {
+                                if (data.d == "success") {
+                                    var kind = "";
+                                    kind = "短信验证码：" + check + "。请勿泄露。";
+                                    $.post("http://m.jx516.com/Api/MessageSendHandler.ashx", { "txt": kind, "phone": phone, "user": "嘉信官网", "source": "register" }, function (data, istaus) {
+                                        var str = data;
+                                        if (str.indexOf("已注册") >= 0) {
+
+                                            alert("该手机号已经注册");
+                                        } else if (istaus == "success") {
+
+                                            alert("短信发送成功，请查看您的手机。");
+
+                                            $("#getcode").hide();
+                                            $("#showTime").show();
+                                            t = 60;
+                                            refer();
+                                            i_code = check;
+                                            //alert(i_code);
+                                        } else {
+                                            alert("发送失败，请重试");
+                                        }
+                                    });
+                                } else if (data.d == "err") {
+                                    alert("该手机号已经注册");
+                                }
+                            },
+                            error: function (err) {
+                                alert("发送失败，请重试")
+                            }
+                        });
+                    }
+                    else
+                    {
+                        alert("请输入正确的手机号");
+                    }
+                }
+
+                setInterval("refer()", 1000); //启动1秒定时 
+                function refer() {
+                    if (t == 0) {
+                        $("#getcode").show();
+                        $("#showTime").hide();
+                    }
+                    //$("#lbl_showTime").val(t.toString());
+                    document.getElementById('lbl_showTime').innerText = t.toString();
+                    t--; // 计数器递减 
+                }
+
+                function pw() {
+                    x = document.getElementById("password") // 找到元素
+                    x.type = "password";        // 改变样式
+             
+                }
+                function pw2() {
+
+                    x = document.getElementById("password") // 找到元素
+                    x.type = "text";        // 改变样式
+              
+
+                }
+                function pw3() {
+                    x = document.getElementById("password2") // 找到元素
+                    x.type = "password";        // 改变样式
+                }
+                function pw4() {
+                    x = document.getElementById("password2") // 找到元素
+                    x.type = "text";        // 改变样式
+
+                }
+    </script>
+</head>
+<body>
+    <form method="post" action="http://m.jx516.com/Register.aspx" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJMzk0ODM3MDgzZGSMQ7BW2jjOyFSb+WmlnmOBspjZSfSFSANEBKoGJ8bFLQ==" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="799CC77D" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAZxRcqoUgtjIcBzmCKMXSyPengRLc6OnI8EbBQT8ZSb2LDG4LetRO2ErbZBKvDEd2yYnZn90moqN+2G01Ep2b0BrrW4WEpb0r2WqmyVHbC4Zx4kLBo0WraSRL9Uov0D/LtQaC7C1tgiIzEdFC6wTqAGz/1sh+0iT/7UgJXlFIyVkg==" />
+</div>
+        <img src="image/logo-img1.png" tppabs="http://m.jx516.com/image/logo-img1.png" alt="" style="width:0px;height:0px;" />
+        
+            <div id="loading">
+     	        <div class="spinner">
+  			        <div class="double-bounce1"></div>
+  			        <div class="double-bounce2"></div>
+		        </div>
+	        </div>
+        
+        
+    <div class="Maincontent">
+        <div class="head">
+            <a href="Login-1.aspx.htm" tppabs="http://m.jx516.com/Login.aspx"><span class="head-return" style="width:10%;">
+                <img src="image/return.jpg" tppabs="http://m.jx516.com/image/return.jpg" style="width: 30px; height: 30px;" alt="" /></span></a>
+            <span class="head-tit" style="width:75%;">会员注册</span>
+            <a id="tel" href="tel:4001566776 "><span class="head-phone" style="width:10%;">
+                <img src="image/phone.jpg" tppabs="http://m.jx516.com/image/phone.jpg" style="width: 30px; height: 30px;" alt="" /></span></a>
+        </div>
+        <div class="psd-cont">
+            <div class="psd-input">
+                <div style="float: left;margin-top:.7em;width:auto;border-right:1px solid #999;">
+                    <img src="image/login-sig.jpg" tppabs="http://m.jx516.com/image/login-sig.jpg" style="width:25px;height:25px;border-right:5px solid #fff;" alt="" />
+                </div>
+                <div style="float: left;width:82%;">
+                    <input name="ctl00$ContentPlaceHolder1$mobile_num" type="text" id="mobile_num" value="请输入手机号码" onfocus="this.style.color=&#39;#000&#39;;if (value ==&#39;请输入手机号码&#39;){value =&#39;&#39;}" onblur="if (value ==&#39;&#39;){value=&#39;请输入手机号码&#39;;this.style.color=&#39;#999&#39;;}" style="width:100%;height:3.5em;border:none;outline:none; color: #999; padding-left:20px; font-size: 14px;" />
+                </div>
+            </div>
+            <div class="psd-input">
+                <div style="float: left;margin-top:.7em;width:auto;border-right:1px solid #999;">
+                    <img src="image/login-write.jpg" tppabs="http://m.jx516.com/image/login-write.jpg" style="width:25px;height:25px;border-right:5px solid #fff;" alt="" />
+                </div>
+                <div style="float: left;width:46%;">
+                    <input name="ctl00$ContentPlaceHolder1$code" type="text" id="code" tabindex="1" value="输入手机验证码" onfocus="this.style.color=&#39;#000&#39;;if (value ==&#39;输入手机验证码&#39;){value =&#39;&#39;}" onblur="if (value ==&#39;&#39;){value=&#39;输入手机验证码&#39;;this.style.color=&#39;#999&#39;;}" style="width:100%;height:3.5em;border:none;outline:none; color: #999; padding-left:20px; font-size: 14px;" />
+                </div>
+                <div style="float: right;width:auto;line-height:3.5em;cursor:pointer; font-size:14px;  color:#2E98CC;" id="getcode" onclick="getcode();">
+                    获取手机验证码
+                </div>
+                <div id="showTime" style="float: right;display: none;width:auto;line-height:3.5em;cursor:pointer; font-size:14px;  color:#2E98CC;">
+                     <label id="lbl_showTime"></label>
+                            秒后可再次发送
+                </div>
+            </div>
+            <div class="psd-input" style="margin-left:4%;">
+                <div style="float: left;margin-top:.7em;width:auto;border-right:1px solid #999;">
+                    <img src="image/login-name.jpg" tppabs="http://m.jx516.com/image/login-name.jpg" style="width:33px;height:30px;border-right:1px solid #fff;" alt="" />
+                </div>
+                <div style="float: left;width:82%;">
+                    <input name="ctl00$ContentPlaceHolder1$pet_name" type="text" id="pet_name" value="请填写称谓" onfocus="this.style.color=&#39;#000&#39;;if (value ==&#39;请填写称谓&#39;){value =&#39;&#39;}" onblur="if (value ==&#39;&#39;){value=&#39;请填写称谓&#39;;this.style.color=&#39;#999&#39;;}" style="width:100%;height:3.5em;border:none;outline:none; color: #999; padding-left:20px; font-size: 14px;" />
+                </div>
+            </div>
+            <div class="psd-input" style="margin-left:4%;">
+                <div style="float: left;margin-top:.7em;width:auto;border-right:1px solid #999;">
+                    <img src="image/login-six.jpg" tppabs="http://m.jx516.com/image/login-six.jpg" style="width:30px;height:30px;border-right:4px solid #fff;" alt="" />
+                </div>
+                <div style="float: left;width:82%;line-height:3em;">
+                    <div style="font-size:14px;">
+                        <span style="padding-left:20px;">性别：</span>
+                        <span style="padding-left:10px;"><input type="radio" id="sex1" name="travel" checked="checked" value="男" style="cursor: pointer;" />&nbsp;男</span>
+                        <span style="padding-left:20px;"><input type="radio" id="sex2" name="travel" value="女" style="cursor: pointer;" />&nbsp;女</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="psd-input">
+                <div style="float: left;margin-top:.7em;width:auto;border-right:1px solid #999;">
+                    <img src="image/login-psw.jpg" tppabs="http://m.jx516.com/image/login-psw.jpg" style="width:25px;height:25px;border-right:5px solid #fff;" alt="" />
+                </div>
+                <div style="float: left;width:82%;">
+                    <input type="text" id="password"  style="width:100%;height:3.5em;border:none;outline:none; color: #999; padding-left:20px; font-size: 14px;" value="请输入密码" onfocus="this.style.color='#000';if (value =='请输入密码'){value ='';pw();}"
+                        onblur="if (value ==''){value='请输入密码';this.style.color='#999';pw2();}" />
+                </div>
+            </div>
+            <div class="psd-input" style="border-bottom:none;">
+                <div style="float: left;margin-top:.7em;width:auto;border-right:1px solid #999;">
+                    <img src="image/login-psw.jpg" tppabs="http://m.jx516.com/image/login-psw.jpg" style="width:25px;height:25px;border-right:5px solid #fff;" alt="" />
+                </div>
+                <div style="float: left;width:82%;">
+                    <input type="text" id="password2"  style="width:100%;height:3.5em;border:none;outline:none; color: #999; padding-left:20px; font-size: 14px;" value="请再次输入密码" onfocus="this.style.color='#000';if (value =='请再次输入密码'){value ='';pw3();}"
+                        onblur="if (value ==''){value='请再次输入密码';this.style.color='#999';pw4();}" />
+                </div>
+            </div>
+        </div>
+        <a href="javascript:if(confirm(%27http://m.jx516.com/Register_agreement.aspx  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Register_agreement.aspx%27" tppabs="http://m.jx516.com/Register_agreement.aspx"><div class="login-p" style="text-align:center;">我已同意嘉信会员协议</div></a>
+        <div><input type="submit" name="ctl00$ContentPlaceHolder1$register_btn" value="注册并登录" onclick="Resigte(); return false;" id="register_btn" class="login-btn" style="background-color:#ff6a00;border:0;" /></div>
+        <div style="width:100%;height:1.5em;float:left;"><input type="submit" name="ctl00$ContentPlaceHolder1$register_btn2" value="" onclick="javascript:alert(1);" id="register_btn2" style="display:none;" /></div>
+        <div style="font-size:14px;width: 100%;text-align:center;float:left;">
+            <a href="Login_staff.aspx.htm" tppabs="http://m.jx516.com/Login_staff.aspx" style="color:#FA9A10;text-decoration:none;">
+            一路欢笑&nbsp;&nbsp;&nbsp;一生情
+            </a> 
+        </div>
+        <div style="width: 100%; height: 2em; float: left;"></div>
+
+        <div class="foot">
+            <div class="foot-line"></div>
+            <div class="foot-name">©2009-2016 嘉信旅游<img src="../z10.cnzz.com/stat.htm-id=1253409067&r=http---m.jx516.com-login.aspx&iw=1&showp=0x0&lg=undefined&cnzz_eid=none&p=http---m.jx516.com-Register.aspx&rnd=1149711185.gif" tppabs="http://c.cnzz.com/wapstat.php?siteid=1253409067&r=http%3a%2f%2fm.jx516.com%2flogin.aspx&rnd=503599164" width="0" height="0" alt=""/>
+                <script type="text/javascript">
+                    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                    document.write(unescape("%3Cspan id='cnzz_stat_icon_1253409067'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s6.cnzz.com/stat.php%3Fid%3D1253409067%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+                        </script>
+            </div>
+          <div class="foot-name"><a href="javascript:if(confirm(%27http://www.miibeian.gov.cn/  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.miibeian.gov.cn/%27" tppabs="http://www.miibeian.gov.cn/" style="cursor:pointer;">津ICP备12004526号</a><a href="javascript:if(confirm(%27http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12010102000048  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12010102000048%27" tppabs="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12010102000048" style="cursor:pointer;" ><img style="margin-bottom:-4px;" src="Image/beian.png" tppabs="http://m.jx516.com/Image/beian.png" /></a><br />公安备案号：12010102000048</div>
+                        
+        </div>
+        <div style="width:100%;height:3em;float:left;"></div>
+      <div style="width:100%;background-color:#fff;height:auto;position:fixed;top:0px;left:0px;float:left;z-index:30;height:100%;display:none;cursor:pointer;" id="site">
+                <div style="text-align:center;color:black;background-color:#ccc;line-height:30px;height:30px;"><span style="text-align:left;float:left;padding-left:10px;color:#43b1f0" onclick="hideSite()">X</span> 选择城市</div>
+                <div style="text-align:left;color:#808080;padding-left:10px;line-height:30px;height:30px;float:left;">
+                    热门城市
+                </div>
+                <div style="width:100%;float:left;">
+                    <ul id="hot">
+                        <li><div key="W01">天津</div></li>
+
+                        <li><div key="W02">吉林</div></li>
+
+                    </ul>
+                </div>
+                <div style="text-align:left;color:#000;padding-left:10px;line-height:30px;height:30px;float:left;display:none;">
+                    选择城市
+                </div>
+                <div style="width:100%;float:left;display:none;">
+                    <ul>
+                        <li><div style="background-color:#43b1f0;color:#000;" onclick="setTab('1')" id="bt1">A-G</div></li>
+                        <li><div style="background-color:#c7dbeb;color:#000;" onclick="setTab('2')" id="bt2">H-L</div></li>
+                        <li><div style="background-color:#c7dbeb;color:#000;" onclick="setTab('3')" id="bt3">M-Q</div></li>
+                        <li><div style="background-color:#c7dbeb;color:#000;" onclick="setTab('4')" id="bt4">R-Z</div></li>
+                    </ul>
+                    <div id="st1">
+                        <ul>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        </ul>
+                        <ul>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        </ul>
+                        <ul>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        </ul>
+                    </div>
+                    <div id="st2" style="display:none;">
+                        <ul>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        </ul>
+                        <ul>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        </ul>
+                        <ul>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        </ul>
+                    </div>
+                    <div id="st3" style="display:none;">
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                    </div>
+                    <div id="st4" style="display:none;">
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="width:100%;float:left;height:20px;"></div>
+            </div>
+    </form>
+</body>
+</html>

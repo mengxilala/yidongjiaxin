@@ -1,0 +1,346 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/javascript"> var _tcopentime = new Date().getTime(); var _hmt = _hmt || []; </script>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="format-detection" content="telephone=no" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" /><meta name="apple-mobile-web-app-capable" content="yes" /><meta name="apple-mobile-web-app-status-bar-style" content="black" /><meta name="apple-mobile-web-app-title" content="嘉信旅游" /><meta name="keywords" content="旅游,嘉信国旅,嘉信旅游,天津嘉信，旅游社，旅游线路,旅游网站,自助游,国内游,出境游,景点门票，出境度假" /><meta name="description" content="嘉信旅游是中国领先的手机一站式旅游预订平台，提供30000多家景点门票、特价机票、特惠酒店等预订服务；专业服务、品质保障，让您的旅行更安心；实惠的价格、简单的流程，让您的旅行更贴心！" />
+    <!-- UC默认竖屏 ，UC强制全屏 -->
+    <meta name="full-screen" content="yes" /><meta name="browsermode" content="application" />
+    <!-- QQ强制竖屏 QQ强制全屏 -->
+    <meta name="x5-orientation" content="portrait" /><meta name="x5-fullscreen" content="true" /><meta name="x5-page-mode" content="app" /><title>
+	甄选豪华邮轮
+</title><link href="../style/public.css" tppabs="http://m.jx516.com/style/public.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        #site ul li{
+        width:20%;
+        padding:8px 2.5%;
+        float:left;
+        }
+        #site ul li div{
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        
+        }
+        #st1 li{
+        border:none;
+        background-color:#FFF;
+        color:#000;
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        }
+        #st2 li{
+        border:none;
+        background-color:#FFF;
+        color:#000;
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        }
+        #st3 li{
+        border:none;
+        background-color:#FFF;
+        color:#000;
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        }
+        #st4 li{
+        border:none;
+        background-color:#FFF;
+        color:#000;
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        }
+        .bd1 {
+            border:1px solid #c7dbeb;
+        }
+        .bd2 {
+            border:1px solid #43b1f0;
+        }
+    </style>
+    <script type="text/javascript">
+       
+        document.onreadystatechange = loading;
+        function loading() {
+            if (document.readyState == "complete") {
+                $("#loading").hide();
+                $("#Mcont").show();
+            }
+        }
+        function setTab(name) {
+            for (var i = 1; i < 5; i++) {
+                var menu = document.getElementById("st" + i);
+                var menubt = document.getElementById("bt" + i);
+                if (i == name) {
+                    menu.style.display = "inline";
+                    menubt.style.backgroundColor = "#43b1f0";
+                }
+                else {
+                    menu.style.display = "none";
+                    menubt.style.backgroundColor = "#c7dbeb";
+                }
+            }
+        }
+        function showSite() {
+            $("#site").show();
+        }
+        function hideSite() {
+            $("#site").hide();
+        }
+        function setSite() {
+            if (site_txt == "" || site_val == "") {
+                alert(请选择出发地);
+            } else {
+                $.ajax({
+                    type: "Post",
+                    url: "/Index.aspx/SetSite",
+                    data: "{'txt':'" + site_txt + "','val':'" + site_val + "'}",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        location.href = location.href;
+                    },
+                    error: function (d, e, f) {
+                    }
+                });
+            }
+        }
+        function defaultSite() {
+            if (site_txt == "" || site_val == "") {
+                alert(请选择出发地);
+            } else {
+                $.ajax({
+                    type: "Post",
+                    url: "/Index.aspx/defaultSite",
+                    data: "{'txt':'" + site_txt + "','val':'" + site_val + "'}",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        location.href = location.href;
+                    },
+                    error: function (d, e, f) {
+                    }
+                });
+            }
+        }
+
+        //图片加载失败，用默认图片
+        function func(obj, id, index) {
+            if (index == 1) {
+                obj.src = "../Image_product/a.jpg"/*tpa=http://m.jx516.com/Image_product/a.jpg*/;
+            } else {
+                //var filespec = "/Image_product/" + id + "_1.jpg";
+                //var fso,s = filespec; // filespec="C:/path/myfile.txt"
+                //fso = new ActiveXObject("Scripting.FileSystemObject");
+                //if (fso.FileExists(filespec)) {
+                //    obj.src = "/Image_product/" + id + "_1.jpg";
+                //} else {
+                //    obj.src = "../Image_product/a.jpg"/*tpa=http://m.jx516.com/Image_product/a.jpg*/;
+                //}
+                obj.src = "../Image_product/a.jpg"/*tpa=http://m.jx516.com/Image_product/a.jpg*/;
+            }
+        }
+    </script>
+    
+    <script type="text/javascript" src="../js/jquery.min.js" tppabs="http://m.jx516.com/js/jquery.min.js"></script>
+    <script type="text/javascript">
+        var tel = "tel:4001566776";
+        $(document).ready(function () {
+            $("#tel").attr("href", tel);
+        });
+    </script>
+</head>
+<body>
+    <form method="post" action="javascript:if(confirm(%27http://m.jx516.com/Theme/Theme_youlun_0307.aspx?__VIEWSTATE=/wEPDwULLTE5MDk2NzQzMzBkZPcW3WcnnpEtOSVlflRrWiymOAkN8GsZfR+L8CFL9K6H&__VIEWSTATEGENERATOR=C2C2F6C2  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Theme/Theme_youlun_0307.aspx?__VIEWSTATE=/wEPDwULLTE5MDk2NzQzMzBkZPcW3WcnnpEtOSVlflRrWiymOAkN8GsZfR+L8CFL9K6H&__VIEWSTATEGENERATOR=C2C2F6C2%27" tppabs="http://m.jx516.com/Theme/Theme_youlun_0307.aspx?__VIEWSTATE=/wEPDwULLTE5MDk2NzQzMzBkZPcW3WcnnpEtOSVlflRrWiymOAkN8GsZfR+L8CFL9K6H&__VIEWSTATEGENERATOR=C2C2F6C2" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE5MDk2NzQzMzBkZPcW3WcnnpEtOSVlflRrWiymOAkN8GsZfR+L8CFL9K6H" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="C2C2F6C2" />
+</div>
+        <img src="image/logo-img1.png" tppabs="http://m.jx516.com/Theme/image/logo-img1.png" alt="" style="width:0px;height:0px;" />
+        
+            <div id="loading">
+     	        <div class="spinner">
+  			        <div class="double-bounce1"></div>
+  			        <div class="double-bounce2"></div>
+		        </div>
+	        </div>
+        
+        
+    <div class="Maincontent">
+        <div class="head">
+            <a href="../Index.aspx.htm" tppabs="http://m.jx516.com/Index.aspx"><span class="head-return" style="width:10%;">
+                <img src="../image/return.jpg" tppabs="http://m.jx516.com/image/return.jpg" style="width: 30px; height: 30px;" alt="" /></span></a>
+            <span class="head-tit" style="width:75%;">甄选豪华邮轮</span>
+            <a id="tel" href="tel:4001566776 "><span class="head-phone" style="width:10%;">
+                <img src="../image/phone.jpg" tppabs="http://m.jx516.com/image/phone.jpg" style="width: 30px; height: 30px;" alt="" /></span></a>
+        </div>
+        <div style="width:100%;height:auto;float:left;">
+            <img alt="" src="Theme_image/youlun/youlun-0307.jpg" tppabs="http://m.jx516.com/Theme/Theme_image/youlun/youlun-0307.jpg" style="width:100%;" />
+        </div>
+        <div style="width:100%;float:left;background:#1c5e9a;">
+
+        <div style="width:100%;height:.5em;float:left;"></div>
+            <div style="width:92%;margin-left:3%;border:4px solid #fff;background:#fff; float:left;"><div style="width:100%;height:auto;float:left; position:relative;"><div style="width:100%;height:40px;line-height:40px;overflow:hidden; color:#fff;background:#000;background:rgba(0,0,0,0.6) ;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f000000,endColorstr=#7f000000); position:absolute;z-index:10;bottom:0px;">8月22日“海洋赞礼号”日本福冈4晚5天 </div><a href="javascript:if(confirm(%27http://m.jx516.com/Steamer_detail.aspx?id=6376  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Steamer_detail.aspx?id=6376%27" tppabs="http://m.jx516.com/Detail.aspx?id=6376"> <img src="Theme_image/youlun/6376_1.jpg" tppabs="http://m.jx516.com/Theme/Theme_image/youlun/6376_1.jpg" style="width:100%;" alt="" /></a></div><div style="width:100%;float:left;background-color:#fff;"><div style="width:100%;height:35px;line-height:35px;float:left;font-weight:bold; font-size:12px;"><span style="padding:0 2%;float:left;">出发地：天津</span><span style="padding:0 2%;float:left;">行程天数：5天4晚</span> <span style="padding:0 2%;float:left;">出行日期：2016-08-22</span></div><div style="width:90%;margin:0 5%;height:40px;line-height:40px; float:left;border:2px solid #F84877;border-radius:20px;"><span style="float:left; width:45%;text-align:center;color:#F84877; font-size:12px;">￥<b style="font-size:18px;">4899.00</b>起/人</span><a href="javascript:if(confirm(%27http://m.jx516.com/Steamer_detail.aspx?id=6376  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Steamer_detail.aspx?id=6376%27" tppabs="http://m.jx516.com/Detail.aspx?id=6376"><span style="float:right; width:45%;text-align:center;background:#F84877;border-top-right-radius:17px;border-bottom-right-radius:17px; color:#fff;">立即抢购</span></a></div></div><div style="width:100%;height:.3em;float:left;"></div></div><div style="width:100%;height:1.5em;float:left;"></div><div style="width:92%;margin-left:3%;border:4px solid #fff;background:#fff; float:left;"><div style="width:100%;height:auto;float:left; position:relative;"><div style="width:100%;height:40px;line-height:40px;overflow:hidden; color:#fff;background:#000;background:rgba(0,0,0,0.6) ;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f000000,endColorstr=#7f000000); position:absolute;z-index:10;bottom:0px;">9月6日“海洋赞礼号”韩国仁川，首尔4晚5天 </div><a href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=5306  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=5306%27" tppabs="http://m.jx516.com/Detail.aspx?id=5306"> <img src="Theme_image/youlun/5306_1.jpg" tppabs="http://m.jx516.com/Theme/Theme_image/youlun/5306_1.jpg" style="width:100%;" alt="" /></a></div><div style="width:100%;float:left;background-color:#fff;"><div style="width:100%;height:35px;line-height:35px;float:left;font-weight:bold; font-size:12px;"><span style="padding:0 2%;float:left;">出发地：天津</span><span style="padding:0 2%;float:left;">行程天数：5天4晚</span> <span style="padding:0 2%;float:left;">出行日期：2016-09-06</span></div><div style="width:90%;margin:0 5%;height:40px;line-height:40px; float:left;border:2px solid #F84877;border-radius:20px;"><span style="float:left; width:45%;text-align:center;color:#F84877; font-size:12px;">￥<b style="font-size:18px;">3550.00</b>起/人</span><a href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=5306  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=5306%27" tppabs="http://m.jx516.com/Detail.aspx?id=5306"><span style="float:right; width:45%;text-align:center;background:#F84877;border-top-right-radius:17px;border-bottom-right-radius:17px; color:#fff;">立即抢购</span></a></div></div><div style="width:100%;height:.3em;float:left;"></div></div><div style="width:100%;height:1.5em;float:left;"></div><div style="width:92%;margin-left:3%;border:4px solid #fff;background:#fff; float:left;"><div style="width:100%;height:auto;float:left; position:relative;"><div style="width:100%;height:40px;line-height:40px;overflow:hidden; color:#fff;background:#000;background:rgba(0,0,0,0.6) ;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f000000,endColorstr=#7f000000); position:absolute;z-index:10;bottom:0px;">9月26日“海洋赞礼号”韩国釜山，日本福冈5晚6天 </div><a href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=5620  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=5620%27" tppabs="http://m.jx516.com/Detail.aspx?id=5620"> <img src="Theme_image/youlun/5620_1.jpg" tppabs="http://m.jx516.com/Theme/Theme_image/youlun/5620_1.jpg" style="width:100%;" alt="" /></a></div><div style="width:100%;float:left;background-color:#fff;"><div style="width:100%;height:35px;line-height:35px;float:left;font-weight:bold; font-size:12px;"><span style="padding:0 2%;float:left;">出发地：天津</span><span style="padding:0 2%;float:left;">行程天数：6天5晚</span> <span style="padding:0 2%;float:left;">出行日期：2016-09-26</span></div><div style="width:90%;margin:0 5%;height:40px;line-height:40px; float:left;border:2px solid #F84877;border-radius:20px;"><span style="float:left; width:45%;text-align:center;color:#F84877; font-size:12px;">￥<b style="font-size:18px;">3699.00</b>起/人</span><a href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=5620  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=5620%27" tppabs="http://m.jx516.com/Detail.aspx?id=5620"><span style="float:right; width:45%;text-align:center;background:#F84877;border-top-right-radius:17px;border-bottom-right-radius:17px; color:#fff;">立即抢购</span></a></div></div><div style="width:100%;height:.3em;float:left;"></div></div><div style="width:100%;height:1.5em;float:left;"></div><div style="width:92%;margin-left:3%;border:4px solid #fff;background:#fff; float:left;"><div style="width:100%;height:auto;float:left; position:relative;"><div style="width:100%;height:40px;line-height:40px;overflow:hidden; color:#fff;background:#000;background:rgba(0,0,0,0.6) ;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f000000,endColorstr=#7f000000); position:absolute;z-index:10;bottom:0px;">9月20日“海洋赞礼号”日本长崎、熊本，韩国釜山6晚7天 </div><a href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=5057  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=5057%27" tppabs="http://m.jx516.com/Detail.aspx?id=5057"> <img src="Theme_image/youlun/5057_1.jpg" tppabs="http://m.jx516.com/Theme/Theme_image/youlun/5057_1.jpg" style="width:100%;" alt="" /></a></div><div style="width:100%;float:left;background-color:#fff;"><div style="width:100%;height:35px;line-height:35px;float:left;font-weight:bold; font-size:12px;"><span style="padding:0 2%;float:left;">出发地：天津</span><span style="padding:0 2%;float:left;">行程天数：7天6晚</span> <span style="padding:0 2%;float:left;">出行日期：2016-09-20</span></div><div style="width:90%;margin:0 5%;height:40px;line-height:40px; float:left;border:2px solid #F84877;border-radius:20px;"><span style="float:left; width:45%;text-align:center;color:#F84877; font-size:12px;">￥<b style="font-size:18px;">4199.00</b>起/人</span><a href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=5057  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=5057%27" tppabs="http://m.jx516.com/Detail.aspx?id=5057"><span style="float:right; width:45%;text-align:center;background:#F84877;border-top-right-radius:17px;border-bottom-right-radius:17px; color:#fff;">立即抢购</span></a></div></div><div style="width:100%;height:.3em;float:left;"></div></div><div style="width:100%;height:1.5em;float:left;"></div>
+        <div style="width:100%;border:4px solid #1c5e9a;background:#1c5e9a; float:left;padding-top:1em;padding-bottom:2em;">
+            <img src="theme_image/Women/line.png" tppabs="http://m.jx516.com/Theme/theme_image/Women/line.png" width="100%" style="height:1.5em;line-height:.5em;" />
+        </div>
+        <div style="width:100%;height:auto;float:left;">
+            <img alt="" src="Theme_image/youlun/youlun-2.jpg" tppabs="http://m.jx516.com/Theme/Theme_image/youlun/youlun-2.jpg" style="width:100%;" />
+        </div>
+        <div style="width:100%;float:left;height:2em;background:#1c5e9a;"></div>
+            <div style="width:92%;margin-left:3%;border:4px solid #fff;background:#fff; float:left;"><div style="width:100%;height:auto;float:left; position:relative;"><div style="width:100%;height:40px;line-height:40px;overflow:hidden; color:#fff;background:#000;background:rgba(0,0,0,0.6) ;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f000000,endColorstr=#7f000000); position:absolute;z-index:10;bottom:0px;">8月12日 “COSTA大西洋号”  韩国济州，日本福冈5晚6天 </div><a href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=4408  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=4408%27" tppabs="http://m.jx516.com/Detail.aspx?id=4408"> <img src="Theme_image/youlun/4408_1.jpg" tppabs="http://m.jx516.com/Theme/Theme_image/youlun/4408_1.jpg" style="width:100%;" alt="" /></a></div><div style="width:100%;float:left;background-color:#fff;"><div style="width:100%;height:35px;line-height:35px;float:left;font-weight:bold; font-size:12px;"><span style="padding:0 2%;float:left;">出发地：天津</span><span style="padding:0 2%;float:left;">行程天数：6天5晚</span> <span style="padding:0 2%;float:left;">出行日期：2016-08-12</span></div><div style="width:90%;margin:0 5%;height:40px;line-height:40px; float:left;border:2px solid #F84877;border-radius:20px;"><span style="float:left; width:45%;text-align:center;color:#F84877; font-size:12px;">￥<b style="font-size:18px;">3999.00</b>起/人</span><a href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=4408  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=4408%27" tppabs="http://m.jx516.com/Detail.aspx?id=4408"><span style="float:right; width:45%;text-align:center;background:#F84877;border-top-right-radius:17px;border-bottom-right-radius:17px; color:#fff;">立即抢购</span></a></div></div><div style="width:100%;height:.3em;float:left;"></div></div><div style="width:100%;height:1.5em;float:left;"></div><div style="width:92%;margin-left:3%;border:4px solid #fff;background:#fff; float:left;"><div style="width:100%;height:auto;float:left; position:relative;"><div style="width:100%;height:40px;line-height:40px;overflow:hidden; color:#fff;background:#000;background:rgba(0,0,0,0.6) ;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f000000,endColorstr=#7f000000); position:absolute;z-index:10;bottom:0px;">10月12日 “COSTA大西洋号”   韩国、日本10晚11天 </div><a href="javascript:if(confirm(%27http://m.jx516.com/Steamer_detail.aspx?id=5431  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Steamer_detail.aspx?id=5431%27" tppabs="http://m.jx516.com/Detail.aspx?id=5431"> <img src="Theme_image/youlun/5431_1.jpg" tppabs="http://m.jx516.com/Theme/Theme_image/youlun/5431_1.jpg" style="width:100%;" alt="" /></a></div><div style="width:100%;float:left;background-color:#fff;"><div style="width:100%;height:35px;line-height:35px;float:left;font-weight:bold; font-size:12px;"><span style="padding:0 2%;float:left;">出发地：天津</span><span style="padding:0 2%;float:left;">行程天数：11天10晚</span> <span style="padding:0 2%;float:left;">出行日期：2016-10-12</span></div><div style="width:90%;margin:0 5%;height:40px;line-height:40px; float:left;border:2px solid #F84877;border-radius:20px;"><span style="float:left; width:45%;text-align:center;color:#F84877; font-size:12px;">￥<b style="font-size:18px;">5500.00</b>起/人</span><a href="javascript:if(confirm(%27http://m.jx516.com/Steamer_detail.aspx?id=5431  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Steamer_detail.aspx?id=5431%27" tppabs="http://m.jx516.com/Detail.aspx?id=5431"><span style="float:right; width:45%;text-align:center;background:#F84877;border-top-right-radius:17px;border-bottom-right-radius:17px; color:#fff;">立即抢购</span></a></div></div><div style="width:100%;height:.3em;float:left;"></div></div><div style="width:100%;height:1.5em;float:left;"></div>
+        <div style="width:100%;border:4px solid #1c5e9a;background:#1c5e9a; float:left;padding-top:1em;padding-bottom:2em;">
+            <img src="theme_image/Women/line.png" tppabs="http://m.jx516.com/Theme/theme_image/Women/line.png" width="100%" style="height:1.5em;line-height:.5em;" />
+        </div>
+        <div style="width:100%;height:auto;float:left;">
+            <img alt="" src="Theme_image/youlun/youlun-3.jpg" tppabs="http://m.jx516.com/Theme/Theme_image/youlun/youlun-3.jpg" style="width:100%;" />
+        </div>
+        <div style="width:100%;float:left;height:2em;background:#1c5e9a;"></div>
+            <div style="width:92%;margin-left:3%;border:4px solid #fff;background:#fff; float:left;"><div style="width:100%;height:auto;float:left; position:relative;"><div style="width:100%;height:40px;line-height:40px;overflow:hidden; color:#fff;background:#000;background:rgba(0,0,0,0.6) ;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f000000,endColorstr=#7f000000); position:absolute;z-index:10;bottom:0px;">9月11日 “COSTA大西洋号”  韩国仁川4晚5天 </div><a href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=6391  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=6391%27" tppabs="http://m.jx516.com/Detail.aspx?id=6391"> <img src="Theme_image/youlun/6391_1.jpg" tppabs="http://m.jx516.com/Theme/Theme_image/youlun/6391_1.jpg" style="width:100%;" alt="" /></a></div><div style="width:100%;float:left;background-color:#fff;"><div style="width:100%;height:35px;line-height:35px;float:left;font-weight:bold; font-size:12px;"><span style="padding:0 2%;float:left;">出发地：天津</span><span style="padding:0 2%;float:left;">行程天数：5天4晚</span> <span style="padding:0 2%;float:left;">出行日期：2016-09-11</span></div><div style="width:90%;margin:0 5%;height:40px;line-height:40px; float:left;border:2px solid #F84877;border-radius:20px;"><span style="float:left; width:45%;text-align:center;color:#F84877; font-size:12px;">￥<b style="font-size:18px;">2499.00</b>起/人</span><a href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=6391  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=6391%27" tppabs="http://m.jx516.com/Detail.aspx?id=6391"><span style="float:right; width:45%;text-align:center;background:#F84877;border-top-right-radius:17px;border-bottom-right-radius:17px; color:#fff;">立即抢购</span></a></div></div><div style="width:100%;height:.3em;float:left;"></div></div><div style="width:100%;height:1.5em;float:left;"></div><div style="width:92%;margin-left:3%;border:4px solid #fff;background:#fff; float:left;"><div style="width:100%;height:auto;float:left; position:relative;"><div style="width:100%;height:40px;line-height:40px;overflow:hidden; color:#fff;background:#000;background:rgba(0,0,0,0.6) ;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f000000,endColorstr=#7f000000); position:absolute;z-index:10;bottom:0px;">7月28日 “COSTA大西洋号”  韩国济州，日本福冈5晚6天 </div><a href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=6389  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=6389%27" tppabs="http://m.jx516.com/Detail.aspx?id=6389"> <img src="Theme_image/youlun/6389_1.jpg" tppabs="http://m.jx516.com/Theme/Theme_image/youlun/6389_1.jpg" style="width:100%;" alt="" /></a></div><div style="width:100%;float:left;background-color:#fff;"><div style="width:100%;height:35px;line-height:35px;float:left;font-weight:bold; font-size:12px;"><span style="padding:0 2%;float:left;">出发地：天津</span><span style="padding:0 2%;float:left;">行程天数：6天5晚</span> <span style="padding:0 2%;float:left;">出行日期：</span></div><div style="width:90%;margin:0 5%;height:40px;line-height:40px; float:left;border:2px solid #F84877;border-radius:20px;"><span style="float:left; width:45%;text-align:center;color:#F84877; font-size:12px;">￥<b style="font-size:18px;"></b>起/人</span><a href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=6389  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=6389%27" tppabs="http://m.jx516.com/Detail.aspx?id=6389"><span style="float:right; width:45%;text-align:center;background:#F84877;border-top-right-radius:17px;border-bottom-right-radius:17px; color:#fff;">立即抢购</span></a></div></div><div style="width:100%;height:.3em;float:left;"></div></div><div style="width:100%;height:1.5em;float:left;"></div>
+        <!--产品1 -->
+
+            <div style="width:100%;height:.5em;float:left;"></div>
+        </div>
+    </div>
+
+        <div class="foot">
+            <div class="foot-line"></div>
+            <div class="foot-name">©2009-2016 嘉信旅游<img src="../../z10.cnzz.com/stat.htm-id=1253409067&r=http---m.jx516.com-&iw=1&showp=0x0&lg=undefined&cnzz_eid=none&p=http---m.jx516.com-Theme-Theme_youlun_0307.aspx&rnd=1436876698.gif" tppabs="http://c.cnzz.com/wapstat.php?siteid=1253409067&r=http%3a%2f%2fm.jx516.com%2f&rnd=1134196451" width="0" height="0" alt=""/>
+                <script type="text/javascript">
+                    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                    document.write(unescape("%3Cspan id='cnzz_stat_icon_1253409067'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s6.cnzz.com/stat.php%3Fid%3D1253409067%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+                        </script>
+            </div>
+          <div class="foot-name"><a href="javascript:if(confirm(%27http://www.miibeian.gov.cn/  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.miibeian.gov.cn/%27" tppabs="http://www.miibeian.gov.cn/" style="cursor:pointer;">津ICP备12004526号</a><a href="javascript:if(confirm(%27http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12010102000048  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12010102000048%27" tppabs="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12010102000048" style="cursor:pointer;" ><img style="margin-bottom:-4px;" src="../Image/beian.png" tppabs="http://m.jx516.com/Image/beian.png" /></a><br />公安备案号：12010102000048</div>
+                        
+        </div>
+        <div style="width:100%;height:3em;float:left;"></div>
+      <div style="width:100%;background-color:#fff;height:auto;position:fixed;top:0px;left:0px;float:left;z-index:30;height:100%;display:none;cursor:pointer;" id="site">
+                <div style="text-align:center;color:black;background-color:#ccc;line-height:30px;height:30px;"><span style="text-align:left;float:left;padding-left:10px;color:#43b1f0" onclick="hideSite()">X</span> 选择城市</div>
+                <div style="text-align:left;color:#808080;padding-left:10px;line-height:30px;height:30px;float:left;">
+                    热门城市
+                </div>
+                <div style="width:100%;float:left;">
+                    <ul id="hot">
+                        <li><div key="W01">天津</div></li>
+
+                        <li><div key="W02">吉林</div></li>
+
+                    </ul>
+                </div>
+                <div style="text-align:left;color:#000;padding-left:10px;line-height:30px;height:30px;float:left;display:none;">
+                    选择城市
+                </div>
+                <div style="width:100%;float:left;display:none;">
+                    <ul>
+                        <li><div style="background-color:#43b1f0;color:#000;" onclick="setTab('1')" id="bt1">A-G</div></li>
+                        <li><div style="background-color:#c7dbeb;color:#000;" onclick="setTab('2')" id="bt2">H-L</div></li>
+                        <li><div style="background-color:#c7dbeb;color:#000;" onclick="setTab('3')" id="bt3">M-Q</div></li>
+                        <li><div style="background-color:#c7dbeb;color:#000;" onclick="setTab('4')" id="bt4">R-Z</div></li>
+                    </ul>
+                    <div id="st1">
+                        <ul>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        </ul>
+                        <ul>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        </ul>
+                        <ul>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        </ul>
+                    </div>
+                    <div id="st2" style="display:none;">
+                        <ul>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        </ul>
+                        <ul>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        </ul>
+                        <ul>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        </ul>
+                    </div>
+                    <div id="st3" style="display:none;">
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                    </div>
+                    <div id="st4" style="display:none;">
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="width:100%;float:left;height:20px;"></div>
+            </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,337 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/javascript"> var _tcopentime = new Date().getTime(); var _hmt = _hmt || []; </script>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="format-detection" content="telephone=no" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" /><meta name="apple-mobile-web-app-capable" content="yes" /><meta name="apple-mobile-web-app-status-bar-style" content="black" /><meta name="apple-mobile-web-app-title" content="嘉信旅游" /><meta name="keywords" content="旅游,嘉信国旅,嘉信旅游,天津嘉信，旅游社，旅游线路,旅游网站,自助游,国内游,出境游,景点门票，出境度假" /><meta name="description" content="嘉信旅游是中国领先的手机一站式旅游预订平台，提供30000多家景点门票、特价机票、特惠酒店等预订服务；专业服务、品质保障，让您的旅行更安心；实惠的价格、简单的流程，让您的旅行更贴心！" />
+    <!-- UC默认竖屏 ，UC强制全屏 -->
+    <meta name="full-screen" content="yes" /><meta name="browsermode" content="application" />
+    <!-- QQ强制竖屏 QQ强制全屏 -->
+    <meta name="x5-orientation" content="portrait" /><meta name="x5-fullscreen" content="true" /><meta name="x5-page-mode" content="app" /><title>
+	【嘉信旅游】一路欢笑一生情
+</title><link href="style/public.css" tppabs="http://m.jx516.com/style/public.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        #site ul li{
+        width:20%;
+        padding:8px 2.5%;
+        float:left;
+        }
+        #site ul li div{
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        
+        }
+        #st1 li{
+        border:none;
+        background-color:#FFF;
+        color:#000;
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        }
+        #st2 li{
+        border:none;
+        background-color:#FFF;
+        color:#000;
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        }
+        #st3 li{
+        border:none;
+        background-color:#FFF;
+        color:#000;
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        }
+        #st4 li{
+        border:none;
+        background-color:#FFF;
+        color:#000;
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        }
+        .bd1 {
+            border:1px solid #c7dbeb;
+        }
+        .bd2 {
+            border:1px solid #43b1f0;
+        }
+    </style>
+    <script type="text/javascript">
+       
+        document.onreadystatechange = loading;
+        function loading() {
+            if (document.readyState == "complete") {
+                $("#loading").hide();
+                $("#Mcont").show();
+            }
+        }
+        function setTab(name) {
+            for (var i = 1; i < 5; i++) {
+                var menu = document.getElementById("st" + i);
+                var menubt = document.getElementById("bt" + i);
+                if (i == name) {
+                    menu.style.display = "inline";
+                    menubt.style.backgroundColor = "#43b1f0";
+                }
+                else {
+                    menu.style.display = "none";
+                    menubt.style.backgroundColor = "#c7dbeb";
+                }
+            }
+        }
+        function showSite() {
+            $("#site").show();
+        }
+        function hideSite() {
+            $("#site").hide();
+        }
+        function setSite() {
+            if (site_txt == "" || site_val == "") {
+                alert(请选择出发地);
+            } else {
+                $.ajax({
+                    type: "Post",
+                    url: "/Index.aspx/SetSite",
+                    data: "{'txt':'" + site_txt + "','val':'" + site_val + "'}",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        location.href = location.href;
+                    },
+                    error: function (d, e, f) {
+                    }
+                });
+            }
+        }
+        function defaultSite() {
+            if (site_txt == "" || site_val == "") {
+                alert(请选择出发地);
+            } else {
+                $.ajax({
+                    type: "Post",
+                    url: "/Index.aspx/defaultSite",
+                    data: "{'txt':'" + site_txt + "','val':'" + site_val + "'}",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        location.href = location.href;
+                    },
+                    error: function (d, e, f) {
+                    }
+                });
+            }
+        }
+
+        //图片加载失败，用默认图片
+        function func(obj, id, index) {
+            if (index == 1) {
+                obj.src = "Image_product/a.jpg"/*tpa=http://m.jx516.com/Image_product/a.jpg*/;
+            } else {
+                //var filespec = "/Image_product/" + id + "_1.jpg";
+                //var fso,s = filespec; // filespec="C:/path/myfile.txt"
+                //fso = new ActiveXObject("Scripting.FileSystemObject");
+                //if (fso.FileExists(filespec)) {
+                //    obj.src = "/Image_product/" + id + "_1.jpg";
+                //} else {
+                //    obj.src = "Image_product/a.jpg"/*tpa=http://m.jx516.com/Image_product/a.jpg*/;
+                //}
+                obj.src = "Image_product/a.jpg"/*tpa=http://m.jx516.com/Image_product/a.jpg*/;
+            }
+        }
+    </script>
+    
+    <style type="text/css">
+        li {
+            width:100%;float:left;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery.min.js" tppabs="http://m.jx516.com/js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#loading").hide();
+            $("#Mcont").show();
+        });
+        //document.onreadystatechange = loading;
+        //function loading() {
+        //    if (document.readyState == "complete") {
+        //        $("#loading").hide();
+        //        $("#Mcont").show();
+        //    }
+        //}
+        function getInfo(i) {
+            location.href = location.href + "&id=" + i;
+        }
+    </script>
+</head>
+<body>
+    <form method="post" action="javascript:if(confirm(%27http://m.jx516.com/Qr_code.aspx?__VIEWSTATE=/wEPDwULLTEwOTI1OTYyNzVkZFRHOsS9TaxlWOmY2eIA0FgFBalVTuEzkMgqg+vVV/Sh&__VIEWSTATEGENERATOR=3D47F1D7  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Qr_code.aspx?__VIEWSTATE=/wEPDwULLTEwOTI1OTYyNzVkZFRHOsS9TaxlWOmY2eIA0FgFBalVTuEzkMgqg+vVV/Sh&__VIEWSTATEGENERATOR=3D47F1D7%27" tppabs="http://m.jx516.com/Qr_code.aspx?__VIEWSTATE=/wEPDwULLTEwOTI1OTYyNzVkZFRHOsS9TaxlWOmY2eIA0FgFBalVTuEzkMgqg+vVV/Sh&__VIEWSTATEGENERATOR=3D47F1D7" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTEwOTI1OTYyNzVkZFRHOsS9TaxlWOmY2eIA0FgFBalVTuEzkMgqg+vVV/Sh" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="3D47F1D7" />
+</div>
+        <img src="image/logo-img1.png" tppabs="http://m.jx516.com/image/logo-img1.png" alt="" style="width:0px;height:0px;" />
+        
+            <div id="loading">
+     	        <div class="spinner">
+  			        <div class="double-bounce1"></div>
+  			        <div class="double-bounce2"></div>
+		        </div>
+	        </div>
+        
+        
+    <div id="Mcont" class="Maincontent">
+        <!--头部-->
+        <div class="head" id="head">
+            <a href="javascript:history.go(-1);"><span class="head-return" style="width: 10%;">
+                <img src="image/return.jpg" tppabs="http://m.jx516.com/image/return.jpg" style="width: 30px; height: 30px;" alt="" /></span></a>
+            <span class="head-tit" style="width: 75%;">二维码推广</span>
+            <a href="Index.aspx.htm" tppabs="http://m.jx516.com/Index.aspx" style="color:#fff;text-decoration:none;"><span style="width: 10%; font-size: 16px;">首页</span></a>
+        </div>
+        <ul style='width:100%;'><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-07-01【清迈】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('93')><img src="Image_Qr/20160722175430221.jpg" tppabs="http://m.jx516.com/Image_Qr/20160722175430221.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-07-01【学霸】江南</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('92')><img src="Image_Qr/20160702085507405.jpg" tppabs="http://m.jx516.com/Image_Qr/20160702085507405.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-07-01【学霸】特惠桂林</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('91')><img src="Image_Qr/20160701172753545.jpg" tppabs="http://m.jx516.com/Image_Qr/20160701172753545.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-07-01【学霸】玩转凤凰</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('90')><img src="Image_Qr/20160701172655487.jpg" tppabs="http://m.jx516.com/Image_Qr/20160701172655487.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-07-01【学霸】寻找高考状元</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('89')><img src="Image_Qr/20160701172601416.jpg" tppabs="http://m.jx516.com/Image_Qr/20160701172601416.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-07-01【学霸】帆动青春毕业远行</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('88')><img src="Image_Qr/20160701172440560.jpg" tppabs="http://m.jx516.com/Image_Qr/20160701172440560.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-07-01【学霸】大连旅顺发现王国</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('87')><img src="Image_Qr/20160701172333532.jpg" tppabs="http://m.jx516.com/Image_Qr/20160701172333532.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-07-01 【学霸】大美长白山</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('86')><img src="Image_Qr/20160701172156666.jpg" tppabs="http://m.jx516.com/Image_Qr/20160701172156666.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-07-01 【学霸】葫芦岛兴城锦州盘锦</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('85')><img src="Image_Qr/20160701172046877.jpg" tppabs="http://m.jx516.com/Image_Qr/20160701172046877.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-07-01 【学霸】 惠游厦门</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('84')><img src="Image_Qr/20160701171511467.jpg" tppabs="http://m.jx516.com/Image_Qr/20160701171511467.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-06-30 特惠桂林双飞五日</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('83')><img src="Image_Qr/20160630175136967.jpg" tppabs="http://m.jx516.com/Image_Qr/20160630175136967.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-06-30 大连旅顺发现王国双飞三</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('82')><img src="Image_Qr/20160630142712891.jpg" tppabs="http://m.jx516.com/Image_Qr/20160630142712891.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-06-30 大连旅顺发现王国双飞四</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('81')><img src="Image_Qr/20160630142647033.jpg" tppabs="http://m.jx516.com/Image_Qr/20160630142647033.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-06-30 B1线大美长白山</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('80')><img src="Image_Qr/20160630102519688.jpg" tppabs="http://m.jx516.com/Image_Qr/20160630102519688.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-06-30 惠游厦门 双飞五日 2180</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('79')><img src="Image_Qr/20160630101753645.jpg" tppabs="http://m.jx516.com/Image_Qr/20160630101753645.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-06-29 玩转凤凰 寻找翠翠</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('78')><img src="Image_Qr/20160629142426174.jpg" tppabs="http://m.jx516.com/Image_Qr/20160629142426174.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-06-29 C线葫芦岛兴城锦州盘锦529</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('77')><img src="Image_Qr/20160629142357144.jpg" tppabs="http://m.jx516.com/Image_Qr/20160629142357144.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-06-29 A线葫芦岛兴城锦州盘锦389</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('76')><img src="Image_Qr/20160629142327385.jpg" tppabs="http://m.jx516.com/Image_Qr/20160629142327385.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-06-29 B线葫芦岛兴城锦州盘锦449</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('75')><img src="Image_Qr/20160629142250991.jpg" tppabs="http://m.jx516.com/Image_Qr/20160629142250991.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-06-29帆动青春毕业远行 毕业生的华丽谢幕</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('74')><img src="Image_Qr/20160629135427881.jpg" tppabs="http://m.jx516.com/Image_Qr/20160629135427881.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-06-07远东的呼唤--天津 海参崴双飞六日游</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('73')><img src="Image_Qr/20160607175855900.jpg" tppabs="http://m.jx516.com/Image_Qr/20160607175855900.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-22【限时抢购】澳大利亚新西兰12天</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('72')><img src="Image_Qr/20160422151837536.jpg" tppabs="http://m.jx516.com/Image_Qr/20160422151837536.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-22【限时抢购】荷德法意瑞奥6国15天</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('71')><img src="Image_Qr/20160422141500660.jpg" tppabs="http://m.jx516.com/Image_Qr/20160422141500660.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-20【特价厦门】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('70')><img src="Image_Qr/20160420172511381.jpg" tppabs="http://m.jx516.com/Image_Qr/20160420172511381.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-19【十渡东湖港大峡谷超值特惠一日】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('69')><img src="Image_Qr/20160419172051360.jpg" tppabs="http://m.jx516.com/Image_Qr/20160419172051360.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-19【梨木台 黑峪神秘谷 渔阳古街二日游】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('68')><img src="Image_Qr/20160419171735302.jpg" tppabs="http://m.jx516.com/Image_Qr/20160419171735302.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-19【野三坡清泉山】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('67')><img src="Image_Qr/20160419171453897.jpg" tppabs="http://m.jx516.com/Image_Qr/20160419171453897.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-19【北方小九寨】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('66')><img src="Image_Qr/20160419161503683.jpg" tppabs="http://m.jx516.com/Image_Qr/20160419161503683.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-19【北岳恒山直通车】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('65')><img src="Image_Qr/20160419161151231.jpg" tppabs="http://m.jx516.com/Image_Qr/20160419161151231.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-19【天下第一峡 野三坡】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('64')><img src="Image_Qr/20160419161057903.jpg" tppabs="http://m.jx516.com/Image_Qr/20160419161057903.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-18【华北明珠白洋淀】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('63')><img src="Image_Qr/20160419160951527.jpg" tppabs="http://m.jx516.com/Image_Qr/20160419160951527.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-18【畅游西安 兵马俑 华清池 大明宫】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('62')><img src="Image_Qr/20160418104807531.jpg" tppabs="http://m.jx516.com/Image_Qr/20160418104807531.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-18【臻美西安 兵马俑 华清池 华山 大明宫】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('61')><img src="Image_Qr/20160418104523241.jpg" tppabs="http://m.jx516.com/Image_Qr/20160418104523241.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-18【舌尖上的峨眉】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('60')><img src="Image_Qr/20160418094726243.jpg" tppabs="http://m.jx516.com/Image_Qr/20160418094726243.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-18【大理腾冲芒市瑞丽双直航六日精华游】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('59')><img src="Image_Qr/20160418094650589.jpg" tppabs="http://m.jx516.com/Image_Qr/20160418094650589.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-16【初夏歌谣】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('58')><img src="Image_Qr/20160416120344459.jpg" tppabs="http://m.jx516.com/Image_Qr/20160416120344459.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-16【快乐老家泰宁】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('57')><img src="Image_Qr/20160416120314542.jpg" tppabs="http://m.jx516.com/Image_Qr/20160416120314542.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-15【遇见最美巴厘岛】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('56')><img src="Image_Qr/20160415114828624.jpg" tppabs="http://m.jx516.com/Image_Qr/20160415114828624.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-15【蔚蓝港丽巴厘岛】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('55')><img src="Image_Qr/20160415114757572.jpg" tppabs="http://m.jx516.com/Image_Qr/20160415114757572.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-15【香港巴厘岛双城双享】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('54')><img src="Image_Qr/20160415114719570.jpg" tppabs="http://m.jx516.com/Image_Qr/20160415114719570.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-15【港澳豪华品质五日游】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('53')><img src="Image_Qr/20160415114643126.jpg" tppabs="http://m.jx516.com/Image_Qr/20160415114643126.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-13【北戴河超值二日游】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('52')><img src="Image_Qr/20160413110658185.jpg" tppabs="http://m.jx516.com/Image_Qr/20160413110658185.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-12【爵士云南奢华旅行】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('51')><img src="Image_Qr/20160412162451247.jpg" tppabs="http://m.jx516.com/Image_Qr/20160412162451247.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-12【丽江、大理、昆明欢乐6日游】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('50')><img src="Image_Qr/20160412162248753.jpg" tppabs="http://m.jx516.com/Image_Qr/20160412162248753.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-12【漫步云端】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('49')><img src="Image_Qr/20160412162004714.jpg" tppabs="http://m.jx516.com/Image_Qr/20160412162004714.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-12【伯爵---邂逅希尔顿】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('48')><img src="Image_Qr/20160412161935212.jpg" tppabs="http://m.jx516.com/Image_Qr/20160412161935212.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-12【醉美香巴拉】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('47')><img src="Image_Qr/20160412161758791.jpg" tppabs="http://m.jx516.com/Image_Qr/20160412161758791.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-12【厦门特惠双飞5日游】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('46')><img src="Image_Qr/20160412152649457.jpg" tppabs="http://m.jx516.com/Image_Qr/20160412152649457.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-09【经典本州东京大阪4晚6天】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('45')><img src="Image_Qr/20160409174123188.jpg" tppabs="http://m.jx516.com/Image_Qr/20160409174123188.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-09【舒适本州】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('44')><img src="Image_Qr/20160409174007175.jpg" tppabs="http://m.jx516.com/Image_Qr/20160409174007175.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-09【探秘拉萨西藏全景12日游】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('43')><img src="Image_Qr/20160409102352757.jpg" tppabs="http://m.jx516.com/Image_Qr/20160409102352757.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-09【昆明、版纳双飞六天】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('42')><img src="Image_Qr/20160409101636213.jpg" tppabs="http://m.jx516.com/Image_Qr/20160409101636213.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-09【昆大丽香 环游香格里拉】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('41')><img src="Image_Qr/20160409101547222.jpg" tppabs="http://m.jx516.com/Image_Qr/20160409101547222.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-09【昆大丽版环飞8天】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('40')><img src="Image_Qr/20160409101421661.jpg" tppabs="http://m.jx516.com/Image_Qr/20160409101421661.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-09【爵士云南 奢华旅行】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('39')><img src="Image_Qr/20160409101311800.jpg" tppabs="http://m.jx516.com/Image_Qr/20160409101311800.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-22【恒山、暖泉古镇二日】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('38')><img src="Image_Qr/20160407141722951.jpg" tppabs="http://m.jx516.com/Image_Qr/20160407141722951.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-24【我爱伊人 相守一生】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('37')><img src="Image_Qr/20160407141042536.jpg" tppabs="http://m.jx516.com/Image_Qr/20160407141042536.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-31【湖北游】神武假期A线</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('36')><img src="Image_Qr/20160407140522203.jpg" tppabs="http://m.jx516.com/Image_Qr/20160407140522203.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-31【贵州完美游】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('35')><img src="Image_Qr/20160407140146586.jpg" tppabs="http://m.jx516.com/Image_Qr/20160407140146586.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-31【夕阳红三峡胜景游】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('34')><img src="Image_Qr/20160407135954426.jpg" tppabs="http://m.jx516.com/Image_Qr/20160407135954426.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>016-03-31【千人游新疆】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('33')><img src="Image_Qr/20160407135658507.jpg" tppabs="http://m.jx516.com/Image_Qr/20160407135658507.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-04-02【臻美云南】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('32')><img src="Image_Qr/20160407135230619.jpg" tppabs="http://m.jx516.com/Image_Qr/20160407135230619.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-31【新疆之恋】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('31')><img src="Image_Qr/20160407134834194.jpg" tppabs="http://m.jx516.com/Image_Qr/20160407134834194.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-28【印象大连双飞四日游】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('30')><img src="Image_Qr/20160407134603025.jpg" tppabs="http://m.jx516.com/Image_Qr/20160407134603025.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-31【藏地360度玩转西藏无死角】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('29')><img src="Image_Qr/20160407134017636.jpg" tppabs="http://m.jx516.com/Image_Qr/20160407134017636.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-31【西藏】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('28')><img src="Image_Qr/20160407133707280.jpg" tppabs="http://m.jx516.com/Image_Qr/20160407133707280.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-30【阳光澳新】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('27')><img src="Image_Qr/20160330120608669.jpg" tppabs="http://m.jx516.com/Image_Qr/20160330120608669.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-30【阳光澳新】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('26')><img src="Image_Qr/20160330120537770.jpg" tppabs="http://m.jx516.com/Image_Qr/20160330120537770.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-30【邂逅欧洲】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('25')><img src="Image_Qr/20160330103911737.jpg" tppabs="http://m.jx516.com/Image_Qr/20160330103911737.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-30【英国 爱尔兰11天】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('24')><img src="Image_Qr/20160330094201141.jpg" tppabs="http://m.jx516.com/Image_Qr/20160330094201141.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-29【舌尖上的峨眉】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('23')><img src="Image_Qr/20160329161935062.jpg" tppabs="http://m.jx516.com/Image_Qr/20160329161935062.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-24【乌镇南浔双水乡双卧8日】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('22')><img src="Image_Qr/20160324174351280.jpg" tppabs="http://m.jx516.com/Image_Qr/20160324174351280.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-24【多彩贵州 七彩云南】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('21')><img src="Image_Qr/20160324143032619.jpg" tppabs="http://m.jx516.com/Image_Qr/20160324143032619.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-22【清明特价厦门双飞四日】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('20')><img src="Image_Qr/20160322155953066.jpg" tppabs="http://m.jx516.com/Image_Qr/20160322155953066.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-22【迷上厦门半自助四日游】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('19')><img src="Image_Qr/20160322155813706.jpg" tppabs="http://m.jx516.com/Image_Qr/20160322155813706.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-22【恒山、暖泉古镇二日】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('18')><img src="Image_Qr/20160322145741069.jpg" tppabs="http://m.jx516.com/Image_Qr/20160322145741069.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-22【恒山、云冈石窟二日】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('17')><img src="Image_Qr/20160322145706914.jpg" tppabs="http://m.jx516.com/Image_Qr/20160322145706914.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-16【全景美利坚】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('16')><img src="Image_Qr/20160316111121308.jpg" tppabs="http://m.jx516.com/Image_Qr/20160316111121308.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-14【法意瑞五大主题】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('15')><img src="Image_Qr/20160314173405341.jpg" tppabs="http://m.jx516.com/Image_Qr/20160314173405341.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-14【俄罗斯一地8天】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('14')><img src="Image_Qr/20160314173232759.jpg" tppabs="http://m.jx516.com/Image_Qr/20160314173232759.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-14【美国东西海岸14天】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('13')><img src="Image_Qr/20160314173125178.jpg" tppabs="http://m.jx516.com/Image_Qr/20160314173125178.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-14【加州阳光】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('12')><img src="Image_Qr/20160314172354134.jpg" tppabs="http://m.jx516.com/Image_Qr/20160314172354134.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-14【邂逅欧洲】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('11')><img src="Image_Qr/20160314172317461.jpg" tppabs="http://m.jx516.com/Image_Qr/20160314172317461.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-14【美国自由行 老年跟团游】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('10')><img src="Image_Qr/20160314172202465.jpg" tppabs="http://m.jx516.com/Image_Qr/20160314172202465.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-08 【尊享日本5晚6天】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('9')><img src="Image_Qr/20160309094341023.jpg" tppabs="http://m.jx516.com/Image_Qr/20160309094341023.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-08 【舒享日本6晚7天】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('8')><img src="Image_Qr/20160309094320815.jpg" tppabs="http://m.jx516.com/Image_Qr/20160309094320815.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-08 【乐享日本6晚7天】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('7')><img src="Image_Qr/20160309094253974.jpg" tppabs="http://m.jx516.com/Image_Qr/20160309094253974.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-08 【赞礼号4晚5天】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('6')><img src="Image_Qr/20160309094231656.jpg" tppabs="http://m.jx516.com/Image_Qr/20160309094231656.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-08 【欧洲6国15天】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('5')><img src="Image_Qr/20160309094203802.jpg" tppabs="http://m.jx516.com/Image_Qr/20160309094203802.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-08 【厦门双飞5日】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('4')><img src="Image_Qr/20160309094139472.jpg" tppabs="http://m.jx516.com/Image_Qr/20160309094139472.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-08 【烟花三月下扬州】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('3')><img src="Image_Qr/20160309094120160.jpg" tppabs="http://m.jx516.com/Image_Qr/20160309094120160.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-08 【经典本州4晚6天】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('2')><img src="Image_Qr/20160309094050364.jpg" tppabs="http://m.jx516.com/Image_Qr/20160309094050364.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-08 【舒适本州5晚7天】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('1')><img src="Image_Qr/20160309094029087.jpg" tppabs="http://m.jx516.com/Image_Qr/20160309094029087.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li><li style='height:24px;background:#808080;color:#ffffff;padding-top:4px;'>2016-03-08 【日本双园5晚7天】</li><li style='height:160px;padding-top:4px;overflow:hidden;cursor=pointer;' onclick=getInfo('0')><img src="Image_Qr/20160309094004693.jpg" tppabs="http://m.jx516.com/Image_Qr/20160309094004693.jpg" style='width:100%;height:auto;' /></li><li style='height:10px;'>&nbsp;</li></ul>
+    </div>
+    
+
+
+        <div class="foot">
+            <div class="foot-line"></div>
+            <div class="foot-name">©2009-2016 嘉信旅游<img src="../z10.cnzz.com/stat.htm-id=1253409067&r=http---m.jx516.com-&iw=1&showp=0x0&lg=undefined&cnzz_eid=none&p=http---m.jx516.com-Qr_code.aspx&rnd=1285818650.gif" tppabs="http://c.cnzz.com/wapstat.php?siteid=1253409067&r=http%3a%2f%2fm.jx516.com%2f&rnd=578474243" width="0" height="0" alt=""/>
+                <script type="text/javascript">
+                    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                    document.write(unescape("%3Cspan id='cnzz_stat_icon_1253409067'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s6.cnzz.com/stat.php%3Fid%3D1253409067%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+                        </script>
+            </div>
+          <div class="foot-name"><a href="javascript:if(confirm(%27http://www.miibeian.gov.cn/  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.miibeian.gov.cn/%27" tppabs="http://www.miibeian.gov.cn/" style="cursor:pointer;">津ICP备12004526号</a><a href="javascript:if(confirm(%27http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12010102000048  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12010102000048%27" tppabs="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12010102000048" style="cursor:pointer;" ><img style="margin-bottom:-4px;" src="Image/beian.png" tppabs="http://m.jx516.com/Image/beian.png" /></a><br />公安备案号：12010102000048</div>
+                        
+        </div>
+        <div style="width:100%;height:3em;float:left;"></div>
+      <div style="width:100%;background-color:#fff;height:auto;position:fixed;top:0px;left:0px;float:left;z-index:30;height:100%;display:none;cursor:pointer;" id="site">
+                <div style="text-align:center;color:black;background-color:#ccc;line-height:30px;height:30px;"><span style="text-align:left;float:left;padding-left:10px;color:#43b1f0" onclick="hideSite()">X</span> 选择城市</div>
+                <div style="text-align:left;color:#808080;padding-left:10px;line-height:30px;height:30px;float:left;">
+                    热门城市
+                </div>
+                <div style="width:100%;float:left;">
+                    <ul id="hot">
+                        <li><div key="W01">天津</div></li>
+
+                        <li><div key="W02">吉林</div></li>
+
+                    </ul>
+                </div>
+                <div style="text-align:left;color:#000;padding-left:10px;line-height:30px;height:30px;float:left;display:none;">
+                    选择城市
+                </div>
+                <div style="width:100%;float:left;display:none;">
+                    <ul>
+                        <li><div style="background-color:#43b1f0;color:#000;" onclick="setTab('1')" id="bt1">A-G</div></li>
+                        <li><div style="background-color:#c7dbeb;color:#000;" onclick="setTab('2')" id="bt2">H-L</div></li>
+                        <li><div style="background-color:#c7dbeb;color:#000;" onclick="setTab('3')" id="bt3">M-Q</div></li>
+                        <li><div style="background-color:#c7dbeb;color:#000;" onclick="setTab('4')" id="bt4">R-Z</div></li>
+                    </ul>
+                    <div id="st1">
+                        <ul>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        </ul>
+                        <ul>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        </ul>
+                        <ul>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        </ul>
+                    </div>
+                    <div id="st2" style="display:none;">
+                        <ul>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        </ul>
+                        <ul>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        </ul>
+                        <ul>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        </ul>
+                    </div>
+                    <div id="st3" style="display:none;">
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                    </div>
+                    <div id="st4" style="display:none;">
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="width:100%;float:left;height:20px;"></div>
+            </div>
+    </form>
+</body>
+</html>

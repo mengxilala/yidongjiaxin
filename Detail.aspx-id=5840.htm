@@ -1,0 +1,1124 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/javascript"> var _tcopentime = new Date().getTime(); var _hmt = _hmt || []; </script>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="format-detection" content="telephone=no" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" /><meta name="apple-mobile-web-app-capable" content="yes" /><meta name="apple-mobile-web-app-status-bar-style" content="black" /><meta name="apple-mobile-web-app-title" content="嘉信旅游" /><meta name="keywords" content="旅游,嘉信国旅,嘉信旅游,天津嘉信，旅游社，旅游线路,旅游网站,自助游,国内游,出境游,景点门票，出境度假" /><meta name="description" content="嘉信旅游是中国领先的手机一站式旅游预订平台，提供30000多家景点门票、特价机票、特惠酒店等预订服务；专业服务、品质保障，让您的旅行更安心；实惠的价格、简单的流程，让您的旅行更贴心！" />
+    <!-- UC默认竖屏 ，UC强制全屏 -->
+    <meta name="full-screen" content="yes" /><meta name="browsermode" content="application" />
+    <!-- QQ强制竖屏 QQ强制全屏 -->
+    <meta name="x5-orientation" content="portrait" /><meta name="x5-fullscreen" content="true" /><meta name="x5-page-mode" content="app" /><title>
+	【嘉信旅游】一路欢笑一生情
+</title><link href="style/public.css" tppabs="http://m.jx516.com/style/public.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        #site ul li{
+        width:20%;
+        padding:8px 2.5%;
+        float:left;
+        }
+        #site ul li div{
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        
+        }
+        #st1 li{
+        border:none;
+        background-color:#FFF;
+        color:#000;
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        }
+        #st2 li{
+        border:none;
+        background-color:#FFF;
+        color:#000;
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        }
+        #st3 li{
+        border:none;
+        background-color:#FFF;
+        color:#000;
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        }
+        #st4 li{
+        border:none;
+        background-color:#FFF;
+        color:#000;
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        }
+        .bd1 {
+            border:1px solid #c7dbeb;
+        }
+        .bd2 {
+            border:1px solid #43b1f0;
+        }
+    </style>
+    <script type="text/javascript">
+       
+        document.onreadystatechange = loading;
+        function loading() {
+            if (document.readyState == "complete") {
+                $("#loading").hide();
+                $("#Mcont").show();
+            }
+        }
+        function setTab(name) {
+            for (var i = 1; i < 5; i++) {
+                var menu = document.getElementById("st" + i);
+                var menubt = document.getElementById("bt" + i);
+                if (i == name) {
+                    menu.style.display = "inline";
+                    menubt.style.backgroundColor = "#43b1f0";
+                }
+                else {
+                    menu.style.display = "none";
+                    menubt.style.backgroundColor = "#c7dbeb";
+                }
+            }
+        }
+        function showSite() {
+            $("#site").show();
+        }
+        function hideSite() {
+            $("#site").hide();
+        }
+        function setSite() {
+            if (site_txt == "" || site_val == "") {
+                alert(请选择出发地);
+            } else {
+                $.ajax({
+                    type: "Post",
+                    url: "/Index.aspx/SetSite",
+                    data: "{'txt':'" + site_txt + "','val':'" + site_val + "'}",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        location.href = location.href;
+                    },
+                    error: function (d, e, f) {
+                    }
+                });
+            }
+        }
+        function defaultSite() {
+            if (site_txt == "" || site_val == "") {
+                alert(请选择出发地);
+            } else {
+                $.ajax({
+                    type: "Post",
+                    url: "/Index.aspx/defaultSite",
+                    data: "{'txt':'" + site_txt + "','val':'" + site_val + "'}",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        location.href = location.href;
+                    },
+                    error: function (d, e, f) {
+                    }
+                });
+            }
+        }
+
+        //图片加载失败，用默认图片
+        function func(obj, id, index) {
+            if (index == 1) {
+                obj.src = "Image_product/a.jpg"/*tpa=http://m.jx516.com/Image_product/a.jpg*/;
+            } else {
+                //var filespec = "/Image_product/" + id + "_1.jpg";
+                //var fso,s = filespec; // filespec="C:/path/myfile.txt"
+                //fso = new ActiveXObject("Scripting.FileSystemObject");
+                //if (fso.FileExists(filespec)) {
+                //    obj.src = "/Image_product/" + id + "_1.jpg";
+                //} else {
+                //    obj.src = "Image_product/a.jpg"/*tpa=http://m.jx516.com/Image_product/a.jpg*/;
+                //}
+                obj.src = "Image_product/a.jpg"/*tpa=http://m.jx516.com/Image_product/a.jpg*/;
+            }
+        }
+    </script>
+    
+    <link href="style/detail.css" tppabs="http://m.jx516.com/style/detail.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        div {
+            margin: 0 auto;
+        }
+
+        .qn_main {
+            width: 100%;
+            margin: 0 auto;
+            min-width: 320px;
+            max-width: 100%;
+            position: relative;
+        }
+        /*.qn_main a:active p{ color:#000; }*/
+        .qn_slide {
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+        }
+            /*.qn_slide .content{width:100%;height:100%;-webkit-transform-style:preserve-3d;-webkit-backface-visibility:hidden;}*/
+            /*.qn_slide a{display:inline-block;float:left;width:320px;height:100px;}*/
+            .qn_slide .mark {
+                position: absolute;
+                width: 100%;
+                height: 3px;
+                bottom: 0;
+                background-color: rgba(51,51,51,0.5);
+                -ms-transform: translate3d(0,0,0);
+                -webkit-transform: translate3d(0,0,0);
+                display: -webkit-box;
+                display: -ms-flexbox;
+            }
+
+                .qn_slide .mark li {
+                    display: block;
+                    -webkit-box-flex: 1;
+                    -ms-flex-direction: row;
+                    height: 100%;
+                    overflow: hidden;
+                }
+
+                    .qn_slide .mark li.active {
+                        background-color: #25a4bb;
+                    }
+
+            .qn_slide .mark {
+                position: absolute;
+                width: 100%;
+                height: 3px;
+                bottom: 0;
+                background-color: rgba(51,51,51,0.5);
+                -ms-transform: translate3d(0,0,0);
+                -webkit-transform: translate3d(0,0,0);
+                display: -webkit-box;
+                display: -ms-flexbox;
+            }
+
+        body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+            margin: 0;
+            padding: 0;
+        }
+
+        ol, ul, li {
+            list-style: none;
+        }
+
+        .qn_main .qn_download {
+            display: block !important;
+        }
+
+        .qn_download {
+            width: 100%;
+            height: 40px;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery.min.js" tppabs="http://m.jx516.com/js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.SuperSlide.js" tppabs="http://m.jx516.com/js/jquery.SuperSlide.js"></script>
+    <script type="text/javascript" src="js/jquery.touchSlider.js" tppabs="http://m.jx516.com/js/jquery.touchSlider.js"></script>
+    <script type="text/javascript" src="js.slider.js" tppabs="http://m.jx516.com/js.slider.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var elm = $('#pordAttr');
+            var startPos = $(elm).offset().top;
+            $.event.add(window, "scroll", function () {
+                var p = $(window).scrollTop();
+                $(elm).css('position', ((p) > startPos) ? 'fixed' : 'static');
+                $(elm).css('top', ((p) > startPos) ? '0px' : '');
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        var tel = "tel:4001566776";
+        var t = 60;//设置验证码发送等待的时间 
+        var i = 0;
+        var i_code = "code";
+        $(document).ready(function () {
+
+            $("#tel").attr("href", tel);
+            /*暂时隐藏*/
+            //$("#showbtn").click(function () {
+            //    $("#hidechoose").slideDown();
+            //    $("#showbtn").hide();
+            //    $("#hidebtn").show();
+            //});
+            //$("#hidebtn").click(function () {
+            //    $("#hidechoose").slideUp();
+            //    $("#showbtn").show();
+            //    $("#hidebtn").hide();
+            //});
+            /*线路特色*/
+            $("#Msg .a").each(function (a, b) {
+                if ($(b).attr("id") != null) {
+                    if ($(b).attr("id").substr(0, 5) == "hide_") {
+                        var key = $(b).attr("id").substr(5);
+                        $("#open_" + key).click(function () {
+                            
+
+                            $("#Msg .a").each(function (c, d) {
+                                if ($(d).attr("id") != null) {
+                                    var keys = $(d).attr("id").substr(5);
+                                    $("#hide_" + keys).hide();
+                                    $("#open_" + keys).show();
+                                    $("#clos_" + keys).hide();
+                                }
+
+                            });
+                            $("#clos_" + key).show();
+                            $("#open_" + key).hide()
+                            $("#hide_" + key).slideDown();
+
+
+                            //$("#Msg .a").each(function (c, d) {
+                            //    if ($(d).attr("id") != null) {
+                            //    var keys = $(d).attr("id").substr(5);
+                            //       if ($(d).attr("id").substr(0, 5) == "hide_") {
+                            //           if ($(d).attr("id") == ("hide_" + keys)) {
+                            //                $("#hide_" + keys).slideDown();
+                            //                $("#open_" + keys).hide();
+                            //                $("#clos_" + keys).show();
+                            //            }
+                            //        }
+                            //    }
+                            //    else {
+                            //        $("#hide_" + key).slideUp();
+                            //        $("#clos_" + key).hide();
+                            //        $("#open_" + key).show();
+                            //    }
+                            //});
+                        });
+                        $("#clos_" + key).click(function () {
+                            $("#hide_" + key).slideUp();
+                            $("#clos_" + key).hide();
+                            $("#open_" + key).show();
+                        });
+                    }
+                }
+            });
+            /*我的收藏*/
+            $("#Hcoll").click(function () {
+                $("#Hcoll").hide();
+                $("#Scoll").show();
+            });
+            $("#Scoll").click(function () {
+                $("#Scoll").hide();
+                $("#Hcoll").show();
+            });
+
+
+            $("#sendTime").click(function () {
+                i++;
+                user1 = $("#TextBox1").val();
+                if (user1 == "手机号") {
+                    alert("请输入手机号码！")
+                } else if (!PhoneYanZheng($("#txt_phone").val())) {
+                    alert("请输入正确的手机号码！");
+                } else {
+                    //$("#sendTime").hide();
+                    //$("#showTime").show();
+                    t = 60;
+                    i++;
+                    getcode();
+                }
+
+            });
+
+
+        });
+        //验证手机号
+        function PhoneYanZheng(phone) {
+            var str =phone;
+            //alert(i);
+            var b = false;
+            if (/^1[3|4|5|8]\d{9}$/.test(str)) {
+                b = true;
+            }
+            return b;
+        }
+
+        //获取验证码
+        function getcode() {
+            if (PhoneYanZheng($("#txt_phone").val())) {
+                var phone = $("#txt_phone").val();
+                var check = Math.random().toString().substr(2, 6);
+                var kind = "";
+                kind = "尊敬的客户您好，您本次的动态密码：" + check + "，在1分钟内有效，请妥善保管";
+                $.post("http://m.jx516.com/Api/MessageSendHandler.ashx", { "txt": kind, "phone": phone, "user": "嘉信官网", "source": "register" }, function (data, istaus) {
+                    if (istaus == "success") {
+                        alert("短信发送成功，请查看您的手机。");
+                        $("#showTime").show();
+                        $("#sendTime").hide();
+                        //alert(i_code);
+                    } else {
+                        alert("发送失败，请重试");
+                    }
+                });
+                i_code = check;
+            }
+        }
+
+        function OKchekpho() {
+            var code = $("#TextBox2").val();
+            if (code == "") {
+                $("#code").html("请输入验证码");
+            } else if (i_code != code) {
+                $("#code").html(" 验证码不正确");
+            } else {
+                $("#code").html("");
+                $.ajax({
+                    type: "Post",
+                    url: "/Order_product.aspx/forgtPwd",
+                    data: "{'checkPhone':'" + $("#txt_phone").val() + "'}",
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        alert(1);
+                        if (data.d != 3) {
+                            cid = data.d;
+                            location.href="http://m.jx516.com/Detail_calendar.aspx?id=5840"
+                        }
+                    },
+                    error: function (err) {
+                        alert(2);
+                        alert("验证失败，请重试");
+                    }
+                });
+            }
+
+        }
+
+
+        /*成人人数加减*/
+        function A(i, m) {
+            var adu = parseInt($("#num" + m).text());
+            if (adu + i > 0) {
+                $("#num" + m).text(adu + i);
+            }
+            else {
+                alert("至少选择1人")
+            }
+        }
+        /*儿童人数加减*/
+        function B(i, m) {
+            var adu = parseInt($("#pep" + m).text());
+            if (adu + i > -1) {
+                $("#pep" + m).text(adu + i);
+            }
+        }
+        /*线路特色选项卡切换*/
+        function setTab(name) {
+            for (var i = 1; i < 6; i++) {
+                var menu = document.getElementById("line" + i);
+                var menudiv = document.getElementById("cont" + i);
+                if (i == name) {
+                    menudiv.style.display = "inline";
+                    menu.style.borderBottom = "2px";
+                    menu.style.borderBottom = "solid";
+                    menu.style.borderBottomColor = "#3db4ff";
+                }
+                else {
+                    menudiv.style.display = "none";
+                    menu.style.borderBottom = "0px";
+                    menu.style.borderBottomColor = "#ccc";
+                }
+            }
+        }
+        //计算总金额
+        function calcMoney() {
+            var str_prize = $("#dpl_groupDate").find("option:selected").text();
+            if (str_prize.indexOf("价格") > 0) {
+                var adults = $("#dpl_adultsNum").find("option:selected").text();
+                var child = $("#dpl_childNum").find("option:selected").text();
+                var str_prize = str_prize.substr(str_prize.indexOf("价格") + 3, (str_prize.length - str_prize.indexOf("价格") - 6));
+                var prize = parseInt(str_prize);
+                var result = (adults * prize) + (child * prize);
+                result = result.toFixed(2);
+                $("#div_showAllMoney").text(result);
+            } else {
+                $("#div_showAllMoney").text("--");
+            }
+        }
+        //选择团期更新剩余人数
+        function updatePeople() {
+            var people = $("#dpl_groupDate").find(":selected").val();
+            people = people.split(",")[0];
+            if (people <= 0) {
+                $("#div_showPeopleCount").text("");
+            } else if (people < 10) {
+                $("#div_showPeopleCount").text("库存" + people + "人");
+            } else {
+                $("#div_showPeopleCount").text("库存>9人");
+            }
+            calcMoney();
+        }
+        //点击收藏获取收藏产品
+        function collect() {
+            var pricecoll = "";
+            pricecoll = '售罄';
+            var cid = '5840';
+            var userID = '';
+            var mobile = '';
+            var uid = '';
+            if (uid == "") {
+                if (mobile == "") {
+                    alert("亲，请您先登陆哦！");
+                    location.href = "http://m.jx516.com/login.aspx?id=" + cid;
+                }
+                else {
+                    $.ajax({
+                        type: "Post",
+                        url: "/Detail.aspx/CollectSuccess",
+                        data: "{'userid':'" + userID + "','userName':'" + mobile + "','money':'" + pricecoll + "','cid':'" + cid + "'}",
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            var info = data.d + "";
+                            if (info == "0") {
+                                alert("收藏失败");
+                                //location.href = "http://m.jx516.com/Detail.aspx ? id = cid";
+                            } else if (info == "1") {
+                                alert("收藏成功");
+                                location.href = "http://m.jx516.com/Member_coll.aspx";
+                            }
+                            else if (info == "-1") {
+                                alert("此线路已收藏");
+
+                            }
+                        },
+                        error: function (d, e, f) {
+                            alert(f);
+                        }
+                    });
+                }
+            }
+            else {
+                mobile = uid;
+                if (mobile == "") {
+                    alert("亲，请您先登陆哦！");
+                    location.href = "login.aspx.htm"/*tpa=http://m.jx516.com/login.aspx*/;
+                }
+                else {
+                    $.ajax({
+                        type: "Post",
+                        url: "/Detail.aspx/CollectSuccess",
+                        data: "{'userid':'" + userID + "','userName':'" + mobile + "','money':'" + pricecoll + "','cid':'" + cid + "'}",
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            var info = data.d + "";
+                            if (info == "0") {
+                                alert("收藏失败");
+                                //location.href = "http://m.jx516.com/Detail.aspx ? id = cid";
+                            } else if (info == "1") {
+                                alert("收藏成功");
+                                location.href = "http://m.jx516.com/Member_coll.aspx";
+                            }
+                            else if (info == "-1") {
+                                alert("此线路已收藏");
+
+                            }
+                        },
+                        error: function (d, e, f) {
+                            alert(f);
+                        }
+                    });
+                }
+            }
+        }
+
+        var ID = "";
+
+        function GetPost()
+        {
+                location.href = "http://m.jx516.com/Detail_calendar.aspx?id=5840"
+        }
+
+        function order() {
+
+            var cid = '5840';
+            var price = $("#div_showAllMoney").text();
+
+            var date = $('#dpl_groupDate option:selected').text();
+            var arr = date.split('￥');
+            var gddate = $('#dpl_groupDate option:selected').text().substr(0, 10);
+            var mobile = '';
+            var userID = '';
+            var peopleCount = parseInt($("#dpl_adultsNum").val()) + parseInt($("#dpl_childNum").val());
+            //alert(gddate);
+            //return;
+            var uid = '';
+            if (uid == "") {
+                if (gddate == "请选择团期") {
+                    alert('请选择团期');
+                } else
+                    if (price == "--") {
+                        alert('请选择出行人数');
+                    } else {
+                        if (userID.length > 0) {
+                            var cid = '5840';
+                            var go = '【玩美藏羌】成都 九寨沟 黄龙 特色藏寨 古羌城双飞6日（A1特价）';
+                            var days = '6天5晚';
+                            var sex = '';
+                            var userName = '';
+                            //alert($("#dpl_groupDate").find(":selected").val().split(',')[1]);
+                            UID = userName;
+                            var sid = '';
+                            location.href = "http://m.jx516.com/order_product.aspx?lid=" + cid + "&gdd=" + $("#dpl_groupDate").find(":selected").val().split(',')[1] + "&cnum=" + $("#dpl_adultsNum").val() + "&anum=" + $("#dpl_childNum").val() + "&cid=" + +"&kid=" + price + "&Gdd_time=" + gddate;
+                        }
+                        else {
+                            alert("您还未登陆，请登录后再试！");
+                            location.href = "http://m.jx516.com/login.aspx?id=" + cid;
+                        }
+                    }
+            } else {
+                if (gddate == "请选择团期") {
+                    alert('请选择团期');
+                } else
+                    if (price == "--") {
+                        alert('请选择出行人数');
+                    } else {
+                        if (uid.length > 0) {
+                            var cid = '5840';
+                            var go = '【玩美藏羌】成都 九寨沟 黄龙 特色藏寨 古羌城双飞6日（A1特价）';
+                            var days = '6天5晚';
+                            var sex = '';
+                            var userName = '';
+                            //alert($("#dpl_groupDate").find(":selected").val().split(',')[1]);
+                            UID = userName;
+                            var sid = '';
+                            location.href = "http://m.jx516.com/order_product.aspx?lid=" + cid + "&gdd=" + $("#dpl_groupDate").find(":selected").val().split(',')[1] + "&cnum=" + $("#dpl_adultsNum").val() + "&anum=" + $("#dpl_childNum").val() + "&cid=" + "" + "&kid=" + price + "&Gdd_time=" + gddate;
+                        }
+                        else {
+                            alert("您还未登陆，请登录后再试！");
+                            location.href = "http://m.jx516.com/login.aspx?id=" + cid;
+                        }
+                    }
+            }
+        }
+
+        setInterval("refer()", 1000); //启动1秒定时 
+        function refer() {
+            if (t == 0) {
+                $("#sendTime").show();
+                $("#showTime").hide();
+                i_code = "code";
+            }
+            document.getElementById('lbl_showTime').innerText = t.toString();
+            t--; // 计数器递减 
+        }
+
+        //回到顶部
+        var ScrollToTop = ScrollToTop || {
+            setup: function () {
+
+                var a = $(window).height() / 2;
+
+                $(window).scroll(function () {
+                    (window.innerWidth ? window.pageYOffset : document.documentElement.scrollTop) >= a ? $("#ScrollToTop").removeClass("Offscreen") : $("#ScrollToTop").addClass("Offscreen")
+                });
+                $("#ScrollToTop").click(function () {
+                    $("html, body").animate({ scrollTop: "0px" }, 400);
+                    return false
+                })
+            }
+        };
+    </script>
+</head>
+<body>
+    <form method="post" action="http://m.jx516.com/Detail.aspx?id=5840" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTMyOTkwMzE0NA9kFgJmD2QWAgIDD2QWAgIBD2QWDGYPEGQPFgFmFgEQBQ/or7fpgInmi6nlm6LmnJ8FAi0xZ2RkAgEPFgIeC18hSXRlbUNvdW50AgUWCmYPZBYCZg8VAwfnrKwy5aSp3xA8YnIgLz7ooYznqIvlronmjpLvvJox77ya5pep6LW36YWS5bqX5YmN5Y+w6Ieq6KGM6aKG5Y+W6Lev5pep5ZCO77yM55Sx5biI5YKF5o6l6Iez5oyH5a6a5Zyw54K56ZuG5ZCI57uf5LiA5Ye65Y+R44CCPGJyIC8+ICAgICAgICAgIDLvvJrlr7zmuLjoh7TmrKLov47or43lkI7liY3lvoDlj6DmuqrmtbflrZDvvIjnu4/pg73msZ/loLDvvIzmsbblt53vvIk8YnIgLz4gICAgICAgICAgM++8muWPoOa6qua1t+WtkOWNiOmkkCDvvIjnvozlsbHlnLDkuLvlrrTvvInvvIzlubbnqI3kvZzkvJHmga88YnIgLz4gICAgICAgICAgNO+8muS5i+WQjua4uOiniOadvua9mOWPpOWfju+8iOS4jeWQq+S4iuWfjuWimei0ueeUqO+8ie+8jOi9puinguWyt+axn+a6kOWktOOAgeeUsuiVg+WPpOWfjuetieaZr+eCuTxiciAvPiAgICAgICAgICA177ya5YmN5b6A5Lmd5a+o5rKf6KeC6LWP6JeP576M6aOO5oOF5pma5Lya77yIMTgw5YWD4oCUMjkw5YWD6Ieq55CG77yJ77yM6ZqP5ZCO5YWl5L2P6YWS5bqX44CCPGJyIC8+5pmv54K55LuL57uNPGJyIC8+6JeP576M6aOO5oOF5pma5Lya77ya5Lmd5a+o5rKf55qE6JeP576M5rCR5L+X6KGo5ryU55Sx5p2l5bey5LmF77yM6KGo5ryU5YaF5a655YyF5ous77yM6JeP5peP5q2M6Iie44CB6JeP5peP5Lyg57uf5rS75Yqo6KGo5ryU44CB6JeP576M5Lyg57uf5pyN6aWw5bGV56S6562J77yM5ryU5ZGY6L+Y5Lya5LiO5ri45a6i5pyJ6Z2e5bi454Ot54OI44CB5qyi5b+r55qE5LqS5Yqo77yM5Y+v5Lul6K+05Y675Lmd5a+o5rKf5peF5ri45LiN5Y675q2k5Zyw6aKG55Wl5LiA55Wq6JeP44CB576M5paH5YyW56We56eY6a2F5Yqb77yM6YKj5L2g55qE5Lmd5a+o5rKf5LmL6KGM5piv57ud5a+55LiN5a6M5pW055qE77yIMTgw5YWD4oCUMjkw5YWD6Ieq55CG77yJPGJyIC8+5p2+5r2Y5Y+k5Z+O77ya5ZSQ5pyd5pe277yM5ZCQ6JWD6aaW6aKG5p2+6LWe5bmy5biD5rS+6ICF5YmN5b6A6ZW/5a6J5rGC5ama44CC5L2/6ICF6Lev6L+H5p2+5bee77yM6KKr5bee5Y+k6ZWH5a6Y5omj5oq877yM5p2+6LWe5bmy5biD5aSn5oCS77yM5Lqy546H5aSn5YW15LqM5Y2B5LiH5Lq65YWl5L6177yM5ZSQ6YO9552j6Z+p5ZK45oiY6LSl77yM5ZSQ5aSq5a6X5ZG95ZCP6YOo5bCa5Lmm57uf5Yab5oq16L6+5p2+5bee77yM57uP5bed5Li75a+65LiA5b2577yM5ZSQ5Yab5aSn6IOc44CC5p2+6LWe5bmy5biD6L+U6JeP5ZCO5Y+I6YGj5ou+5L2/6Iej6YCB6buE6YeR5Lul5rGC6YCa5ama5ZKM5aW977yM5aSq5a6X5pmT5Lul5aSn5LmJ77yM5bCG5paH5oiQ77ya5YWs5Li75auB5LiO5p2+6LWe5bmy5biD77yM5Lyg5Li65Y2D5Y+k5L2z6K+d77yI5aaC6Iul5LiK5Z+O5aKZ77yM5YiZ6ZyA6Ieq55CG6Zeo56WoODAtMTUw5YWDL+S6uu+8iTxiciAvPuihjOeoi+Wwj+i0tOWjqzxiciAvPjEu5Zug5YW254m55q6K55qE5rCU5YCZ5p2h5Lu277yM6YWS5bqX5YaF6YOo5pyJ5r2u5rm/55qE546w6LGh77yM5aaC5a+55L2P5a6/6KaB5rGC6L6D6auY55qE5oKo77yM5bu66K6u5Y2H57qn5qCH5YeG44CCPGJyIC8+Mi7miJDpg73oh7PkuZ3lr6jmsp/nmoTot6/nqIvovoPov5zvvIzlpKfpg6jliIbkuLrlsbHot6/vvIzlpoLmgqjmmZXovabvvIzor7fliqHlv4XmkLrluKbmmZXovaboja/jgILmsr/pgJTovabovobovoPlpJrvvIzmnInlj6/og73kvJrloLXovabvvIzlr7zoh7TnlKjppJDlkozlhaXkvY/ml7bpl7TovoPmmZrvvIzmlazor7fnkIbop6PjgII8YnIgLz4zLuS5neWvqOayn+WxnuS6juiXj+WMuu+8jOS9j+Wuv+mFkuW6l+Wkp+mDqOWIhuS8mumZkOaXtuS+m+W6lOeDreawtO+8jOeDreawtOS4gOiIrOS4uuaZmu+8kjHngrnoh7MyM+eCuemXtOS+m+W6lO+8jOayv+e6v+aPkOWAoee7v+iJsueOr+S/ne+8jOmFkuW6l+S4jeaPkOS+m+S4gOasoeaAp+a0l+a8seeUqOWTge+8jOeDpuivt+iHquWkh+OAguW9k+WcsOeUqOmkkOiUrOiPnOi+g+Wwke+8jOS4lOWPo+WRs+S4jeaYr+W+iOWlve+8jOW7uuiuruWuouS6uuiHquW4puS6m+W5sueyruaIlumbtumjn+OAgjxiciAvPjQu5p2+5r2Y5Y+k5Z+O5bGe5LqO6aKd5aSW6LWg6YCB6aG555uu77yM5peF6KGM56S+5pyJ5p2D5Li05pe25Y+W5raI6K+l6LWg6YCB77yM5aaC5peg5YmN5b6A77yM5pWs6K+36LCF6KejPGJyIC8+CuS5neWvqOaynyBkAgEPZBYCZg8VAwfnrKwz5aSpsRnooYznqIvlronmjpLvvJox77ya5pep6aSQ5ZCO5LmY5Z2Q5peF5ri45be05aOr5YmN5b6A5pmv5Yy65YGc6L2m5Zy677yM5q2l6KGM5YmN5b6A5pmv5Yy65aSn6Zeo5Y+jPGJyIC8+ICAgICAgMu+8muaKtei+vuayn+WPo+aNoumihumXqOelqOWQjui/m+WFpeaZr+WMuu+8iOa4uOiniOaXtumXtOe6pjjlsI/ml7bvvIk8YnIgLz4gICAgICAz77ya5LmY5Z2Q6KeC5YWJ6L2m5ri46KeI5qCR5q2j5rKf77yM5pel5YiZ5rKf77yM5YiZ5p+l5rS85rKf44CC57+g5rW377yM5Y+g54CR77yM6Zuq5bOw77yM5b2p5p6X562J5pmv54K544CCPGJyIC8+ICAgICAgICAgNO+8muS4reWNiOiHs+ivuuaXpeacl+mkkOWOheS6q+eUqOiHquWKqeWNiOmkkO+8iOiHqui0ue+8mjYw5YWDL+S6uui1t++8iTxiciAvPiAgICAgICAgIDXvvJrnuqYxN++8mjAw5pmv5Yy65Y+C5Yqg6LWw6L+b6JeP5a625a626K6/5pma5Lya77yIMTUw5YWD6LW36Ieq55CG77yJPGJyIC8+ICAgICAgNu+8mue7k+adn+WQjui/lOWbnumFkuW6l+S8keaBrzxiciAvPuaZr+eCueS7i+e7jTxiciAvPuS5neWvqOayn+mjjuaZr+WMuu+8muS6uumXtOS7meWig+OAgeerpeivneS4lueVjOKAleOAkOS5neWvqOayn+S4lueVjOiHqueEtumBl+S6p+OAkeeUsee/oOa1t+OAgeWPoOeAkeOAgembquWzsOOAgeW9qeael+OAgeiXj+aXj+mjjuaDheaehOaIkOOAguaso+i1j+WIsOWHuuagkeato+e+pOa1t+OAgemVv+a1t+OAgeS6lOW9qeaxoOOAgeePjeePoOa7qeOAgeS6lOiKsea1t+OAgeeureeruea1t+OAgeeGiueMq+a1t+OAgeePjeePoOa7qeeAkeW4g+OAgeeGiueMq+a1t+eAkeW4g+OAgeiLpeaXpeacl+eAkeW4g+OAgeagkeato+eAkeW4g+etiee7neS4lue+juaZr+OAguS5neWvqOayn+aZr+inguWIhuW4g+S6juagkeato+ayn+OAgeaXpeWImeayn+OAgeWImeafpea0vOayn+S4ieadoeWRiOKAneS4q+KAneWtl+W9oueahOayn+WGheOAguaZr+WMuuWGheWFseacieS4gOeZvuWkmuS4qumrmOWxsea5luaziuWPiuaVsOWNgeWkhOmrmOS9juS4jeS4gOeahOa1geaziemjnueAkeetieaZr+inguOAguacgOe+juacgOWlh+eJueeahOaYr+S5neWvqOayn+eahOawtO+8jOa4heWGvemAj+W6le+8jOWPmOW5u+aXoOept+OAguWcqOmYs+WFieeahOaKmOWwhOWSjOWPjeWwhOS4i+WRiOeOsOS6lOW9qeaWkeaWk+eahOiJsuW9qe+8jOiuqeaCqOe7hue7huS9k+WRs+KAnOm7hOWxseW9kuadpeS4jeeci+Wxse+8jOS5neWvqOW9kuadpeS4jeeci+awtOKAneeahOaEj+Wig++8iOatpOaXpeWNiOmkkOS4jeWQq++8jOivt+iHquW4pumbtumjn+aIluiHquihjOWJjeW+gOS5neWvqOayn+WUr+S4gOeahOmkkOWOheivuuaXpeacl+mkkOWOheeUqOmkkO+8jOeUqOmkkOavlOi+g+eugOWNle+8jOiAjOS4lOS8muW9seWTjeaCqOeahOa4uOiniOaXtumXtO+8jOW7uuiuruaCqOiHquW4puW5sueyrui/m+ayn++8ieOAgjxiciAvPuS5neWvqOayn+WGheaOqOiNkOa4uOiniOi3r+e6v++8muayn+WPo+S5mOi9pi0tLeeureeruea1t+inguWAkuW9sei1sOagiOmBk+aIluS5mOi9pi0tLeeGiueMq+a1t+S5mOi9pi0tLeS6lOiKsea1t+S5mOi9pi0tLeePjeePoOa7qei1sOagiOmBk+eci+WujOeAkeW4g+WQjui1sOagiOmBk+iHs+mVnOa1t+WBnOi9puWcuuS5mOi9pi0tLeivuuaXpeacl+aXhea4uOacjeWKoeS4reW/g+S5mOi9pi0tLemVv+a1t+atpeihjC0tLeS6lOW9qeaxoOS5mOi9pi0tLeivuuaXpeacl+eAkeW4g+S5mOi9pi0tLeiAgeiZjua1t+i1sOagiOmBky0tLeagkeato+eAkeW4g+OAgeawtOejqOaIv+atpeihjOiHs+agkeato+e+pOa1t+i1sOagiOmBky0tLeeBq+iKsea1t+S5mOi9pi0tLeiKpuiLh+a1t+S5mOi9pi0tLeebhuaZr+a7qeS5mOi9pi0tLeWunemVnOWyqeS5mOi9pi0tLeWHuuayn+OAgjxiciAvPui1sOi/m+iXj+WutuWutuiuv++8muiuqeaCqOi6q+S4tOWFtuWig+S6huino+iXj+aXj+eahOaIv+Wxi+W7uuetkeOAgeWul+aVmeaWh+WMluOAgemlrumjn+eJueiJsuWPiuatjOiInuWFg+e0oO+8jOiDveWTgeWwneWIsOaJi+aKk+e+iuiCieOAgemdkueonumFkuOAgeeDpOeJm+iCieOAgemFpeayueiMtuOAgemHjuiPnOetieetie+8jOiDveaso+i1j+WIsOiXj+aXj+Wwj+S8meWSjOWnkeWomOeahOWkqeexgeatjOWjsOWSjOe+juWmmeiInuWnv+OAguaEn+WPl+WIsOmUheW6hOasouiFvueahOawlOawm++8jOiuqeS9oOeVmei/nuW/mOi/lO+8iDE1MOWFg+i1t+iHqueQhu+8iTxiciAvPuihjOeoi+Wwj+i0tOWjqzxiciAvPjEu5Lmd5a+o5rKf5YiG5Li65LiJ5p2h5rKf77yM5Y2V56iLMzXlhazph4zvvIzmsp/lhoXmr4/kuKrmma/ngrnpg73mnInkuIDkuKrop4LlhYnovabkuIrkuIvnmoTovabnq5nvvIzlh63op4LlhYnovabnpajvvIjmiqXku7flt7LlkKvvvInlvZPml6Xlj6/lnKjku7vkuIDnq5nngrnoh6rnlLHmjaLkuZjvvIzmr4/ovobop4LlhYnovabpg73mnInorrLop6Plr7zmuLjjgILmuLjop4jmma/ljLrlhoXkuInmnaHmsp/nmoTlhYjlkI7pobrluo/vvIzlrozlhajmoLnmja7op4LlhYnovabosIPluqbkurrlkZjkuLTml7blronmjpLliIbmsp/muLjop4jvvIzov5nmoLfkuZ/og73mm7Tlpb3nmoTliIbmlaPmuLjlrqLvvIzorqnmgqjlnKjmi43nhafnmoTml7blgJnoiJLlv4PkuIDkupvjgILop4LlhYnovabkuIDoiKzmmK/liLDmr4/mnaHmsp/mnIDpq5jmma/ngrnkuIvovabvvIznhLblkI7lvoDkuIvovrnotbDovrnmuLjop4jjgII8YnIgLz4yLuS5neWvqOayn+WMuuacgOS9s+eahOa4uOiniOaWueW8j+i/mOaYr+iHqueUsea0u+WKqO+8jOS5mOWdkOeahOinguWFiei9pui/kOihjOaWueW8j+WSjOWfjumHjOeahOWFrOS6pOi9puaYr+S4gOagt+eahO+8jOWboOatpOWvvOa4uOS5n+aXoOazleWFqOeoi+mZquWQjOOAgjxiciAvPjMu5Lmd5a+o5rKf5aSp5rCU5Y+Y5YyW6aKR57mB77yb6K+35aSH5aW95L+d5pqW6KGj54mp44CB6Zuo5Lye44CB6Ziy5pmS6Zyc77yM5aSq6Ziz6ZWc562J54mp5ZOB77yb5Y+v6Ieq5aSH5oSf5YaS6I2v44CB5rK76IW55rO75ZKM5Yib5Y+j6LS0562J6I2v5ZOB44CCPGJyIC8+NC7kuZ3lr6jmma/ljLrnpoHmraLlkLjng5/vvIzmnInlkLjng5/kuaDmg6/nmoTlrqLkurror7flv43ogJDvvIzmiJbmmK/liLDkuJPpl6jnmoTlkLjng5/ljLrvvIzlkKbliJnkvJrlj5fliLDpq5jpop3nvZrmrL7jgILkuZ3lr6jmsp/mmK/kuJbnlYzoh6rnhLbpgZfkuqfvvIzniLHlroPmgqjlsLHkv53miqTlroPjgII8YnIgLz4BIGQCAg9kFgJmDxUDB+esrDTlpKmZETxiciAvPuihjOeoi+WuieaOku+8mjHvvJrml6nppJDlkI7kuZjovabvvIjml4XmuLjlt7Tlo6vvvInnlLHphZLlupflh7rlj5HjgII8YnIgLz4gICAgICAgICAgMu+8mua4uOiniOeJueiJsuiXj+WvqO+8iOi1oOmAge+8jOa4uOiniOaXtumXtOe6pjEuNeWwj+aXtu+8iTxiciAvPiAgICAgICAgICAz77ya5bed5Li75a+66ZWH5Y+C6KeC5Zyf54m55Lqn57u85ZCI6LaF5biC77yM6LSt5Lmw5LiA5Lqb5b2T5Zyw54m56Imy5Lqn5ZOB6aaI6LWg5Lqy5oia5pyL5Y+L77yI57qmOTDliIbpkp/vvIk8YnIgLz4077ya5YmN5b6A6buE6b6Z6aOO5pmv5Yy65ri46KeI77yI5ri46KeI5pe26Ze0My0tNOWwj+aXtu+8iTxiciAvPueJueWIq+ivtOaYju+8muWmguWboOWkqeawlOaIlui3r+mYu+etieS6uuWKm+S4jeWPr+aKl+aLkuWboOe0oOS4jeiDveWOu+m7hOm+me+8jOmAgOS8mOaDoOWQjumXqOelqOW3ruS7tzEwMOWFgzxiciAvPjXvvJrmirXovr7lt53kuLvlr7rmiJbojILljr/vvIzlhaXkvY/phZLlupfjgII8YnIgLz7mma/ngrnku4vnu408YnIgLz7nibnoibLol4/lr6jvvJrov5nph4zmmK/ol4/msJHml4/ogZrlsYXmnZHlr6jvvIzovrnov5zkuYvlnLDov5jkv53nlZnlm73lhoXlsJHmnInnmoTkuIDlprvlpJrlpKvnmoTlqZrlp7vliLbluqbjgILov5nph4zkupToibLnu4/luaHlpoLnpaXkupHoiKznvK3nu5XlnKjlsbHpl7TvvIznvo7kuL3nmoTojYnljp/phonkurrlv4PohL7vvIzpnZnosKflkozosJDnmoTol4/ml4/lsI/mnZHluoTpnZnljaflnKjok53lpKnkuIvjgILlhbfmnInoh6rnhLbkurrmlofmma/op4LkvJjnvo7jgIHmsJHkv5fpo47mg4Xnuq/mnLTlkozmsJHml4/lrpfmlZnmlofljJbmtZPpg4HnrYnnibnoibLjgILmraTmma/ljLrkuK3mnInpg6jliIbllK7ljZbpk7blmajnrYnlvZPlnLDnibnoibLnianku7bvvIzpnZ7ml4XooYznpL7lronmjpLotK3nianlupfvvIzmgqjlj6/ku6Xoh6rooYzpgInmi6njgII8YnIgLz7pu4Tpvpnmma/ljLrvvJrkurrpl7TnkbbmsaDigJ3nvo7oqonnmoTpu4Tpvpnmma/ljLrjgILlm6Dmtbfmi5TovoPpq5jvvIzpu4Tpvpnmsp/nmoTmlbDljYPkuKrpkpnljY7lvanmsaDlvaLmgIHlkITlvILvvIzmtYHlhYnms5vlvanvvIzplb/ovr4yNTAw57Gz55qE6ZKZ5Y2O5rWB5piv5LiW55WM5LmL5pyA44CC5rK/6YCU5Li76KaB5pmv54K55pyJ5rSX6Lqr5rSe44CB6YeR5rKZ6ZO65Zyw44CB55uG5pmv5rGg44CB6buE6b6Z5rSe44CB6buE6b6Z5a+644CB55+z5aGU6ZWH5rW344CB5LqU5b2p5rGg44CB6L2s6Iqx546J5rGg562J44CC5ri46KeI5pe26K+36YeP5Yqb6ICM6KGMICjnuqYzLTTlsI/ml7Yg6buE6b6Z57Si6YGT5Lu35qC85Li677ya5LiK6KGMODDlhYMv5Lq65qyh77yM5LiL6KGMNDDlhYMv5Lq65qyhIOiHqueQhik8YnIgLz7ooYznqIvlsI/otLTlo6s8YnIgLz5BLua4uOiniOm7hOm+meaOqOiNkOmHh+eUqOS7peS4i+S6jOenjeaWueW8j++8mjxiciAvPu+8iDHvvInmjqjojZDvvJrpgInmi6nkuZjntKLpgZPkuIrooYzvvIjntKLpgZPotLnnlKjoh6rnkIbvvIzkuIrooYw4MO+8jOS4i+ihjDQw77yJ77yM57Si6YGT5bCG5ri45a6i6YCB6Iez5LiO5pyA6auY54K55LqU5b2p5rGg5pmv5Yy65rW35ouU5oyB5bmz55qE5Zyw5pa577yM6LWw5bmz6Lev77yI5qCI6YGT77yJMjkwMOexs+WIsOi+vum7hOm+meS4u+aZr+WMuuS6lOW9qeaxoO+8jOa4uOiniOWQjuayv+S4i+WxseagiOmBk++8jOS4gOi3r+ingueci+m7hOm+meaZr+eCueOAgui/lOWbnum7hOm+meaZr+WMuuWkp+mXqOWPo+OAgjxiciAvPu+8iDLvvInmraXooYzmsr/kuIrlsbHmoIjpgZPkuIrjgIHkuIvlsbHmoIjpgZPvvIzlvoDov5Q4LjVLTe+8jOWdh+S4uuWxsei3r++8jOa1t+aLlDMwMTDnsbMtMzkzMOexs+ivt+mHj+WKm+iAjOihjOOAgjxiciAvPkIu54m55Yir6K+05piO77ya54m56Imy6JeP5a+o44CB6JeP5peP54m56Imy6aOO5oOF6KGX5oiW5rK/5raC5YGc55WZ5LyR5oGv55qE56uZ54K55ZKM6aSQ5Y6F6ZmE6L+R5Z2H5pyJ5b2T5Zyw5bGF5rCR5pGG5pGK6LSp5Y2W5Zyf54m55Lqn5Lit6I2v5p2Q5omL5bel6Im65ZOB562J77yM5pmv5Yy66K6+56uL77yM5LiO5peF6KGM56S+5peg5YWz77yM6K+35a6i5Lq655CG5pm65raI6LS577yM6LCo5oWO6LSt5Lmw77yM6Ieq5oS/6KGM5Li677yM5peF6KGM56S+5LiN5om/5ouF6LSj5Lu7PGJyIC8+B+iMguWOvyBkAgMPZBYCZg8VAwfnrKw15aSp6QvooYznqIvlronmjpLvvJox77ya5pep6aSQ5ZCO5LmY6L2m77yI5peF5ri45be05aOr77yJ5LuO6YWS5bqX5Ye65Y+R44CCPGJyIC8+ICAgICAgICAgIDLvvJrmuLjop4jkuK3lm73lj6Tnvozln47vvIzml7bpl7TmnaXlvpflj4rnmoTmg4XlhrXkuIvvvIzlj6/op4LnnIvliLDlj6TogIHnmoTlvIDln47ku6rlvI/vvIjmuLjop4jml7bpl7TnuqYxLjXlsI/ml7bvvInnhLblkI7liY3lvoDkuJ3nu7jljZrnianppoY8YnIgLz4gICAgICAgICAgM++8muS4remkkOaMh+WumumkkOWOheeUqOmkkO+8jOW5tueojeS9nOS8keaBr+OAgjxiciAvPiAgICAgICAgICA077ya5a+85ri45qC55o2u5b2T5aSp5oOF5Ya177yM6YCJ5oup5piv5ZCm6LWg6YCBNS4xMuaYoOengOWcsOmch+mBl+WdgO+8iOWmguaXoOWJjeW+gOaVrOivt+eQhuino++8iTxiciAvPiAgICAgICAgICA177ya57uT5p2f5ZCO6L+U5Zue5oiQ6YO977yM5YWl5L2P6YWS5bqX44CCPGJyIC8+5pmv54K55LuL57uNPGJyIC8+5Lit5Zu95Y+k576M5Z+O77ya5Lit5Zu95pyA5aSn55qE576M5peP5qC45b+D6IGa5bGF5Zyw5ZKM576M5paH5YyW5qC45b+D5L+d5oqk5Yy677yM5piv5Y+k6JyA5paH5piO55qE6YeN6KaB5Y+R56Wl5Zyw5ZKM5Lit5Zu9576M5peP5Y6G5Y+y5paH5YyW5peF5ri455uu55qE5Zyw77yM5piv5Lqr6KqJ5Lit5aSW55qE5Lit5Zu9576M6YO944CC5YW25L+d5oyB576M5peP5Y6f5pyJ55qE5bu6562R6aOOIOiyjOOAgeawkemjjuawkeS/l+OAgeelreelgOekvOS7qu+8jOWFheWIhuS9k+eOsOe+jOaWh+WMlueahOWOn+eUn+aAgeeOr+Wig+WSjOe+jOawkeaXj+eahOeUn+aBr+eJueeCue+8jOaYr+S4reWbveS5g+iHs+S4lueVjOeahOe+jOaXj+aWh+WMlua0u+aAgeWxleekuuOAgeWxlea8lOWMuuWPiuaWh+WMluS8kemXsuOAgSDkvZPpqozml4XmuLjnm67nmoTlnLDjgII8YnIgLz41LjEy5pig56eA5Zyw6ZyH6YGX5Z2A77ya5bim5oKo6Lqr5Li05YW25aKD5oSf5Y+X5Zub5bed55qE5Lq65paH77yM57yF5oCA6Iux6ZuE77yM5Li65q275Y6755qE5ZCM6IOe56WI56aP77yM5oSf5Y+X54G+5ZCO5Lq65rCR55qE55Sf5rS7546v5aKD77yM5L2T5Lya5Zub5bed5Lq65rCR55qE5Z2a5by65LmQ6KeC44CC5aSp54G+5bm25rKh5pyJ5bim6LWw5oiR5Lus5a+555Sf5rS755qE6L+95rGC5ZKM5biM5pyb77yM6K6p5oiR5Lus5pu05Yqg5Z2a5by677yM6K6p5oiR5Lus5pu06IO95YuH5pWi6Z2i5a+555Sf5rS75Lit55qE5oyR5oiY44CCPGJyIC8+6KGM56iL5bCP6LS05aOrPGJyIC8+5Lit5Zu95Y+k576M5Z+O5YaF5pyJ5b2T5Zyw5bGF5rCR5pGG5pGK6LSp5Y2W5Zyf54m55Lqn5Lit6I2v5p2Q44CB576M57uj44CB5Lid57u444CB6JeP6ZO2562J5omL5bel6Im65ZOB562J77yM5pmv5Yy66K6+56uL77yM5LiO5peF6KGM56S+5peg5YWz77yM6K+35a6i5Lq655CG5pm65raI6LS577yM6LCo5oWO6LSt5Lmw77yM6Ieq5oS/6KGM5Li677yM5peF6KGM56S+5LiN5om/5ouF6LSj5Lu744CCPGJyIC8+B+aIkOmDvSBkAgQPZBYCZg8VAwfnrKw25aSpgATooYznqIvlronmjpLvvJrku4rml6Xoh6rnlLHmtLvliqjvvIzmgqjlj6/pl7LpgJvkuIDkuIvmiJDpg73vvIzlrr3nqoTlt7flrZDjgIHplKbph4zjgIHmmKXnhpnot6/vvIzkvZPpqozmiJDpg73nmoTljoblj7LmlofljJbvvIzmkJznvZfmiJDpg73nmoTnvo7po5/jgILpgIHmnLrluIjlgoXkvJrlkozmgqjnuqblpb3pgIHmnLrml7bpl7TvvIzor7fmgqjmjozmjqflpb3vvIzku6XlhY3or6/mnLrjgILnu5PmnZ/mhInlv6vkuYvml4XvvIHvvIE8YnIgLz7ooYznqIvlsI/otLTlo6s8YnIgLz7phZLlupfmmK8xMjowMOWJjemAgOaIv++8jOivt+S7lOe7huaVtOeQhuWlveiHquW3seeahOihjOadjueJqeWTge+8jOS4jeimgeacieaJgOmBl+a8j+OAgu+8iOWmguaenOaCqOaYr+aQreS5mOaXqeePreacuumjnuWbnuWHuuWPkeWcsO+8jOacieWPr+iDveS8mumBh+WIsOmFkuW6l+aXqemkkOacquWIsOW8gOmkkOaXtumXtO+8jOaXoOazleWuieaOkuaXqemkkO+8jOaVrOivt+iwheino++8ge+8iTxiciAvPgEgZAICDxYCHwACAhYEZg9kFgJmDxUCDOi0ueeUqOWMheWQq9YS5Lqk6YCa77ya5aSp5rSl5oiQ6YO95b6A6L+U5aSn5Lqk6YCa77yM5LiN5ZCr5py65bu654eD5rK556iO77yIMTAw5YWD77yJPGJyIC8+54m55Yir5rOo5piO77ya5py656Wo5bGe5LqO54m55Lu35py656Wo77yM5LiA5pem5Ye656Wo77yM5LiN562+5LiN5pS55LiN6YCA56Wo77yM6YCA56Wo5YWo6YOo5o2f5aSxPGJyIC8+55So6L2m77ya5b2T5Zyw56m66LCD5peF5ri46L2m77yMMeS6ujHmraPluqfvvIznoa7kv53ovablhrXoia/lpb3vvIzku6Xkv53or4HmgqjnmoToiJLpgILvvIjmnLrlnLrmjqXpgIHpmaTlpJbvvInvvJvvvIjlnKjmiJDpg73mrrXnmoTmjqXpgIHvvIzlsI/lnovpnaLljIXovabvvIzml6Dlr7zmuLjvvIk8YnIgLz7kvY/lrr/vvJrlhajnqIvlhaXkvY/nu4/mtY7lnovlj4zkurrmoIflh4bpl7TvvIzmma/ljLrphZLlupfnjq/kv53vvIzkuI3mj5DkvpvkuIDmrKHmgKfmtJfmvLHnlKjlk4HvvIzor7flrqLkurrmj5DliY3oh6rlpIfvvIzpq5jljp/lnLDljLrvvIzphZLlupflrprml7bkvpvlupTng63msLTvvIzlnYfkvb/nlKjnlLXng63mr6/jgILor7fmuLjlrqLnkIbop6PvvIHmiqXku7fkuI3lkKvljZXmiL/lt67vvJroi6XkuqfnlJ/ljZXnlLfljZXlpbPmiJboh6rnhLbljZXpl7TmiJHnpL7mnInmnYPlronmjpLkuInkurrpl7TmiJbliqDluorvvIzmiJblrqLkurroh6rku5jljZXmiL/lt67jgILkuZ3lr6jotLnmrrXlpoLmuLjlrqLkuI3nlKjmiL/vvIzmiL/otLnkuI3pgIDvvIw8YnIgLz7nlKjppJDvvJo15pep6aSQNuato+mkkO+8jOaZmumkkOS4uumFkuW6l+Wll+mkkO+8jOaJgOWQq+aXqeaZmumkkOWdh+WcqOaJgOS9j+WuvummhueUqOmkkO+8jOWboOS5neWvqOaIv+mkkOWdh+S4uue7hOWQiOa2iOi0ue+8jOS7u+S4gOmhueWPlua2iOWdh+S4jemAgOi0ueOAguS5neWvqOayn+ayv+e6v+W9k+WcsOmlrumjn+S4jua4uOWuoumlrumjn+S5oOaDr+W3ruW8gui+g+Wkp++8jOmkkOmlruadoeS7tuaciemZkO+8jOWwveivt+a4uOWuouiwheino+W5tuWPr+iHquWkh+S6m+mbtumjn++8iOaWueS+v+mdouOAgeamqOiPnOetie+8iTxiciAvPumXqOelqO+8muaJgOWIl+aZr+eCuemmlumBk+Wkp+mXqOelqO+8jOinguWFiei9pu+8iOS4jeWQq+e0oumBk+WSjOWwj+mXqOelqO+8iTxiciAvPuacrOS6p+WTgeW3suWwhuebuOWFs+aZr+eCuei/m+ihjOS8mOaDoOaJk+WMheaKpeS7t++8jOWboOatpOS4jeWGjemHjeWkjeS6q+WPl+S8mOaDoO+8iOWMheWQq+iHquWKqOaUvuW8g++8ie+8m+aMgeWQhOexu+eJueauiuivgeS7tu+8iOWmgu+8muWGm+WumOivgeOAgeiusOiAheivgeOAgeiAgeW5tOivgeOAgeWtpueUn+ivgeOAgeaui+eWvuivgeetieS8mOaDoOivgeS7tu+8ie+8iOS5neWvqOayn+m7hOm+meautTvljYrku7flhajnqIvpgIA1MOWFgy/kurou5YWN56Wo5YWo56iL6YCAMTAw5YWDL+S6uu+8iSAgMS4x57Gz5Lul5LiL5YS/56ul5YWN6Zeo56Wo77yM5L2G6ZyA5aSn5Lq65bim6aKG6L+b5YWl5pmv5Yy644CCPGJyIC8+5a+85ri477ya6KGM56iL5YaF5a+85ri45LuF6LSf6LSj5peF5ri46ICF55qE5pel5bi457uE57uH5a6J5o6S77yM5rK/6YCU6K6y6Kej77yM6Zeu6aKY5aSE55CG77ybIDxiciAvPuihjOeoi+WGheWvvOa4uOS8muS7peWQjOWbouWkp+mDqOWIhuaXhea4uOiAheS9nOS4uueFp+mhvuWvueixoe+8jOWmgumcgOaMieeFp+iHquW3suaEj+aEv+a4uOiniO+8jOaIluS4jeaMieinhOWumuaXtumXtOWuieaOkueahO+8jOS4uumBv+WFjeWQjOWbouWFtuWug+aXhea4uOiAhemAoOaIkOS4jea7oe+8jOaIkeekvuS4jeS9nOS7u+S9leeJueauiuWuieaOkuOAgjxiciAvPueJueWIq+i1oOmAge+8mueJueiJsue+jOWvqOOAgeeJueiJsuiXj+WvqDxiciAvPu+8iOatpOmhueebruS4uui1oOmAgemhueebru+8jOaIkeekvumhu+aPkOWJjemihOWumu+8jOaVheWuouS6uuiHquaEv+aUvuW8g+aIluWboOeJueauiuWOn+WboOWPiuS4jeWPr+aKl+WKm+etieWOn+WboOaXoOazleWPguWKoCDotLnnlKjkuI3pgIDvvIzkuZ/kuI3kvZznrYnku7fkuqTmjaLvvIk8YnIgLz7kv53pmanvvJrml4XooYznpL7otKPku7vpmanjgIHku6PkubDml4XmuLjmhI/lpJbpmanvvIzogIHlubTkurrlsI/lranpnIDlrrblsZ7pmarlkIzlj4Llm6LvvIzkv53pmanlhazlj7jlr7kz5bKB5Lul5LiL5ZKMNzDlsoHku6XkuIrogIHlubTkurrkuI3lj5fnkIbvvIzlpoLopoHlj4Llm6Lpobvnrb7lrprlhY3otKPnlLPmmI7vvIzlubbkuJTmnInmraPluLjmiJDlubTkurrluKbpoobmlrnlj6/lj4Llm6LvvIzlpoLlm6DotoXpvoTlj4Llm6LvvIzouqvkvZPljp/lm6DnhafmiJDnmoTku7vkvZXmhI/lpJbvvIzkuI7miJHnpL7ml6DlhbPvvIzkuI3mib/mi4Xku7vkvZXotKPku7vjgII8YnIgLz5kAgEPZBYCZg8VAg/otLnnlKjkuI3ljIXlkKvxATxiciAvPuiHqui0uemhueebru+8mui1sOi/m+iXj+awkeWutuiuvzE4MOWFg+i1t+OAgeiXj+e+jOmjjuaDheaZmuS8mjE4MOWFg+KAlDI5MOWFgzxiciAvPum7hOm+mee0oumBk++8muS4iuihjOe0oumBkzgw5YWD77yM5LiL6KGM57Si6YGTNDDlhYM8YnIgLz7otK3nianpobnnm67vvJrlnJ/nibnkuqfnu7zlkIjotoXluILvvIjljIXlkKvvvJrniabniZvogonjgIHmsLTmmbbppbDlk4HjgIHol4/oja/mnZDvvIk8YnIgLz5kAgMPFgIfAAIBFgJmD2QWAmYPFQIM5Lqn5ZOB6K+05piOEue6v+S4i+ayn+mAmuS6pOa1gWQCBA8WAh8AAgEWAmYPZBYCZg8VAgznrb7or4Hkv6Hmga8AZAIFDxYCHwACARYCZg9kFgJmDxUCDOazqOaEj+S6i+mhuZ4/IOeJueWIq+ivtOaYjuWSjOazqOaEj+S6i+mhuTxiciAvPu+8iOS9nOS4uuaXhea4uOiAheS4juaXheihjOekvuaXhea4uOWQiOWQjOmZhOS7tueahOmHjeimgeWGheWuue+8jOaXhea4uOiAheetvuiuouWNj+iuruinhuS4uuWQjOaEj+S7peS4i+adoeasvu+8iTxiciAvPuOAkOaVo+WuouaOpemAgeOAke+8muivt+aCqOaMieaXheihjOekvuaMh+WumueahOWcsOeCueWSjOaXtumXtOmbhuWQiO+8jOe7n+S4gOS5mOi9puWHuuWPke+8jOeUseS6juWPguWbouS6uuWRmOWkmu+8jOWcsOeCueS4jeS4gO+8jOWHuuWPkeaXtumXtOWPiuiuoeWIkuWGhee6puWumuaXtumXtOacieS4gOWumueahOivr+W3ru+8jOivt+WuouS6uuiwheino+OAgiA8YnIgLz7jgJDkuqflk4Hor7TmmI7jgJHvvJrkuLrkv53pmpzmnKznur/ot6/kuqflk4HnmoTpobrliKnmiJDlm6LvvIzlnKjmgqjpooTorqLmiJDkuqTlkI7vvIzlpoLml6Dnibnmrorljp/lm6DvvIzkuI3lj6/mm7TmlLnjgIHlj5bmtojvvIzlkKbliJnlsIbmjInpgIDlm6Lor7TmmI7miafooYzvvJvmlaPlrqLmi7zlm6LmnInml7bkvJrlh7rnjrDljZXmrrXmjaLovabmjaLlr7zmuLjnmoTmg4XlhrXvvIzor7flrqLkurrosIXop6PjgILor7fms6jmhI/ooYznqIvkuK3nmoTmr4/kuIDmnaHmuKnppqjmj5DnpLrvvIzor7fms6jmhI/lkITmma/ljLrlvKDotLTnmoTmuLjop4jpobvnn6XjgILooYznqIvkuK3lgZzovabliqDmsLTjgIHkuIrljpXmiYDjgIHnlKjppJDlkI7jgIHkuIrovabliY3lnYfkuLroh6rnlLHmtLvliqjml7bpl7TvvIzoh6rnlLHmtLvliqjml7bpl7Tor7foh6rooYzotJ/otKPoh6rouqvkurrnlJ/lronlhajlj4rotKLkuqflronlhajvvJvol4/ljLrml4XmuLjvvIzor7fkv53mjIHkuZDop4Lmg4Xnu6rvvIzlpoLmnInlv4PnkIbotJ/mi4XkvJrliqDph43pq5jljp/lj43lupTvvIzlu7bnvJPkurrkvZPpgILlupTpq5jljp/msJTlgJnjgILooYznqIvlhYjlkI7pobrluo/lnKjlrp7pmYXmuLjop4jkuK3lj6/og73kvJrosIPmlbTvvIzkvYbmma/ngrnkuI3lh4/lsJHvvIzlhazkuqTkuqTpgJrlj4rmma/ljLrnmoTphY3lpZforr7mlr3orr7lpIfnmoTlrrnosozlj4rljavnlJ/nirblhrXkuI3lsZ7kuo7ml4XooYznpL7nmoTmnI3liqHotKjph4/ojIPnlbTvvIzlpoLmnInmhI/op4HmiJblu7rorq7lj6/lkJHnm7jlhbPkuLvnrqHpg6jpl6jlj43mmKDjgII8YnIgLz7jgJDkuI3lj6/mipflipvlhY3otKPor7TmmI7jgJHvvJrlpoLlm6DmgbbliqPlpKnmsJTjgIHpo57mnLrlu7bor6/jgIHoh6rnhLbngb7lrrPjgIHngavovablu7bor6/jgIHmsb3ovabloZ7ovabnrYnnrYnvvIzkuI3lj6/mipflipvljp/lm6DvvIzpgKDmiJDlm6LpmJ/ooYznqIvmm7TmlLnvvIzlu7bor6/jgIHmu57nlZnmiJbmj5DliY3nu5PmnZ/ml7bvvIzml4XooYznpL7kuI3mib/mi4XotKPku7vjgILlm6DmraTlj5HnlJ/nmoTotLnnlKjlop7lh4/vvIzmjInmnKrlj5HnlJ/otLnnlKjpgIDov5jmuLjlrqLvvIzotoXmlK/otLnnlKjnlLHmuLjlrqLmib/mi4Xlip7ms5XlpITnkIbjgII8YnIgLz7jgJDpgIDlm6Lor7TmmI7jgJE6IOa4uOWuouaKpeWQjeWQjuWboOaVheS4jeiDveWPguWKoOacrOasoeaXhea4uO+8jOWPr+iDveS8muWHuueOsOWmguS4i+aDheWGte+8muW+gOi/lOacuuelqOWFqOmineaNn+Wkse+8jOWPqumAgOacuuW7uu+8jOmDqOWIhuWcsOaOpei1lOWBv++8m+WHuuWPkeWQjuWmgumBh+eJueauiuaDheWGteS4remAlOmAgOWbou+8jOacquS6p+eUn+i0ueeUqO+8jOagueaNruaXheihjOekvuW6leS7t+i/m+ihjOmAgOi0ueOAgiDml4XmuLjmnJ/pl7TmuLjlrqLkuI3lvpfmk4Xoh6rnprvlm6LvvIzlpoLlm6DkuKrkurrljp/lm6Dnprvlm6LmiYDpgKDmiJDnmoTkurrouqvmhI/lpJblj4rotKLkuqfmjZ/lpLHvvIznlLHmuLjlrqLoh6rooYzmib/mi4XjgII8YnIgLz7jgJDnlKjovabor7TmmI7jgJHvvJrooYznqIvlhoXnlKjovabkuLrml4XmuLjlhazkuqTkuqTpgJrlt7Tlo6vvvIzmlaPlrqLmi7zlm6LlhajnqIvlj6/og73pnZ7lkIzkuIDlj7DovabvvJvlm6Dlu7bnur/mnInooYzovablhazph4zmlbDpmZDliLbmiJbpg6jliIbot6/mrrXnu7Tkv67vvIzmmJPlj5HnlJ/loLXovabvvIzlj5Hovabml7bpl7TlnYfovoPml6nvvIzooYznqIvlhoXmoIfms6jlh7rlj5Hlj4rooYzovabml7bpl7TlnYfkuLrpooTorqHvvIzlhbfkvZPmg4XlhrXnlaXmnInkuI3lkIzvvJvkuLrkv53or4HovabovobliLbliqjmgKfog73vvIzooYzovablu7bpgJTlnYfpnIDlgZzovabliqDmsLTvvJvooYznqIvlhoXmiYDmnInoh6rnlLHmtLvliqjmnJ/pl7Tlj4rooYznqIvlpJblnYfkuI3lkKvnlKjovabjgILor7fkuojku6XnkIbop6PjgILlm5vlt53ml4XmuLjovablnYfmjInmr4/kurrkuIDmraPluqfmj5DliY3kuIDlpKnlrprovabvvIzmoLnmja7lkIzlm6LkurrmlbDlronmjpLovablnovvvIznqbrosIPpmZDml7blvIDmlL7vvIjkuLvopoHkuonlr7nlnaHot6/kuIrooYzkuK3kuLrkv53or4HliqjlipvvvIzml6Dms5XlvIDmlL7vvIk8YnIgLz7jgJDkv53pmanor7TmmI7jgJHvvJrml4XooYznpL7lt7Lnu4/otK3kubDml4XooYznpL7otKPku7vpmanvvIzlu7rorq7muLjlrqLotK3kubDml4XmuLjkurrouqvkvKTlrrPmhI/lpJbpmanvvIzkuLroh6rlt7Hmj5DkvpvlhajmlrnkvY3nmoTkv53pmpzjgILml4XooYznpL7otKPku7vpmanmmK/ml4XooYznpL7mipXkv53vvIzkv53pmanlhazlj7jmib/kv53ml4XooYznpL7lnKjnu4Tnu4fml4XmuLjmtLvliqjov4fnqIvkuK3lm6Dnlo/lv73jgIHov4flpLHpgKDmiJDkuovmlYXmiYDlupTmib/mi4XnmoTms5XlvovotZTlgb/otKPku7vnmoTpmannp43jgILml4XmuLjkurrouqvmhI/lpJbkvKTlrrPpmako6K+35YWz5rOo5ZCE5L+d6Zmp5YWs5Y+45a+55LqO5oqV5L+d5ri45a6i5bm06b6E55qE6ZmQ5Yi277yM5a+55LqONzDlsoHku6XkuIrmuLjlrqLvvIzkv53pmanlhazlj7jkuIDoiKzmmK/kuI3mjqXlj5fmipXkv50p77yMIDcw5bKB5Lul5LiK6K+36Ieq6KGM5Yqe55CG5L+d6Zmp77yM5L+d6Zmp5YWs5Y+455qE6LWU5LuY6aKd5Li65pyA57uI6LWU5LuY77yM5peF6KGM56S+5LiN5YaN6L+b6KGM6LWU5YG/44CC5ri45a6i5bqU5L+d6K+B6Ieq6Lqr6Lqr5L2T5p2h5Lu26IO95aSf6aG65Yip5a6M5oiQ5peF5ri45rS75Yqo77yM5ri45a6i6Ieq6Lqr55a+55eF5LiN5Zyo5L+d6Zmp6LWU5LuY6IyD5Zu05LmL5YiX77yM55Sx6Ieq6Lqr55a+55eF5omA5Lqn55Sf5LiA5YiH6LS555So5Z2H6Ieq55CG77yM5LiA5YiH5ZCO5p6c5Z2H6Ieq5ouF77yM5peF6KGM56S+5Y+K5L+d6Zmp5YWs5Y+45Z2H5LiN5om/5ouF6LSj5Lu744CC5Zug6YGT6Lev5Lqk6YCa5LqL5pWF6YCg5oiQ5ri45a6i5Lq66Lqr5Y+K6LSi5Lqn5o2f5aSx77yM5bCG5L6d5o2u44CK6YGT6Lev5Lqk6YCa5LqL5pWF5aSE55CG5Yqe5rOV44CL6L+b6KGM6LWU5YG/77yM5oiR56S+57uZ5LqI5Y2P5Yqp44CC5ri45a6i5Zyo5peF5ri45rS75Yqo5Lit77yM5Y+R55Sf5oSP5aSW5Lyk5a6z5pe277yM5peF6KGM56S+5Y2P5Yqp5ri45a6i6IGU57uc5Yy755aX5py65p6E6L+b6KGM5pWR5rK75bm25ZCR5L+d6Zmp5YWs5Y+45oql5qGI77yM5ri45a6i5oiW5YW25a625bGe6Ieq6KGM57y05LuY5Yy755aX6LS555So77yM5Zug5ri45a6i5oiW5a625bGe5ouS5LuY5Yy755aX6LS555So6YCg5oiQ55qE5ZCE56eN5Lyk5a6z5ZKM6aOO6Zmp5peF6KGM56S+5LiN5om/5ouF6LSj5Lu7O+ayu+eWl+e7k+adn+WQju+8jOaXheihjOekvuWHuuWFt+ivgeaYjuWNj+WKqea4uOWuouWKnueQhuS/nemZqei1lOS7mOaJi+e7rTxiciAvPuOAkOWvvOa4uOacjeWKoeivtOaYjuOAke+8muW4uOinhOaVo+WuouaLvOWbou+8jOaXheihjOekvuWuieaOkumaj+i9puWvvOa4uOS4gOWQje+8jOaPkOS+m+ihjOeoi+ino+ivtOWPiuayv+mAlOmjn+Wuv+WuieaOkuWPiuayv+mAlOmjjuWcn+S6uuaDheS7i+e7jeacjeWKoe+8jOS4jemZquWQjOWuouS6uui/m+WFpeacieiusuino+WRmOaIluWxnuS6juiHqueEtumjjuaZr+inguWFieeahOaXhea4uOaZr+WMuuOAgjxiciAvPuOAkOWBpeW6t+ivtOaYjuOAke+8muacrOasoemVv+mAlOaXheihjO+8jOaXtumXtOmVv+OAgea4qeW3ruWkp+OAgemDqOWIhuWcsOWMuua1t+aLlOmrmO+8jOaKpeWQjeWJjeivt+S7lOe7humYheivu+ebuOWFs+azqOaEj+S6i+mhueOAgua4uOWuouWcqOWFheWIhuS6huino+aXhemAlOeahOi+m+iLpuWSjOihjOeoi+S4reWMu+eWl+adoeS7tuaciemZkOeahOWJjeaPkOS4i++8jOehruWumuiHquW3seeahOi6q+S9k+WBpeW6t+eKtuWGtemAguWQiOWPguWKoOacrOasoeaXhea4uOa0u+WKqOWQjuaWueWPr+aKpeWQjeWPguWbouOAguWboOS4quS6uuaXouacieeXheWPsuWSjOi6q+S9k+aui+manOWcqOaXhea4uOihjOeoi+S4reW8lei1t+eahOeWvueXhei/m+S4gOatpeWPkeS9nOWSjOS8pOS6oe+8jOaXheihjOekvuS4jeaJv+aLheS7u+S9lei0o+S7u++8jOeOsOacieeahOS/nemZqeWFrOWPuOi0o+S7u+mZqeWSjOaEj+WklumZqeadoeasvuS4re+8jOatpOenjeaDheWGteS5n+WIl+WFpeS/nemZqeWFrOWPuOeahOWFjei1lOiMg+WbtOOAguaXheihjOekvuS4uumdnuWBpeW6t+WMu+eWl+S4k+S4muWSqOivouacuuaehO+8jOaXoOazleWIpOWumua4uOWuoueahOi6q+S9k+WBpeW6t+eKtuWGteaYr+WQpumAguWQiOWPguWKoOacrOasoeaXhea4uOa0u+WKqO+8jOa4uOWuouWcqOaXheihjOekvuetvuiuouaXhea4uOWQiOWQjO+8jOWNs+inhuS4uua4uOWuouW3sue7j+S6huino+acrOasoeaXheihjOeahOi+m+iLpueoi+W6puWSjOihjOeoi+S4reWMu+eWl+adoeS7tuaciemZkOeahOWJjeaPkO+8jOW5tuW+geW+l+S4k+S4muWMu+eUn+eahOWQjOaEj+OAguKRoOaKpeWQjeaXtuaXhea4uOiAheW6lOehruS/nei6q+S9k+WBpeW6t++8jOS/neivgeiHqui6q+adoeS7tuiDveWkn+WujOaIkOaXhea4uOa0u+WKqO+8jOi6q+S9k+WBpeW6t+eKtuWGteS4jeS9s+iAhe+8jOivt+WSqOivouWMu+eUn+aYr+WQpuWPr+S7peWPguWKoOacrOasoeaXhea4uOa0u+WKqO+8jOagueaNruiHqui6q+aDheWGteWkh+WlveW4uOeUqOiNr+WSjOaApeaVkeiNr+WTge+8jOWboOiHqui6q+eWvueXheiAjOW8lei1t+eahOWQjuaenO+8jOa4uOWuouiHquihjOaJv+aLhei0o+S7uzvlh7rlm6LliY3muLjlrqLpobvnrb7lrZfnoa7orqTjgIrml4XmuLjogIXlgaXlurfnirblhrXnoa7orqTkuabjgIs74pGh5ri45a6i5Ye6546w5oCl55eH6K+35Li75Yqo6YCa55+l5bel5L2c5Lq65ZGY77yM5peF6KGM56S+5bCG5Y2P5Yqp5ri45a6i5bCx6L+b6YCB5b6A5b2T5Zyw5Yy755aX5py65p6E5qOA5p+l5rK755aXO+KRouacieWQrOWKm+OAgeinhuWKm+manOeijeeahOa4uOWuoumhu+acieWBpeW6t+aXheS8tOmZquWQjOaWueWPr+WPguWbojvkuKrkurrmnInnsr7npZ7nlr7nl4Xlkozml6DooYzkuLrmjqfliLbog73lipvnmoTkuI3og73miqXlkI3lj4Llm6LvvJvikaPmnInlv4PjgIHogrrjgIHohJHlkozooYDmtrLns7vnu5/nlr7nl4XmgqPogIXku6Xlj4rlhbblroPkuI3pgILlkIjplb/pgJTnlrLlirPnmoTkurrnvqTku6Xlj4o3MOWygeS7peS4iuiAgeS6uu+8jOS4jeWunOaKpeWQjeWPguWKoOaXheihjOekvuWbouOAguS4uuS6huS9oOeahOWuieWFqOivt+WLv+makOeekueXheaDhe+8jOS9oOWPr+WPpuaLqeWFtuWug+e6v+i3ryjlpoLpmpDnnpLnl4Xmg4Ug5ZCO5p6c6Ieq6LSfKeOAgjxiciAvPuOAkOWuieWFqOivtOaYjuOAke+8muKRoOaXheihjOekvueahOWvvOa4uOS6uuWRmOWSjOWFtuS7luW3peS9nOS6uuWRmOaXoOazleS4uua4uOWuouaPkOS+m+S4gOWvueS4gOeahOacjeWKoe+8jOaXheihjOekvuW3peS9nOS6uuWRmOWcqOaOpeW+hea4uOWuouaKpeWQjeaXtuW3sue7j+WFheWIhuWRiuefpeacrOihjOeoi+S4reeahOazqOaEj+S6i+mhueWSjOWvuea4uOWuoui6q+S9k+WBpeW6t+eahOimgeaxgu+8jOaXhea4uOa0u+WKqOS4rea4uOWuouW/hemhu+azqOaEj+iHqui6q+WuieWFqOWSjOmaj+ihjOacquaIkOW5tOS6uueahOWuieWFqO+8jOS/neeuoeWlveS4quS6uui0ouWKoe+8jOi0temHjeeJqeWTgemaj+i6q+aQuuW4puOAguKRoeaZr+WMuuaJgOWcqOWcsOWMuuS4uuiXj+e+jOetieWwkeaVsOawkeaXj+iBmuWxheWMuu+8jOWcqOaXhea4uOS4reivt+WwiumHjeW9k+WcsOWwkeaVsOawkeaXj+eahOWul+aVmeS/oeS7sOWSjOawkeS/l+mjjuaDhe+8m+S4uuS6huaCqOeahOWuieWFqO+8jOivt+WFpeWknOWQjumBv+WFjeWNleeLrOWHuuihjO+8jOS4quWIq+aAneaDs+W8gOaUvuiAheivt+S4jeimgeWcqOaZr+WMuuacieaJgOS9nOS4uuS7peWFjemAoOaIkOS4jeW/heimgeeahOmHjeWkp+aNn+Wkse+8geiHqueUsea0u+WKqOacn+mXtO+8jOivt+azqOaEj+S/neaKpOiHqui6q+S6uueUn+WuieWFqOWPiui0oueJqeWuieWFqO+8jOi/h+mprOi3r+ivt+Wwj+W/g++8m+KRouayv+mAlOWBnOi9puWKoOawtOaIluS4iuWOleaJgOetieS7u+S9leS4gOS4quWBnOeVmeWcsOeCue+8jOivt+S9oOS4iuS4i+i9puazqOaEj+iEmuS4i+OAgeWktOmhtuWPiuWRqOi+ueWuieWFqO+8jOS4jeimgeWcqOaxvei9pumBk+WFrOi3r+i+ueW0lui+uea0u+WKqOWBnOeVme+8jOayv+mAlOS4iuWOleaJgOWkp+mDqOS7vemDveacieW9k+WcsOS6uuaUtui0ue+8jOivt+S4u+WKqOS7mOi0ue+8jOS4jeimgeS4juW9k+WcsOS6uuWPkeeUn+aXoOiwk+eahOS6ieWQte+8mzxiciAvPuOAkOacquaIkOW5tOS6uuS/neaKpOivtOaYjuOAke+8muaXheihjOekvuS4jeaOpeWPl+acqua7oeWNgeWFq+WRqOWygeOAgeS4jeWFt+Wkh+WujOWFqOawkeS6i+ihjOS4uuiDveWKm+eahOacquaIkOW5tOS6uuWNleeLrOWPguWbouOAguacquaIkOW5tOS6uuW/hemhu+acieaIkOW5tOS6uumZquS8tOaWueWPr+WPguWbou+8jOS4gOi1t+aKpeWQjeWPguWboueahOaIkOS6uuWNs+S4uuWFtuWPguWboui/h+eoi+S4reeahOebkeaKpOS6uu+8jOaciei0o+S7u+WSjOS5ieWKoeWBmuWlveacquaIkOW5tOS6uueahOWuieWFqOmYsuiMg+W3peS9nOOAgjxiciAvPuOAkOawlOWAmeivtOaYjuOAke+8muS5neWvqOayn+S4uumrmOWxseawlOWAme+8jOimgeaciei2s+Wkn+eahOW+oeWvkuiho+eJqe+8jOmcgOWHhuWkh+mVv+iiluiho+ijpOOAgee+iuavm+ihq+OAgeWkueWFi+ihq++8jOWNs+S9v+aYr+Wkj+Wto+S5n+aXqeaZmuWHieOAgeS4reWNiOeDre+8jOWboOatpOimgeazqOaEj+S/neaalu+8jOeJueWIq+mihOmYsuaEn+WGkuWSjOS4iuWRvOWQuOmBk+aEn+afk+OAguaZr+WMuuaXpeeFp+W8uu+8jOe0q+Wklue6v+W8uuOAgueJn+WwvOaynyjpu4Tpvpkp5pmv5Yy65rW35ouUNDA3MC0yODAw57GzIOmDqOWIhua4uOWuouWPr+iDveaciei9u+W+rumrmOWOn+WPjeW6lO+8jOivt+iHquWkh+aKl+mrmOWOn+WPjeW6lOeahOiNr+eJqeaIluawp+awlOOAguS5neWvqOayn+WPo+a1t+aLlOe6pjE5MDDnsbPvvIzmsp/lhoXmtbfmi5TmnIDpq5jngrnplb/mtbczMTAw57Gz77yM5aSn5aSa5pWw5ri45a6i5rKh5pyJ6auY5Y6f5Y+N5bqU77yM6K+35pS+5b+D5ri4546p44CCPGJyIC8+44CQ6LSt54mp5ZKM6Ieq6LS55ri46KeI5rS75Yqo6K+05piO44CR77ya5Lmd5a+o5rK/57q/44CB6JeP5a+o44CB576M5a+o44CB6aSQ5Y6F44CB6YWS5bqX5ZKM5rK/6YCU5YGc55WZ55qE56uZ54K5562J5Zy65omA5Z2H5pyJ57qq5b+15ZOB5ZSu5Y2W54K544CB5rOV54mp5rWB6YCa5aSE44CB57qi5pmv5aSp5Y+K5b6h5a+S6KGj5pyN562J5ZSu5Y2W54K577yM6K+35ri45a6i5rOo5oSP5YWs5YWx5Zy65omA5Ye6546w5q2k57G75oOF5Ya15bGe5ZCE5Zy65omA6Ieq6KGM5ZWG5Lia6KGM5Li677yM5LiN5bGe5LqO6LSt54mp5bqX6IyD5Zu044CC5b2T5Zyw5bGF5rCR6LSp5Y2W57qq5b+15ZOB44CB5Zyf54m55Lqn77yM5Lmf6Z2e5peF6KGM56S+5o+Q5L6b5pyN5Yqh77yM6LSt5Lmw5pe26K+35ri45a6i6Ieq6KGM6L6o5Yir55yf5Lyq77yM6LCo5oWO6LSt5Lmw77yM5Lul5YWN5LiK5b2TPGJyIC8+ZGRic6OeI+od4lBjj6Mx+lBS4jBYxb3Z7sitm1U7MZhrvg==" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="05E0F5E4" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAJT8cLTzkMjnu3Vf5hPtMbMrveqzCBhJbvTzdPgaQJjSipBkkQbfPk7X1kcYoKLIZNpk1B6tJhezXO0bGyfpCll" />
+</div>
+        <img src="image/logo-img1.png" tppabs="http://m.jx516.com/image/logo-img1.png" alt="" style="width:0px;height:0px;" />
+        
+            <div id="loading">
+     	        <div class="spinner">
+  			        <div class="double-bounce1"></div>
+  			        <div class="double-bounce2"></div>
+		        </div>
+	        </div>
+        
+        
+    <div id="Mcont" class="Maincontent">
+        <!--头部-->
+        <div class="head" id="head">
+            <a href="javascript:history.go(-1);"><span class="head-return" style="width: 10%;">
+                <img src="image/return.jpg" tppabs="http://m.jx516.com/image/return.jpg" style="width: 30px; height: 30px;" alt="" /></span></a>
+            <span class="head-tit" style="width: 75%;">产品信息</span>
+            <a href="Index.aspx.htm" tppabs="http://m.jx516.com/Index.aspx" style="color:#fff;text-decoration:none;"><span style="width: 10%; font-size: 16px;">首页</span></a>
+        </div>
+
+        <!--可用连图-->
+        <div style="width:100%;height:auto;float:left;">
+            <img onerror="func(this,0,1)" src="../image.jx516.com/product/pcphoto/5840_1.jpg" tppabs="http://image.jx516.com/product/pcphoto/5840_1.jpg" style="width: 100%; height: 150px;" alt="" />
+        </div>
+        
+        <script type="text/javascript">
+            $(".slideBox").slide({ mainCell: ".bd ul", effect: "fold", autoPlay: true, touch: "touchSlider" });
+        </script>
+
+        <div class="detail-tit" style="border-bottom: 1px solid #ccc;">
+            <div>【玩美藏羌】成都 九寨沟 黄龙 特色藏寨 古羌城双飞6日（A1特价）</div>
+            <div style="color:#898989;">出发地：天津&nbsp;&nbsp;&nbsp;&nbsp;区域：</div>
+        </div>
+        <div class="detail-tit-sign">
+            <div class="detail-sign-left" style="width:36%;">产品编号：5840</div>
+            <div class="detail-sign-left" style="width:25%;text-align: center;">&nbsp;</div>
+            <div class="detail-sign-left" style="width: 33%;height:2em; padding: 4px;background: #f00; border-radius: 5px;">
+                <div style="background: #fff; color: #f00;width:8%;height:2em; padding: 3px; border-top-left-radius: 3px; border-bottom-left-radius: 3px; line-height: 1em; font-size: 10px; float: left;">
+                    <span style="float: left;">预</span><br />
+                    <span style="float: left;">定</span>
+                </div>
+                <div class="detail-money-left" style="height:2em;color: #fff;"><b style="font-weight: 500; font-size: 10px; padding-left: 5px;">￥</b>售罄</div>
+            </div>
+        </div>
+        <div style="float: left; width: 100%; height: .3em; background: #F1F1F1; border-top: 1px solid #ccc;"></div>
+        <!--团期价格-->
+       
+        <div class="detail-time" onclick="GetPost()">
+            <div class="detail-time-tit">
+                <span style="padding-top:6px;padding-right:5px;"><img src="Image/det-time.png" tppabs="http://m.jx516.com/Image/det-time.png" style="width:30px;height:30px;"/></span>
+                <span>团期/价格</span>
+            </div>
+            <div class="detail-time-cont"><span>></span><span style="padding: 0 5px;"></span></div>
+        </div>
+
+        <div style="float: left; width: 100%; height: .3em; background: #F1F1F1; border-top: 1px solid #ccc;"></div>
+
+        <!--选择日期,暂时隐藏-->
+        <div style="display: none;">
+            <div class="detail-choose" id="showChoose">
+                <span style="font-weight: bold; padding-left: 5px;">立即预定</span>
+                <span style="margin-right: 10px;" id="showbtn"></span>
+                <span id="hidebtn" style="display: none; margin-right: 10px;"></span>
+            </div>
+            <div class="detail-choose-hide" id="hidechoose">
+                <div style="width: 100%; float: left; line-height: 2em; font-size: 14px;">请选择日期</div>
+                
+                <div class="detail-date">
+                    
+                    <select name="ctl00$ContentPlaceHolder1$dpl_groupDate" id="dpl_groupDate" class="order-input" onchange="updatePeople()">
+	<option value="-1">请选择团期</option>
+
+</select>
+                </div>
+                <div class="detail-pep" id="div_showPeopleCount"></div>
+                <div style="width: 100%; float: left; line-height: 2em; font-size: 14px;">请选择人数</div>
+                <div style="width: 100%; float: left; line-height: 2em; font-size: 14px;">
+                    <div class="detail-pep">成人：</div>
+                    <div class="detail-input">
+                        <select class="detail-input" id="dpl_adultsNum" onchange="calcMoney()">
+                            <option value="1">1</option>
+                            <option value="2" selected="selected">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                    </div>
+                    <div class="detail-pep" style="padding-left: 20px;">儿童：</div>
+                    <div class="detail-input">
+                        <select class="detail-input" id="dpl_childNum" onchange="calcMoney()">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="choose-money">
+                    <div class="choose-moneyLeft" id="div_showAllMoney">--</div>
+                    <div class="choose-moneyRight" onclick="order()">开始预订</div>
+                </div>
+            </div>
+        </div>
+        <!--线路特色-->
+        <div id="Msg">
+            <div id="pordAttr" class="detail-line">
+                <ul>
+                    <li id="line1" onclick="setTab(1)" style="border-right: 1px solid #ccc;border-bottom:3px solid  #3db4ff; ">行程介绍</li>
+                    <li id="line2" onclick="setTab(2)" style="border-right: 1px solid #ccc;">费用说明</li>
+                    <li id="line3" onclick="setTab(3)">线路特色</li>
+                </ul>
+            </div>
+            <div class="line-cont">
+                <div class="line-cont-one" id="cont1">
+                    <div id="showDay">
+                        <p style="color:#3EB4FD;">
+                            <span style="color:#3EB4FD;padding-right:10px;">第1天</span>
+                            <span style="color:#3EB4FD;padding-right:10px;">出发地：</span>
+                            <span style="color:#3EB4FD;padding-right:10px;">目的地：</span>
+                        </p>
+                        <p>
+                            <span style="color:#3EB4FD;padding-right:10px;">住宿信息：成都 </span>
+                        </p>
+                        <p style="color: #3EB4FD;border-bottom:1px solid #ccc;">详细信息</p>
+                        <p>
+                            行程安排：天津滨海国际机场，根据航班起飞前120分钟抵达天津滨海机场，自行办理登机手续，乘航班飞往成都，抵达后，师傅（无导游）接机，送您前往酒店，之后您自由活动。<br />行程小贴士<br />1. 请您务必持有效证件出行，留下您在四川旅行期间的联系手机号，并手机保持畅通；接机师傅在航班降落后以顺序联系，未及时通知到您时，请主动联系师傅。<br />2.第二天出发时间较早(05:30-06:00) 师傅会在当天晚上22:00左右短信或电话与您联系，确认第二天早上接您的时间和地点，请务必保持手机畅通，准时在与师傅约定的地点汇合上车，然后将您安全送至集合发车点，未及时通知到您时，请主动联系成都散客应急人游顺利（出团单上有联系方式）。请自行提前通知酒店为您次日提供路餐作为早餐，<br />早上到前台处自行领取。         <br />
+                        </p>
+                    </div>
+                    <div id="hide_1" class="a" style="display: none;">
+                        
+                                <div>
+                                    <p style="color: #3db4ff;">
+                                        第2天
+                                    </p>
+                                    <p>
+                                        <br />行程安排：1：早起酒店前台自行领取路早后，由师傅接至指定地点集合统一出发。<br />          2：导游致欢迎词后前往叠溪海子（经都江堰，汶川）<br />          3：叠溪海子午餐 （羌山地主宴），并稍作休息<br />          4：之后游览松潘古城（不含上城墙费用），车观岷江源头、甲蕃古城等景点<br />          5：前往九寨沟观赏藏羌风情晚会（180元—290元自理），随后入住酒店。<br />景点介绍<br />藏羌风情晚会：九寨沟的藏羌民俗表演由来已久，表演内容包括，藏族歌舞、藏族传统活动表演、藏羌传统服饰展示等，演员还会与游客有非常热烈、欢快的互动，可以说去九寨沟旅游不去此地领略一番藏、羌文化神秘魅力，那你的九寨沟之行是绝对不完整的（180元—290元自理）<br />松潘古城：唐朝时，吐蕃首领松赞干布派者前往长安求婚。使者路过松州，被州古镇官扣押，松赞干布大怒，亲率大兵二十万人入侵，唐都督韩咸战败，唐太宗命吏部尚书统军抵达松州，经川主寺一役，唐军大胜。松赞干布返藏后又遣拾使臣送黄金以求通婚和好，太宗晓以大义，将文成：公主嫁与松赞干布，传为千古佳话（如若上城墙，则需自理门票80-150元/人）<br />行程小贴士<br />1.因其特殊的气候条件，酒店内部有潮湿的现象，如对住宿要求较高的您，建议升级标准。<br />2.成都至九寨沟的路程较远，大部分为山路，如您晕车，请务必携带晕车药。沿途车辆较多，有可能会堵车，导致用餐和入住时间较晚，敬请理解。<br />3.九寨沟属于藏区，住宿酒店大部分会限时供应热水，热水一般为晚２1点至23点间供应，沿线提倡绿色环保，酒店不提供一次性洗漱用品，烦请自备。当地用餐蔬菜较少，且口味不是很好，建议客人自带些干粮或零食。<br />4.松潘古城属于额外赠送项目，旅行社有权临时取消该赠送，如无前往，敬请谅解<br />
+							    住宿：九寨沟 </p>
+                                </div>
+                            
+                                <div>
+                                    <p style="color: #3db4ff;">
+                                        第3天
+                                    </p>
+                                    <p>
+                                        行程安排：1：早餐后乘坐旅游巴士前往景区停车场，步行前往景区大门口<br />      2：抵达沟口换领门票后进入景区（游览时间约8小时）<br />      3：乘坐观光车游览树正沟，日则沟，则查洼沟。翠海，叠瀑，雪峰，彩林等景点。<br />         4：中午至诺日朗餐厅享用自助午餐（自费：60元/人起）<br />         5：约17：00景区参加走进藏家家访晚会（150元起自理）<br />      6：结束后返回酒店休息<br />景点介绍<br />九寨沟风景区：人间仙境、童话世界―【九寨沟世界自然遗产】由翠海、叠瀑、雪峰、彩林、藏族风情构成。欣赏到出树正群海、长海、五彩池、珍珠滩、五花海、箭竹海、熊猫海、珍珠滩瀑布、熊猫海瀑布、若日朗瀑布、树正瀑布等绝世美景。九寨沟景观分布于树正沟、日则沟、则查洼沟三条呈”丫”字形的沟内。景区内共有一百多个高山湖泊及数十处高低不一的流泉飞瀑等景观。最美最奇特的是九寨沟的水，清冽透底，变幻无穷。在阳光的折射和反射下呈现五彩斑斓的色彩，让您细细体味“黄山归来不看山，九寨归来不看水”的意境（此日午餐不含，请自带零食或自行前往九寨沟唯一的餐厅诺日朗餐厅用餐，用餐比较简单，而且会影响您的游览时间，建议您自带干粮进沟）。<br />九寨沟内推荐游览路线：沟口乘车---箭竹海观倒影走栈道或乘车---熊猫海乘车---五花海乘车---珍珠滩走栈道看完瀑布后走栈道至镜海停车场乘车---诺日朗旅游服务中心乘车---长海步行---五彩池乘车---诺日朗瀑布乘车---老虎海走栈道---树正瀑布、水磨房步行至树正群海走栈道---火花海乘车---芦苇海乘车---盆景滩乘车---宝镜岩乘车---出沟。<br />走进藏家家访：让您身临其境了解藏族的房屋建筑、宗教文化、饮食特色及歌舞元素，能品尝到手抓羊肉、青稞酒、烤牛肉、酥油茶、野菜等等，能欣赏到藏族小伙和姑娘的天籁歌声和美妙舞姿。感受到锅庄欢腾的气氛，让你留连忘返（150元起自理）<br />行程小贴士<br />1.九寨沟分为三条沟，单程35公里，沟内每个景点都有一个观光车上下的车站，凭观光车票（报价已含）当日可在任一站点自由换乘，每辆观光车都有讲解导游。游览景区内三条沟的先后顺序，完全根据观光车调度人员临时安排分沟游览，这样也能更好的分散游客，让您在拍照的时候舒心一些。观光车一般是到每条沟最高景点下车，然后往下边走边游览。<br />2.九寨沟区最佳的游览方式还是自由活动，乘坐的观光车运行方式和城里的公交车是一样的，因此导游也无法全程陪同。<br />3.九寨沟天气变化频繁；请备好保暖衣物、雨伞、防晒霜，太阳镜等物品；可自备感冒药、治腹泻和创口贴等药品。<br />4.九寨景区禁止吸烟，有吸烟习惯的客人请忍耐，或是到专门的吸烟区，否则会受到高额罚款。九寨沟是世界自然遗产，爱它您就保护它。<br />
+							    住宿： </p>
+                                </div>
+                            
+                                <div>
+                                    <p style="color: #3db4ff;">
+                                        第4天
+                                    </p>
+                                    <p>
+                                        <br />行程安排：1：早餐后乘车（旅游巴士）由酒店出发。<br />          2：游览特色藏寨（赠送，游览时间约1.5小时）<br />          3：川主寺镇参观土特产综合超市，购买一些当地特色产品馈赠亲戚朋友（约90分钟）<br />4：前往黄龙风景区游览（游览时间3--4小时）<br />特别说明：如因天气或路阻等人力不可抗拒因素不能去黄龙，退优惠后门票差价100元<br />5：抵达川主寺或茂县，入住酒店。<br />景点介绍<br />特色藏寨：这里是藏民族聚居村寨，边远之地还保留国内少有的一妻多夫的婚姻制度。这里五色经幡如祥云般缭绕在山间，美丽的草原醉人心脾，静谧和谐的藏族小村庄静卧在蓝天下。具有自然人文景观优美、民俗风情纯朴和民族宗教文化浓郁等特色。此景区中有部分售卖银器等当地特色物件，非旅行社安排购物店，您可以自行选择。<br />黄龙景区：人间瑶池”美誉的黄龙景区。因海拔较高，黄龙沟的数千个钙华彩池形态各异，流光泛彩，长达2500米的钙华流是世界之最。沿途主要景点有洗身洞、金沙铺地、盆景池、黄龙洞、黄龙寺、石塔镇海、五彩池、转花玉池等。游览时请量力而行 (约3-4小时 黄龙索道价格为：上行80元/人次，下行40元/人次 自理)<br />行程小贴士<br />A.游览黄龙推荐采用以下二种方式：<br />（1）推荐：选择乘索道上行（索道费用自理，上行80，下行40），索道将游客送至与最高点五彩池景区海拔持平的地方，走平路（栈道）2900米到达黄龙主景区五彩池，游览后沿下山栈道，一路观看黄龙景点。返回黄龙景区大门口。<br />（2）步行沿上山栈道上、下山栈道，往返8.5KM，均为山路，海拔3010米-3930米请量力而行。<br />B.特别说明：特色藏寨、藏族特色风情街或沿涂停留休息的站点和餐厅附近均有当地居民摆摊贩卖土特产中药材手工艺品等，景区设立，与旅行社无关，请客人理智消费，谨慎购买，自愿行为，旅行社不承担责任<br />
+							    住宿：茂县 </p>
+                                </div>
+                            
+                                <div>
+                                    <p style="color: #3db4ff;">
+                                        第5天
+                                    </p>
+                                    <p>
+                                        行程安排：1：早餐后乘车（旅游巴士）从酒店出发。<br />          2：游览中国古羌城，时间来得及的情况下，可观看到古老的开城仪式（游览时间约1.5小时）然后前往丝绸博物馆<br />          3：中餐指定餐厅用餐，并稍作休息。<br />          4：导游根据当天情况，选择是否赠送5.12映秀地震遗址（如无前往敬请理解）<br />          5：结束后返回成都，入住酒店。<br />景点介绍<br />中国古羌城：中国最大的羌族核心聚居地和羌文化核心保护区，是古蜀文明的重要发祥地和中国羌族历史文化旅游目的地，是享誉中外的中国羌都。其保持羌族原有的建筑风 貌、民风民俗、祭祀礼仪，充分体现羌文化的原生态环境和羌民族的生息特点，是中国乃至世界的羌族文化活态展示、展演区及文化休闲、 体验旅游目的地。<br />5.12映秀地震遗址：带您身临其境感受四川的人文，缅怀英雄，为死去的同胞祈福，感受灾后人民的生活环境，体会四川人民的坚强乐观。天灾并没有带走我们对生活的追求和希望，让我们更加坚强，让我们更能勇敢面对生活中的挑战。<br />行程小贴士<br />中国古羌城内有当地居民摆摊贩卖土特产中药材、羌绣、丝绸、藏银等手工艺品等，景区设立，与旅行社无关，请客人理智消费，谨慎购买，自愿行为，旅行社不承担责任。<br />
+							    住宿：成都 </p>
+                                </div>
+                            
+                                <div>
+                                    <p style="color: #3db4ff;">
+                                        第6天
+                                    </p>
+                                    <p>
+                                        行程安排：今日自由活动，您可闲逛一下成都，宽窄巷子、锦里、春熙路，体验成都的历史文化，搜罗成都的美食。送机师傅会和您约好送机时间，请您掌控好，以免误机。结束愉快之旅！！<br />行程小贴士<br />酒店是12:00前退房，请仔细整理好自己的行李物品，不要有所遗漏。（如果您是搭乘早班机飞回出发地，有可能会遇到酒店早餐未到开餐时间，无法安排早餐，敬请谅解！）<br />
+							    住宿： </p>
+                                </div>
+                            
+                    </div>
+                    <p style="padding:.5em 0;">
+                        <span style="width:100%;line-height:3em;border-radius:3px;text-align:center;color:#fff;font-size:14px;background:#3db4ff; cursor:pointer;" id="open_1">展开∨</span>
+                        <span style="width:100%;line-height:3em;border-radius:3px;text-align:center;color:#fff;font-size:14px;background:#3db4ff;cursor:pointer;display:none;" id="clos_1">收起∧</span>
+                    </p>
+                </div>
+                <div style="display:none;" class="line-cont-one" id="cont2">
+                    <div style="color: #3db4ff; font-weight: bold; font-size: 16px; padding-bottom: 5px;">费用说明</div>
+                    <div>
+                        
+                                <div class="lines_xclist">
+                                    费用包含
+                                    交通：天津成都往返大交通，不含机建燃油税（100元）<br />特别注明：机票属于特价机票，一旦出票，不签不改不退票，退票全部损失<br />用车：当地空调旅游车，1人1正座，确保车况良好，以保证您的舒适（机场接送除外）；（在成都段的接送，小型面包车，无导游）<br />住宿：全程入住经济型双人标准间，景区酒店环保，不提供一次性洗漱用品，请客人提前自备，高原地区，酒店定时供应热水，均使用电热毯。请游客理解！报价不含单房差：若产生单男单女或自然单间我社有权安排三人间或加床，或客人自付单房差。九寨费段如游客不用房，房费不退，<br />用餐：5早餐6正餐，晚餐为酒店套餐，所含早晚餐均在所住宾馆用餐，因九寨房餐均为组合消费，任一项取消均不退费。九寨沟沿线当地饮食与游客饮食习惯差异较大，餐饮条件有限，尽请游客谅解并可自备些零食（方便面、榨菜等）<br />门票：所列景点首道大门票，观光车（不含索道和小门票）<br />本产品已将相关景点进行优惠打包报价，因此不再重复享受优惠（包含自动放弃）；持各类特殊证件（如：军官证、记者证、老年证、学生证、残疾证等优惠证件）（九寨沟黄龙段;半价全程退50元/人.免票全程退100元/人）  1.1米以下儿童免门票，但需大人带领进入景区。<br />导游：行程内导游仅负责旅游者的日常组织安排，沿途讲解，问题处理； <br />行程内导游会以同团大部分旅游者作为照顾对象，如需按照自已意愿游览，或不按规定时间安排的，为避免同团其它旅游者造成不满，我社不作任何特殊安排。<br />特别赠送：特色羌寨、特色藏寨<br />（此项目为赠送项目，我社须提前预定，故客人自愿放弃或因特殊原因及不可抗力等原因无法参加 费用不退，也不作等价交换）<br />保险：旅行社责任险、代买旅游意外险，老年人小孩需家属陪同参团，保险公司对3岁以下和70岁以上老年人不受理，如要参团须签定免责申明，并且有正常成年人带领方可参团，如因超龄参团，身体原因照成的任何意外，与我社无关，不承担任何责任。<br />
+                                    <br />
+                                </div>
+                            
+                                <div class="lines_xclist">
+                                    费用不包含
+                                    <br />自费项目：走进藏民家访180元起、藏羌风情晚会180元—290元<br />黄龙索道：上行索道80元，下行索道40元<br />购物项目：土特产综合超市（包含：牦牛肉、水晶饰品、藏药材）<br />
+                                    <br />
+                                </div>
+                            
+                    </div>
+                    <div>
+                        <br />
+                        <hr />
+                    </div>
+                    <div>
+                        
+                                <div class="lines_xclist">
+                                    产品说明
+                                    线下沟通交流
+                                    <br />
+                                </div>
+                            
+                    </div>
+                    <div>
+                        <br />
+                        <hr />
+                    </div>
+                    <div>
+                        
+                                <div class="lines_xclist">
+                                    签证信息
+                                    
+                                    <br />
+                                </div>
+                            
+                    </div>
+                    <div>
+                        <br />
+                        <hr />
+                    </div>
+                    <div>
+                        
+                                <div class="lines_xclist">
+                                    注意事项
+                                     特别说明和注意事项<br />（作为旅游者与旅行社旅游合同附件的重要内容，旅游者签订协议视为同意以下条款）<br />【散客接送】：请您按旅行社指定的地点和时间集合，统一乘车出发，由于参团人员多，地点不一，出发时间及计划内约定时间有一定的误差，请客人谅解。 <br />【产品说明】：为保障本线路产品的顺利成团，在您预订成交后，如无特殊原因，不可更改、取消，否则将按退团说明执行；散客拼团有时会出现单段换车换导游的情况，请客人谅解。请注意行程中的每一条温馨提示，请注意各景区张贴的游览须知。行程中停车加水、上厕所、用餐后、上车前均为自由活动时间，自由活动时间请自行负责自身人生安全及财产安全；藏区旅游，请保持乐观情绪，如有心理负担会加重高原反应，延缓人体适应高原气候。行程先后顺序在实际游览中可能会调整，但景点不减少，公交交通及景区的配套设施设备的容貌及卫生状况不属于旅行社的服务质量范畴，如有意见或建议可向相关主管部门反映。<br />【不可抗力免责说明】：如因恶劣天气、飞机延误、自然灾害、火车延误、汽车塞车等等，不可抗力原因，造成团队行程更改，延误、滞留或提前结束时，旅行社不承担责任。因此发生的费用增减，按未发生费用退还游客，超支费用由游客承担办法处理。<br />【退团说明】: 游客报名后因故不能参加本次旅游，可能会出现如下情况：往返机票全额损失，只退机建，部分地接赔偿；出发后如遇特殊情况中途退团，未产生费用，根据旅行社底价进行退费。 旅游期间游客不得擅自离团，如因个人原因离团所造成的人身意外及财产损失，由游客自行承担。<br />【用车说明】：行程内用车为旅游公交交通巴士，散客拼团全程可能非同一台车；因延线有行车公里数限制或部分路段维修，易发生堵车，发车时间均较早，行程内标注出发及行车时间均为预计，具体情况略有不同；为保证车辆制动性能，行车延途均需停车加水；行程内所有自由活动期间及行程外均不含用车。请予以理解。四川旅游车均按每人一正座提前一天定车，根据同团人数安排车型，空调限时开放（主要争对坡路上行中为保证动力，无法开放）<br />【保险说明】：旅行社已经购买旅行社责任险，建议游客购买旅游人身伤害意外险，为自己提供全方位的保障。旅行社责任险是旅行社投保，保险公司承保旅行社在组织旅游活动过程中因疏忽、过失造成事故所应承担的法律赔偿责任的险种。旅游人身意外伤害险(请关注各保险公司对于投保游客年龄的限制，对于70岁以上游客，保险公司一般是不接受投保)， 70岁以上请自行办理保险，保险公司的赔付额为最终赔付，旅行社不再进行赔偿。游客应保证自身身体条件能够顺利完成旅游活动，游客自身疾病不在保险赔付范围之列，由自身疾病所产生一切费用均自理，一切后果均自担，旅行社及保险公司均不承担责任。因道路交通事故造成游客人身及财产损失，将依据《道路交通事故处理办法》进行赔偿，我社给予协助。游客在旅游活动中，发生意外伤害时，旅行社协助游客联络医疗机构进行救治并向保险公司报案，游客或其家属自行缴付医疗费用，因游客或家属拒付医疗费用造成的各种伤害和风险旅行社不承担责任;治疗结束后，旅行社出具证明协助游客办理保险赔付手续<br />【导游服务说明】：常规散客拼团，旅行社安排随车导游一名，提供行程解说及沿途食宿安排及沿途风土人情介绍服务，不陪同客人进入有讲解员或属于自然风景观光的旅游景区。<br />【健康说明】：本次长途旅行，时间长、温差大、部分地区海拔高，报名前请仔细阅读相关注意事项。游客在充分了解旅途的辛苦和行程中医疗条件有限的前提下，确定自己的身体健康状况适合参加本次旅游活动后方可报名参团。因个人既有病史和身体残障在旅游行程中引起的疾病进一步发作和伤亡，旅行社不承担任何责任，现有的保险公司责任险和意外险条款中，此种情况也列入保险公司的免赔范围。旅行社为非健康医疗专业咨询机构，无法判定游客的身体健康状况是否适合参加本次旅游活动，游客在旅行社签订旅游合同，即视为游客已经了解本次旅行的辛苦程度和行程中医疗条件有限的前提，并征得专业医生的同意。①报名时旅游者应确保身体健康，保证自身条件能够完成旅游活动，身体健康状况不佳者，请咨询医生是否可以参加本次旅游活动，根据自身情况备好常用药和急救药品，因自身疾病而引起的后果，游客自行承担责任;出团前游客须签字确认《旅游者健康状况确认书》;②游客出现急症请主动通知工作人员，旅行社将协助游客就进送往当地医疗机构检查治疗;③有听力、视力障碍的游客须有健康旅伴陪同方可参团;个人有精神疾病和无行为控制能力的不能报名参团；④有心、肺、脑和血液系统疾病患者以及其它不适合长途疲劳的人群以及70岁以上老人，不宜报名参加旅行社团。为了你的安全请勿隐瞒病情，你可另择其它线路(如隐瞒病情 后果自负)。<br />【安全说明】：①旅行社的导游人员和其他工作人员无法为游客提供一对一的服务，旅行社工作人员在接待游客报名时已经充分告知本行程中的注意事项和对游客身体健康的要求，旅游活动中游客必须注意自身安全和随行未成年人的安全，保管好个人财务，贵重物品随身携带。②景区所在地区为藏羌等少数民族聚居区，在旅游中请尊重当地少数民族的宗教信仰和民俗风情；为了您的安全，请入夜后避免单独出行，个别思想开放者请不要在景区有所作为以免造成不必要的重大损失！自由活动期间，请注意保护自身人生安全及财物安全，过马路请小心；③沿途停车加水或上厕所等任何一个停留地点，请你上下车注意脚下、头顶及周边安全，不要在汽车道公路边崖边活动停留，沿途上厕所大部份都有当地人收费，请主动付费，不要与当地人发生无谓的争吵；<br />【未成年人保护说明】：旅行社不接受未满十八周岁、不具备完全民事行为能力的未成年人单独参团。未成年人必须有成年人陪伴方可参团，一起报名参团的成人即为其参团过程中的监护人，有责任和义务做好未成年人的安全防范工作。<br />【气候说明】：九寨沟为高山气候，要有足够的御寒衣物，需准备长袖衣裤、羊毛衫、夹克衫，即使是夏季也早晚凉、中午热，因此要注意保暖，特别预防感冒和上呼吸道感染。景区日照强，紫外线强。牟尼沟(黄龙)景区海拔4070-2800米 部分游客可能有轻微高原反应，请自备抗高原反应的药物或氧气。九寨沟口海拔约1900米，沟内海拔最高点长海3100米，大多数游客没有高原反应，请放心游玩。<br />【购物和自费游览活动说明】：九寨沿线、藏寨、羌寨、餐厅、酒店和沿途停留的站点等场所均有纪念品售卖点、法物流通处、红景天及御寒衣服等售卖点，请游客注意公共场所出现此类情况属各场所自行商业行为，不属于购物店范围。当地居民贩卖纪念品、土特产，也非旅行社提供服务，购买时请游客自行辨别真伪，谨慎购买，以免上当<br />
+                                    <br />
+                                </div>
+                            
+                    </div>
+                </div>
+                <div style="display:none;" class="line-cont-one" id="cont3">
+                    <div style="color: #3db4ff; font-weight: bold; font-size: 16px; padding-bottom: 5px;">线路特色</div>
+                    <br />★标准住宿：全程精选经济型酒店—确保干净卫生，让您住得放心！<br />★郑重承诺：全程进一个综合购物店！推荐2个自费！，绝不强消！！<br />★童话世界九寨沟，人间瑶池黄龙均为世界级5A景区，一生必看的景点；<br />★价廉物美，物超所值，安排合理，还等啥呢，亲！<br />
+                </div>
+            </div>
+            <!--签证信息-->
+            <div style="float: left; width: 100%; height: .3em; background: #F1F1F1; border-top: 1px solid #ccc;"></div>
+            <div class="detail-time">
+                <div class="detail-time-tit">
+                    <span style="padding-top:6px;padding-right:5px;"><img src="Image/det-visa.png" tppabs="http://m.jx516.com/Image/det-visa.png" style="width:27px;height:30px;"/></span>
+                    <span>签证/信息</span>
+                </div>
+                <div id="open_2" class="detail-time-cont">></div>
+                <div id="clos_2" style="display:none;" class="detail-time-cont">∧</div>
+            </div>
+            <div id="hide_2" class="a" style="display:none; width:100%;height:auto; float:left;border-top: 1px solid #ccc;">无</div>
+            <div style="float: left; width: 100%; height: .3em; background: #F1F1F1; border-top: 1px solid #ccc;"></div>
+            <!--购物/自费-->
+            <div class="detail-time">
+                <div class="detail-time-tit">
+                    <span style="padding-top:6px;padding-right:5px;"><img src="Image/det-buy.png" tppabs="http://m.jx516.com/Image/det-buy.png" style="width:30px;height:30px;"/></span>
+                    <span>购物/自费</span>
+                </div>
+                <div id="open_3" class="detail-time-cont">></div>
+                <div id="clos_3" style="display:none;" class="detail-time-cont">∧</div>
+            </div>
+            <div id="hide_3" class="a" style="display:none; width:100%;height:auto; float:left;border-top: 1px solid #ccc;"></div>
+            <div style="float: left; width: 100%; height: .3em; background: #F1F1F1; border-top: 1px solid #ccc;"></div>
+            <!--预定须知-->
+            <div class="detail-time">
+                <div class="detail-time-tit">
+                    <span style="padding-top:6px;padding-right:5px;"><img src="Image/det-order.png" tppabs="http://m.jx516.com/Image/det-order.png" style="width:30px;height:30px;"/></span>
+                    <span>预定须知</span>
+                </div>
+                <div id="open_4" class="detail-time-cont">></div>
+                <div id="clos_4" style="display:none;" class="detail-time-cont">∧</div>
+            </div>
+            <div id="hide_4" class="a" style="display:none; width:100%;height:auto; float:left;border-top: 1px solid #ccc;"></div>
+            <div style="float: left; width: 100%; height: .3em; background: #F1F1F1; border-top: 1px solid #ccc;"></div>
+            <!--注意事项-->
+            <div class="detail-time">
+                <div class="detail-time-tit">
+                    <span style="padding-top:6px;padding-right:5px;"><img src="Image/det-act.png" tppabs="http://m.jx516.com/Image/det-act.png" style="width:30px;height:30px;"/></span>
+                    <span>注意事项</span>
+                </div>
+                <div id="open_5" class="detail-time-cont">></div>
+                <div id="clos_5" style="display:none;" class="detail-time-cont">∧</div>
+            </div>
+            <div id="hide_5" class="a" style="display:none; width:100%;height:auto; float:left;border-top: 1px solid #ccc;"></div>
+            <div style="float: left; width: 100%; height: .3em; background: #F1F1F1; border-top: 1px solid #ccc;"></div>
+        </div>
+        <!--相关产品推荐-->
+        <div class="detail-time" style="border-bottom:1px solid #ccc;">
+            <div class="detail-time-tit">
+                <span style="padding-top:6px;padding-right:5px;"><img src="Image/det-tui.png" tppabs="http://m.jx516.com/Image/det-tui.png" style="width:30px;height:30px;"/></span>
+                <span>相关推荐</span>
+            </div>
+        </div>
+        <div class="product-list" id="travel">
+            <ul>
+                <li> <div class="list-img">     <span></span>     <img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/7629_1.jpg" tppabs="http://image.jx516.com/product/mphoto/7629_1.jpg" alt="" /> </div> <div class="list-show">     <div class="list-pro-tit"> 品读黄山之黄山、西递宏村、九华山双高五日游（D5）</div>     <div class="list-show-msg"><span>区域：安徽黄山</span><span>出发地：天津</span>     </div>     <div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">      线路编号：7629   </b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>2590.00</b><b style="font-size:8px;font-weight:500;">起</b></span>     </div> </div> <a class="click-url" href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=7629  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=7629%27" tppabs="http://m.jx516.com/Detail.aspx?id=7629"></a></li><li> <div class="list-img">     <span></span>     <img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/7626_1.jpg" tppabs="http://image.jx516.com/product/mphoto/7626_1.jpg" alt="" /> </div> <div class="list-show">     <div class="list-pro-tit">品读黄山之黄山、西递宏村双高四日游（D2）</div>     <div class="list-show-msg"><span>区域：安徽黄山</span><span>出发地：天津</span>     </div>     <div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">      线路编号：7626   </b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>2170.00</b><b style="font-size:8px;font-weight:500;">起</b></span>     </div> </div> <a class="click-url" href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=7626  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=7626%27" tppabs="http://m.jx516.com/Detail.aspx?id=7626"></a></li><li> <div class="list-img">     <span></span>     <img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/5351_1.jpg" tppabs="http://image.jx516.com/product/mphoto/5351_1.jpg" alt="" /> </div> <div class="list-show">     <div class="list-pro-tit">黄山（观日出）+千岛湖中心湖区双高4日游</div>     <div class="list-show-msg"><span>区域：安徽黄山</span><span>出发地：天津</span>     </div>     <div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">      线路编号：5351   </b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>2480.00</b><b style="font-size:8px;font-weight:500;">起</b></span>     </div> </div> <a class="click-url" href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=5351  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=5351%27" tppabs="http://m.jx516.com/Detail.aspx?id=5351"></a></li><li> <div class="list-img">     <span></span>     <img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/4008_1.jpg" tppabs="http://image.jx516.com/product/mphoto/4008_1.jpg" alt="" /> </div> <div class="list-show">     <div class="list-pro-tit">黄山（观日出）+西递、宏村双高4日游</div>     <div class="list-show-msg"><span>区域：安徽黄山</span><span>出发地：天津</span>     </div>     <div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">      线路编号：4008   </b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>2380.00</b><b style="font-size:8px;font-weight:500;">起</b></span>     </div> </div> <a class="click-url" href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=4008  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=4008%27" tppabs="http://m.jx516.com/Detail.aspx?id=4008"></a></li>
+                </ul>
+            </div>
+
+        <!--回到顶部-->
+        <button id="ScrollToTop" class="btnimg Button2 WhiteButton Offscreen" >
+            <img src="image/arrow_top.png" tppabs="http://m.jx516.com/image/arrow_top.png" alt="" style="width:50px;height:50px;"/>
+        </button>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                ScrollToTop.setup();
+            });
+        </script>
+        <div class="detail-foot">
+           <div style="float:left;width:15%;padding:0 5%;border-right:1px solid #ccc;">
+               <a id="tel" href="tel:4001566776 ">
+                    <div style="width: 100%; text-align: center;">
+                        <span>
+                            <img src="Image/foot-our.png" tppabs="http://m.jx516.com/Image/foot-our.png" style="width: 22px; height: 20px;padding-top:5px;" alt="" /></span><br />
+                        <span>电话</span>
+                    </div>
+                </a>
+           </div>
+            <div style="float:left;width:12%;padding:0 3%;border-right:1px solid #ccc;">
+                <div id="Hcoll" onclick="collect()" style="width:100%;text-align: center;">
+                    <span>
+                        <img src="Image/foot-coll1.png" tppabs="http://m.jx516.com/Image/foot-coll1.png" style="width: 22px; height: 20px;" alt="" />
+                    </span><br />
+                    <span>收藏</span>
+                </div>
+                <div id="Scoll" style="display:none; width:100%;text-align: center;">
+                    <span>
+                        <img src="Image/foot-coll.png" tppabs="http://m.jx516.com/Image/foot-coll.png" style="width: 22px; height: 20px;" alt="" />
+                    </span><br />
+                    <span>收藏</span>
+                </div>
+            </div>
+        
+            <div  style="float:left;width:45%;padding-left:5%;cursor:pointer;">
+                 <span style="width:100%;float:left; background:#ff6a00;border-radius:5px;text-align:center;line-height:3em;color:#fff;" onclick="GetPost();return false;">开始预订</span>
+            </div>
+        </div>
+    </div>
+
+        <div class="foot">
+            <div class="foot-line"></div>
+            <div class="foot-name">©2009-2016 嘉信旅游<img src="../z10.cnzz.com/stat.htm-id=1253409067&r=http---m.jx516.com-&iw=1&showp=0x0&lg=undefined&cnzz_eid=none&p=http---m.jx516.com-Detail.aspx-id=5840&rnd=46351076.gif" tppabs="http://c.cnzz.com/wapstat.php?siteid=1253409067&r=http%3a%2f%2fm.jx516.com%2f&rnd=861893875" width="0" height="0" alt=""/>
+                <script type="text/javascript">
+                    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                    document.write(unescape("%3Cspan id='cnzz_stat_icon_1253409067'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s6.cnzz.com/stat.php%3Fid%3D1253409067%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+                        </script>
+            </div>
+          <div class="foot-name"><a href="javascript:if(confirm(%27http://www.miibeian.gov.cn/  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.miibeian.gov.cn/%27" tppabs="http://www.miibeian.gov.cn/" style="cursor:pointer;">津ICP备12004526号</a><a href="javascript:if(confirm(%27http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12010102000048  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12010102000048%27" tppabs="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12010102000048" style="cursor:pointer;" ><img style="margin-bottom:-4px;" src="Image/beian.png" tppabs="http://m.jx516.com/Image/beian.png" /></a><br />公安备案号：12010102000048</div>
+                        
+        </div>
+        <div style="width:100%;height:3em;float:left;"></div>
+      <div style="width:100%;background-color:#fff;height:auto;position:fixed;top:0px;left:0px;float:left;z-index:30;height:100%;display:none;cursor:pointer;" id="site">
+                <div style="text-align:center;color:black;background-color:#ccc;line-height:30px;height:30px;"><span style="text-align:left;float:left;padding-left:10px;color:#43b1f0" onclick="hideSite()">X</span> 选择城市</div>
+                <div style="text-align:left;color:#808080;padding-left:10px;line-height:30px;height:30px;float:left;">
+                    热门城市
+                </div>
+                <div style="width:100%;float:left;">
+                    <ul id="hot">
+                        <li><div key="W01">天津</div></li>
+
+                        <li><div key="W02">吉林</div></li>
+
+                    </ul>
+                </div>
+                <div style="text-align:left;color:#000;padding-left:10px;line-height:30px;height:30px;float:left;display:none;">
+                    选择城市
+                </div>
+                <div style="width:100%;float:left;display:none;">
+                    <ul>
+                        <li><div style="background-color:#43b1f0;color:#000;" onclick="setTab('1')" id="bt1">A-G</div></li>
+                        <li><div style="background-color:#c7dbeb;color:#000;" onclick="setTab('2')" id="bt2">H-L</div></li>
+                        <li><div style="background-color:#c7dbeb;color:#000;" onclick="setTab('3')" id="bt3">M-Q</div></li>
+                        <li><div style="background-color:#c7dbeb;color:#000;" onclick="setTab('4')" id="bt4">R-Z</div></li>
+                    </ul>
+                    <div id="st1">
+                        <ul>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        </ul>
+                        <ul>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        </ul>
+                        <ul>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        </ul>
+                    </div>
+                    <div id="st2" style="display:none;">
+                        <ul>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        </ul>
+                        <ul>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        </ul>
+                        <ul>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        </ul>
+                    </div>
+                    <div id="st3" style="display:none;">
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                    </div>
+                    <div id="st4" style="display:none;">
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="width:100%;float:left;height:20px;"></div>
+            </div>
+    </form>
+</body>
+</html>

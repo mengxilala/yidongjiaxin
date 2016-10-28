@@ -1,0 +1,78 @@
+
+.psd-cont {
+    width:89%;
+    height:auto;
+    float:left;
+    margin-left:5%;
+    border:1px solid #ccc;
+    margin-top:1em;
+}
+.psd-input {
+    width:90%;
+    height:auto;
+    float:left;
+    margin-left:5%;
+    border-bottom:1px solid #e3e3e3;
+}
+.login-btn {
+    width:80%;
+    height:3em;
+    line-height:3em;
+    float:left;
+    margin-left:10%;
+    margin-top:1em;
+    text-align:center;
+    font-size:16px;
+    color:#fff;
+    border-radius:5px;
+    -webkit-appearance: none;
+}
+.login-p {
+    width:80%;
+    line-height:1.5em;
+    float:left;
+    margin-left:10%;
+    margin-top:1em;
+    font-size:14px;
+    color:#FA9A10;
+    /*white-space: nowrap;*/
+}
+.login-p a{
+    color:#3eb2f9;
+    text-decoration:none;
+}
+.login-p a:hover{
+    color:#3eb2f9;
+    text-decoration:none;
+}
+
+/*重置密码*/
+.psd_new {
+    width:90%;
+    height:auto;
+    line-height:2em;
+    float:left;
+    font-size:14px;
+    color:#FA9A10;
+    margin-left:5%;
+}
+.up {
+    width: 0;
+    height: 0;
+    margin-left:50px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid #75B6CC;
+} 
+.psd_font {
+    width:100%;
+    height:auto;
+    line-height:1.7em;
+    float:left;
+    font-size:14px;
+    color:#FA9A10;
+    color:#fff;
+    background:#75B6CC;
+    padding:5px 5px;
+}
+

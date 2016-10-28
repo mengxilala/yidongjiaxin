@@ -1,0 +1,333 @@
+
+/*产品类型*/
+.search-type {
+    width:100%;
+    height:3em;
+    float:left;
+    /*border:1px solid #ccc;
+    background:#f4f3e6;*/
+    border-bottom:1px solid #ccc;
+    border-top:none;
+}
+.search-type ul{
+    width:100%;
+    height:3em;
+    line-height:3em;
+    float:left;
+    list-style-type:none;
+}
+.search-type ul li{
+    width:49%;
+    height:3em;
+    font-size:16px;
+    float:left;
+    text-align:center;
+    cursor:pointer;
+}
+.search-type li div {
+    width:100%;
+    float:left;
+    text-align:center;
+}
+.search-type li div span{
+    float:left;
+    text-align:center;
+}
+
+.up {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid #ccc;
+}
+.down{
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid #ccc;
+}
+
+.detail-line {
+    width: 100%;
+    height: 2.5em;
+    float: left;
+    margin-top:2px;
+    border-bottom:3px solid #ececec;
+}
+.detail-line ul {
+    width: 100%;
+    height: 2.5em;
+    line-height: 2.5em;
+    float: left;
+    list-style-type: none;
+}
+.detail-line ul li {
+    width: 33%;
+    font-size: 14px;
+    color: #000;
+    text-align: center;
+    float: left;
+    cursor: pointer;
+}
+/*搜索区域列表*/
+.main {
+    width:100%;
+    height:auto;
+    float:left;
+}
+.main ul{
+    width:100%;
+    height:auto;
+    float:left;
+    margin:3px 0;
+    list-style-type:none;
+}
+.main ul li{
+    /*width:auto;*/
+    width:20%;
+    height:2em;
+    line-height:2em;
+    margin-left:2%;
+    margin-top:2%;
+    padding:1% 1%;
+    text-align:center;
+    float:left;
+    font-size:14px;
+    border:1px solid #0094ff;
+    cursor:pointer;
+}
+.on{ border:none;background:#0094ff; color:#fff;}
+.search-tit {
+    width:32%;
+    height:1.5em;
+    line-height:1.5em;
+    float:left;
+    padding:2px 8px;
+    margin:0 2%;
+    font-size:16px;
+}
+
+
+/*搜索下拉列表*/
+.click-list {
+    width:99.5%;
+    height:auto;
+    float:left;
+    border:1px solid #ccc;
+    border-bottom:none;
+    border-top:none;
+    background:#fff;
+    display:none;
+}
+.click-list ul{
+    width:100%;
+    height:auto;
+    float:left;
+    list-style-type:none;
+}
+.click-list ul li{
+    width:100%;
+    height:3em;
+    line-height:3em;
+    float:left;
+    font-size:16px;
+    border-bottom:1px solid #ccc;
+    text-align:left;
+    cursor:pointer;
+    color:#36b6fc;
+    padding-left:20px;
+}
+.click-list ul li span{
+    width:100%;
+    height:3em;
+    line-height:3em;
+    float:left;
+}
+.click-list li a{
+    width:100%;
+    background-color:rgba(0,0,0,0.2);
+    color:#000;
+    text-decoration:none;
+}
+.click-list li a:hover{
+    width:100%;
+    color:#000;
+    background-color:rgba(0,0,0,0.2);
+    text-decoration:none;
+}
+/*目的地筛选*/
+.click-list1 {
+    width:100%;
+    height:16em;
+    float:left;
+    background:#fff;
+    overflow-y: auto; 
+}
+.click-list1 ul{
+    width:100%;
+    height:auto;
+    float:left;
+    list-style-type:none;
+}
+.click-list1 ul li{
+    width:100%;
+    height:3em;
+    line-height:3em;
+    float:left;
+    font-size:16px;
+    border-bottom:1px solid #ccc;
+    text-align:left;
+    cursor:pointer;
+    color:#000;
+}
+.click-list1 li a{
+    width:100%;
+    background-color:rgba(0,0,0,0.2);
+    color:#000;
+    text-decoration:none;
+}
+.click-list1 li a:hover{
+    width:100%;
+    color:#000;
+    background-color:rgba(0,0,0,0.2);
+    text-decoration:none;
+}
+/*条件筛选*/
+.click-Con {
+    width:100%;
+    height:auto;
+    float:left;
+    background:#fff;
+}
+.click-listTit{
+    width:31%;
+    height:auto;
+    float:left;
+}
+.click-listTit ul{
+    width:100%;
+    height:11em;
+    float:left;
+    background:#f4f3e6;
+}
+.click-listTit ul li{
+    width:100%;
+    height:4.15em;
+    line-height:4.15em;
+    float:left;
+    text-align:center;
+    font-size:14px;
+}
+.click-listCon{
+    width:67%;
+    height:11em;
+    overflow-y:auto;
+    overflow-x:hidden;
+    float:left;
+    background:#fff;
+}
+.click-listCon ul{
+    width:100%;
+    height:auto;
+    float:left;
+}
+.click-listCon ul li{
+    width:100%;
+    height:3em;
+    line-height:3em;
+    float:left;
+    border-bottom:1px solid #ccc;
+    font-size:16px;
+    padding-left:8px;
+}
+
+
+
+/*产品列表*/
+/*.product-list {
+    width:100%;
+    float:left;
+}
+.product-list ul{
+    width:100%;
+    float:left;
+    list-style-type:none;
+}
+.product-list ul li{
+    width:100%;
+    height:6.25em;
+    font-size:14px;
+    font-style:normal;
+    padding:.65em 0 .65em .35em;
+    border-bottom:1px solid #dcdcdc;
+    position:relative;
+}
+.product-list li .click-url {
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+}
+.product-list li a {
+    background-color:rgba(0,0,0,0.0);
+    text-decoration:none;
+}
+.product-list li a::before {
+    width:100%;
+    background-color:rgba(0,0,0,0.2);
+    text-decoration:none;
+}
+.list-img {
+    float:left;
+    width:27%;
+    height:100%;
+}
+.list-img img{
+    width:6em;
+    height:6em;
+    border-radius:.725em;
+    vertical-align:middle;
+}
+div {
+    display:block;
+}
+.list-show {
+    width:73%;
+    float:left;
+    height:auto;
+    color:#666;
+    font-size:14px;
+    position:relative;
+}
+.list-show p{
+    width:100%;
+    height:3em;
+    float:left;
+    overflow:hidden;
+}
+.list-show em{
+    float:right;
+    color:#f63;
+    position:absolute;
+    right:12px;
+    margin-top:2em;
+    bottom:.75em;
+    line-height:1em;
+}
+.list-show i{
+    float:left;
+    font-size:1.4em;
+    font-style:normal;
+    white-space:nowrap;
+    display:block;
+    text-overflow:ellipsis;
+}
+.list-show span{
+    overflow:hidden;
+    font-style:normal;
+    font-size:12px;
+    padding-left:.5em;
+}*/

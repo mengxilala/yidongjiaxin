@@ -1,0 +1,1139 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/javascript"> var _tcopentime = new Date().getTime(); var _hmt = _hmt || []; </script>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="format-detection" content="telephone=no" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" /><meta name="apple-mobile-web-app-capable" content="yes" /><meta name="apple-mobile-web-app-status-bar-style" content="black" /><meta name="apple-mobile-web-app-title" content="嘉信旅游" /><meta name="keywords" content="旅游,嘉信国旅,嘉信旅游,天津嘉信，旅游社，旅游线路,旅游网站,自助游,国内游,出境游,景点门票，出境度假" /><meta name="description" content="嘉信旅游是中国领先的手机一站式旅游预订平台，提供30000多家景点门票、特价机票、特惠酒店等预订服务；专业服务、品质保障，让您的旅行更安心；实惠的价格、简单的流程，让您的旅行更贴心！" />
+    <!-- UC默认竖屏 ，UC强制全屏 -->
+    <meta name="full-screen" content="yes" /><meta name="browsermode" content="application" />
+    <!-- QQ强制竖屏 QQ强制全屏 -->
+    <meta name="x5-orientation" content="portrait" /><meta name="x5-fullscreen" content="true" /><meta name="x5-page-mode" content="app" /><title>
+	【嘉信旅游】一路欢笑一生情
+</title><link href="style/public.css" tppabs="http://m.jx516.com/style/public.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        #site ul li{
+        width:20%;
+        padding:8px 2.5%;
+        float:left;
+        }
+        #site ul li div{
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        
+        }
+        #st1 li{
+        border:none;
+        background-color:#FFF;
+        color:#000;
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        }
+        #st2 li{
+        border:none;
+        background-color:#FFF;
+        color:#000;
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        }
+        #st3 li{
+        border:none;
+        background-color:#FFF;
+        color:#000;
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        }
+        #st4 li{
+        border:none;
+        background-color:#FFF;
+        color:#000;
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        }
+        .bd1 {
+            border:1px solid #c7dbeb;
+        }
+        .bd2 {
+            border:1px solid #43b1f0;
+        }
+    </style>
+    <script type="text/javascript">
+       
+        document.onreadystatechange = loading;
+        function loading() {
+            if (document.readyState == "complete") {
+                $("#loading").hide();
+                $("#Mcont").show();
+            }
+        }
+        function setTab(name) {
+            for (var i = 1; i < 5; i++) {
+                var menu = document.getElementById("st" + i);
+                var menubt = document.getElementById("bt" + i);
+                if (i == name) {
+                    menu.style.display = "inline";
+                    menubt.style.backgroundColor = "#43b1f0";
+                }
+                else {
+                    menu.style.display = "none";
+                    menubt.style.backgroundColor = "#c7dbeb";
+                }
+            }
+        }
+        function showSite() {
+            $("#site").show();
+        }
+        function hideSite() {
+            $("#site").hide();
+        }
+        function setSite() {
+            if (site_txt == "" || site_val == "") {
+                alert(请选择出发地);
+            } else {
+                $.ajax({
+                    type: "Post",
+                    url: "/Index.aspx/SetSite",
+                    data: "{'txt':'" + site_txt + "','val':'" + site_val + "'}",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        location.href = location.href;
+                    },
+                    error: function (d, e, f) {
+                    }
+                });
+            }
+        }
+        function defaultSite() {
+            if (site_txt == "" || site_val == "") {
+                alert(请选择出发地);
+            } else {
+                $.ajax({
+                    type: "Post",
+                    url: "/Index.aspx/defaultSite",
+                    data: "{'txt':'" + site_txt + "','val':'" + site_val + "'}",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        location.href = location.href;
+                    },
+                    error: function (d, e, f) {
+                    }
+                });
+            }
+        }
+
+        //图片加载失败，用默认图片
+        function func(obj, id, index) {
+            if (index == 1) {
+                obj.src = "Image_product/a.jpg"/*tpa=http://m.jx516.com/Image_product/a.jpg*/;
+            } else {
+                //var filespec = "/Image_product/" + id + "_1.jpg";
+                //var fso,s = filespec; // filespec="C:/path/myfile.txt"
+                //fso = new ActiveXObject("Scripting.FileSystemObject");
+                //if (fso.FileExists(filespec)) {
+                //    obj.src = "/Image_product/" + id + "_1.jpg";
+                //} else {
+                //    obj.src = "Image_product/a.jpg"/*tpa=http://m.jx516.com/Image_product/a.jpg*/;
+                //}
+                obj.src = "Image_product/a.jpg"/*tpa=http://m.jx516.com/Image_product/a.jpg*/;
+            }
+        }
+    </script>
+    
+    <link href="style/detail.css" tppabs="http://m.jx516.com/style/detail.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        div {
+            margin: 0 auto;
+        }
+
+        .qn_main {
+            width: 100%;
+            margin: 0 auto;
+            min-width: 320px;
+            max-width: 100%;
+            position: relative;
+        }
+        /*.qn_main a:active p{ color:#000; }*/
+        .qn_slide {
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+        }
+            /*.qn_slide .content{width:100%;height:100%;-webkit-transform-style:preserve-3d;-webkit-backface-visibility:hidden;}*/
+            /*.qn_slide a{display:inline-block;float:left;width:320px;height:100px;}*/
+            .qn_slide .mark {
+                position: absolute;
+                width: 100%;
+                height: 3px;
+                bottom: 0;
+                background-color: rgba(51,51,51,0.5);
+                -ms-transform: translate3d(0,0,0);
+                -webkit-transform: translate3d(0,0,0);
+                display: -webkit-box;
+                display: -ms-flexbox;
+            }
+
+                .qn_slide .mark li {
+                    display: block;
+                    -webkit-box-flex: 1;
+                    -ms-flex-direction: row;
+                    height: 100%;
+                    overflow: hidden;
+                }
+
+                    .qn_slide .mark li.active {
+                        background-color: #25a4bb;
+                    }
+
+            .qn_slide .mark {
+                position: absolute;
+                width: 100%;
+                height: 3px;
+                bottom: 0;
+                background-color: rgba(51,51,51,0.5);
+                -ms-transform: translate3d(0,0,0);
+                -webkit-transform: translate3d(0,0,0);
+                display: -webkit-box;
+                display: -ms-flexbox;
+            }
+
+        body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+            margin: 0;
+            padding: 0;
+        }
+
+        ol, ul, li {
+            list-style: none;
+        }
+
+        .qn_main .qn_download {
+            display: block !important;
+        }
+
+        .qn_download {
+            width: 100%;
+            height: 40px;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery.min.js" tppabs="http://m.jx516.com/js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.SuperSlide.js" tppabs="http://m.jx516.com/js/jquery.SuperSlide.js"></script>
+    <script type="text/javascript" src="js/jquery.touchSlider.js" tppabs="http://m.jx516.com/js/jquery.touchSlider.js"></script>
+    <script type="text/javascript" src="js.slider.js" tppabs="http://m.jx516.com/js.slider.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var elm = $('#pordAttr');
+            var startPos = $(elm).offset().top;
+            $.event.add(window, "scroll", function () {
+                var p = $(window).scrollTop();
+                $(elm).css('position', ((p) > startPos) ? 'fixed' : 'static');
+                $(elm).css('top', ((p) > startPos) ? '0px' : '');
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        var tel = "tel:4001566776";
+        var t = 60;//设置验证码发送等待的时间 
+        var i = 0;
+        var i_code = "code";
+        $(document).ready(function () {
+
+            $("#tel").attr("href", tel);
+            /*暂时隐藏*/
+            //$("#showbtn").click(function () {
+            //    $("#hidechoose").slideDown();
+            //    $("#showbtn").hide();
+            //    $("#hidebtn").show();
+            //});
+            //$("#hidebtn").click(function () {
+            //    $("#hidechoose").slideUp();
+            //    $("#showbtn").show();
+            //    $("#hidebtn").hide();
+            //});
+            /*线路特色*/
+            $("#Msg .a").each(function (a, b) {
+                if ($(b).attr("id") != null) {
+                    if ($(b).attr("id").substr(0, 5) == "hide_") {
+                        var key = $(b).attr("id").substr(5);
+                        $("#open_" + key).click(function () {
+                            
+
+                            $("#Msg .a").each(function (c, d) {
+                                if ($(d).attr("id") != null) {
+                                    var keys = $(d).attr("id").substr(5);
+                                    $("#hide_" + keys).hide();
+                                    $("#open_" + keys).show();
+                                    $("#clos_" + keys).hide();
+                                }
+
+                            });
+                            $("#clos_" + key).show();
+                            $("#open_" + key).hide()
+                            $("#hide_" + key).slideDown();
+
+
+                            //$("#Msg .a").each(function (c, d) {
+                            //    if ($(d).attr("id") != null) {
+                            //    var keys = $(d).attr("id").substr(5);
+                            //       if ($(d).attr("id").substr(0, 5) == "hide_") {
+                            //           if ($(d).attr("id") == ("hide_" + keys)) {
+                            //                $("#hide_" + keys).slideDown();
+                            //                $("#open_" + keys).hide();
+                            //                $("#clos_" + keys).show();
+                            //            }
+                            //        }
+                            //    }
+                            //    else {
+                            //        $("#hide_" + key).slideUp();
+                            //        $("#clos_" + key).hide();
+                            //        $("#open_" + key).show();
+                            //    }
+                            //});
+                        });
+                        $("#clos_" + key).click(function () {
+                            $("#hide_" + key).slideUp();
+                            $("#clos_" + key).hide();
+                            $("#open_" + key).show();
+                        });
+                    }
+                }
+            });
+            /*我的收藏*/
+            $("#Hcoll").click(function () {
+                $("#Hcoll").hide();
+                $("#Scoll").show();
+            });
+            $("#Scoll").click(function () {
+                $("#Scoll").hide();
+                $("#Hcoll").show();
+            });
+
+
+            $("#sendTime").click(function () {
+                i++;
+                user1 = $("#TextBox1").val();
+                if (user1 == "手机号") {
+                    alert("请输入手机号码！")
+                } else if (!PhoneYanZheng($("#txt_phone").val())) {
+                    alert("请输入正确的手机号码！");
+                } else {
+                    //$("#sendTime").hide();
+                    //$("#showTime").show();
+                    t = 60;
+                    i++;
+                    getcode();
+                }
+
+            });
+
+
+        });
+        //验证手机号
+        function PhoneYanZheng(phone) {
+            var str =phone;
+            //alert(i);
+            var b = false;
+            if (/^1[3|4|5|8]\d{9}$/.test(str)) {
+                b = true;
+            }
+            return b;
+        }
+
+        //获取验证码
+        function getcode() {
+            if (PhoneYanZheng($("#txt_phone").val())) {
+                var phone = $("#txt_phone").val();
+                var check = Math.random().toString().substr(2, 6);
+                var kind = "";
+                kind = "尊敬的客户您好，您本次的动态密码：" + check + "，在1分钟内有效，请妥善保管";
+                $.post("http://m.jx516.com/Api/MessageSendHandler.ashx", { "txt": kind, "phone": phone, "user": "嘉信官网", "source": "register" }, function (data, istaus) {
+                    if (istaus == "success") {
+                        alert("短信发送成功，请查看您的手机。");
+                        $("#showTime").show();
+                        $("#sendTime").hide();
+                        //alert(i_code);
+                    } else {
+                        alert("发送失败，请重试");
+                    }
+                });
+                i_code = check;
+            }
+        }
+
+        function OKchekpho() {
+            var code = $("#TextBox2").val();
+            if (code == "") {
+                $("#code").html("请输入验证码");
+            } else if (i_code != code) {
+                $("#code").html(" 验证码不正确");
+            } else {
+                $("#code").html("");
+                $.ajax({
+                    type: "Post",
+                    url: "/Order_product.aspx/forgtPwd",
+                    data: "{'checkPhone':'" + $("#txt_phone").val() + "'}",
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        alert(1);
+                        if (data.d != 3) {
+                            cid = data.d;
+                            location.href="http://m.jx516.com/Detail_calendar.aspx?id=239"
+                        }
+                    },
+                    error: function (err) {
+                        alert(2);
+                        alert("验证失败，请重试");
+                    }
+                });
+            }
+
+        }
+
+
+        /*成人人数加减*/
+        function A(i, m) {
+            var adu = parseInt($("#num" + m).text());
+            if (adu + i > 0) {
+                $("#num" + m).text(adu + i);
+            }
+            else {
+                alert("至少选择1人")
+            }
+        }
+        /*儿童人数加减*/
+        function B(i, m) {
+            var adu = parseInt($("#pep" + m).text());
+            if (adu + i > -1) {
+                $("#pep" + m).text(adu + i);
+            }
+        }
+        /*线路特色选项卡切换*/
+        function setTab(name) {
+            for (var i = 1; i < 6; i++) {
+                var menu = document.getElementById("line" + i);
+                var menudiv = document.getElementById("cont" + i);
+                if (i == name) {
+                    menudiv.style.display = "inline";
+                    menu.style.borderBottom = "2px";
+                    menu.style.borderBottom = "solid";
+                    menu.style.borderBottomColor = "#3db4ff";
+                }
+                else {
+                    menudiv.style.display = "none";
+                    menu.style.borderBottom = "0px";
+                    menu.style.borderBottomColor = "#ccc";
+                }
+            }
+        }
+        //计算总金额
+        function calcMoney() {
+            var str_prize = $("#dpl_groupDate").find("option:selected").text();
+            if (str_prize.indexOf("价格") > 0) {
+                var adults = $("#dpl_adultsNum").find("option:selected").text();
+                var child = $("#dpl_childNum").find("option:selected").text();
+                var str_prize = str_prize.substr(str_prize.indexOf("价格") + 3, (str_prize.length - str_prize.indexOf("价格") - 6));
+                var prize = parseInt(str_prize);
+                var result = (adults * prize) + (child * prize);
+                result = result.toFixed(2);
+                $("#div_showAllMoney").text(result);
+            } else {
+                $("#div_showAllMoney").text("--");
+            }
+        }
+        //选择团期更新剩余人数
+        function updatePeople() {
+            var people = $("#dpl_groupDate").find(":selected").val();
+            people = people.split(",")[0];
+            if (people <= 0) {
+                $("#div_showPeopleCount").text("");
+            } else if (people < 10) {
+                $("#div_showPeopleCount").text("库存" + people + "人");
+            } else {
+                $("#div_showPeopleCount").text("库存>9人");
+            }
+            calcMoney();
+        }
+        //点击收藏获取收藏产品
+        function collect() {
+            var pricecoll = "";
+            pricecoll = 'http://m.jx516.com/268.00';
+            var cid = '239';
+            var userID = '';
+            var mobile = '';
+            var uid = '';
+            if (uid == "") {
+                if (mobile == "") {
+                    alert("亲，请您先登陆哦！");
+                    location.href = "http://m.jx516.com/login.aspx?id=" + cid;
+                }
+                else {
+                    $.ajax({
+                        type: "Post",
+                        url: "/Detail.aspx/CollectSuccess",
+                        data: "{'userid':'" + userID + "','userName':'" + mobile + "','money':'" + pricecoll + "','cid':'" + cid + "'}",
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            var info = data.d + "";
+                            if (info == "0") {
+                                alert("收藏失败");
+                                //location.href = "http://m.jx516.com/Detail.aspx ? id = cid";
+                            } else if (info == "1") {
+                                alert("收藏成功");
+                                location.href = "http://m.jx516.com/Member_coll.aspx";
+                            }
+                            else if (info == "-1") {
+                                alert("此线路已收藏");
+
+                            }
+                        },
+                        error: function (d, e, f) {
+                            alert(f);
+                        }
+                    });
+                }
+            }
+            else {
+                mobile = uid;
+                if (mobile == "") {
+                    alert("亲，请您先登陆哦！");
+                    location.href = "login.aspx.htm"/*tpa=http://m.jx516.com/login.aspx*/;
+                }
+                else {
+                    $.ajax({
+                        type: "Post",
+                        url: "/Detail.aspx/CollectSuccess",
+                        data: "{'userid':'" + userID + "','userName':'" + mobile + "','money':'" + pricecoll + "','cid':'" + cid + "'}",
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            var info = data.d + "";
+                            if (info == "0") {
+                                alert("收藏失败");
+                                //location.href = "http://m.jx516.com/Detail.aspx ? id = cid";
+                            } else if (info == "1") {
+                                alert("收藏成功");
+                                location.href = "http://m.jx516.com/Member_coll.aspx";
+                            }
+                            else if (info == "-1") {
+                                alert("此线路已收藏");
+
+                            }
+                        },
+                        error: function (d, e, f) {
+                            alert(f);
+                        }
+                    });
+                }
+            }
+        }
+
+        var ID = "";
+
+        function GetPost()
+        {
+                location.href = "http://m.jx516.com/Detail_calendar.aspx?id=239"
+        }
+
+        function order() {
+
+            var cid = '239';
+            var price = $("#div_showAllMoney").text();
+
+            var date = $('#dpl_groupDate option:selected').text();
+            var arr = date.split('￥');
+            var gddate = $('#dpl_groupDate option:selected').text().substr(0, 10);
+            var mobile = '';
+            var userID = '';
+            var peopleCount = parseInt($("#dpl_adultsNum").val()) + parseInt($("#dpl_childNum").val());
+            //alert(gddate);
+            //return;
+            var uid = '';
+            if (uid == "") {
+                if (gddate == "请选择团期") {
+                    alert('请选择团期');
+                } else
+                    if (price == "--") {
+                        alert('请选择出行人数');
+                    } else {
+                        if (userID.length > 0) {
+                            var cid = '239';
+                            var go = '【散拼，休闲】野三坡清泉山、十渡风景区、孤山寨休闲二日游';
+                            var days = '2天1晚';
+                            var sex = '';
+                            var userName = '';
+                            //alert($("#dpl_groupDate").find(":selected").val().split(',')[1]);
+                            UID = userName;
+                            var sid = '';
+                            location.href = "http://m.jx516.com/order_product.aspx?lid=" + cid + "&gdd=" + $("#dpl_groupDate").find(":selected").val().split(',')[1] + "&cnum=" + $("#dpl_adultsNum").val() + "&anum=" + $("#dpl_childNum").val() + "&cid=" + +"&kid=" + price + "&Gdd_time=" + gddate;
+                        }
+                        else {
+                            alert("您还未登陆，请登录后再试！");
+                            location.href = "http://m.jx516.com/login.aspx?id=" + cid;
+                        }
+                    }
+            } else {
+                if (gddate == "请选择团期") {
+                    alert('请选择团期');
+                } else
+                    if (price == "--") {
+                        alert('请选择出行人数');
+                    } else {
+                        if (uid.length > 0) {
+                            var cid = '239';
+                            var go = '【散拼，休闲】野三坡清泉山、十渡风景区、孤山寨休闲二日游';
+                            var days = '2天1晚';
+                            var sex = '';
+                            var userName = '';
+                            //alert($("#dpl_groupDate").find(":selected").val().split(',')[1]);
+                            UID = userName;
+                            var sid = '';
+                            location.href = "http://m.jx516.com/order_product.aspx?lid=" + cid + "&gdd=" + $("#dpl_groupDate").find(":selected").val().split(',')[1] + "&cnum=" + $("#dpl_adultsNum").val() + "&anum=" + $("#dpl_childNum").val() + "&cid=" + "" + "&kid=" + price + "&Gdd_time=" + gddate;
+                        }
+                        else {
+                            alert("您还未登陆，请登录后再试！");
+                            location.href = "http://m.jx516.com/login.aspx?id=" + cid;
+                        }
+                    }
+            }
+        }
+
+        setInterval("refer()", 1000); //启动1秒定时 
+        function refer() {
+            if (t == 0) {
+                $("#sendTime").show();
+                $("#showTime").hide();
+                i_code = "code";
+            }
+            document.getElementById('lbl_showTime').innerText = t.toString();
+            t--; // 计数器递减 
+        }
+
+        //回到顶部
+        var ScrollToTop = ScrollToTop || {
+            setup: function () {
+
+                var a = $(window).height() / 2;
+
+                $(window).scroll(function () {
+                    (window.innerWidth ? window.pageYOffset : document.documentElement.scrollTop) >= a ? $("#ScrollToTop").removeClass("Offscreen") : $("#ScrollToTop").addClass("Offscreen")
+                });
+                $("#ScrollToTop").click(function () {
+                    $("html, body").animate({ scrollTop: "0px" }, 400);
+                    return false
+                })
+            }
+        };
+    </script>
+</head>
+<body>
+    <form method="post" action="http://m.jx516.com/Detail.aspx?id=239" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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p43msLTkuIrvvIznqbrkuK3vvIzpmYY8YnIgLz7lnLDnmoTlkITnp43lqLHkuZDpobnnm67kvpvlpKflrrbpgInmi6nlj4LliqDvvIzkuZ/mmK/lkajovrnmnIvlj4voh6rpqb7lj4rlrrbluq3lh7rmuLjmnIDniLHljrvnmoTmma/ljLrkuYvkuIDjgII8YnIgLz7kupHlsYXlr7rvvJo0MOWFgy/kurrvvIjkuI3lkKvorrLop6PotLnvvInvvJvlj4zkurrpo57nv7zvvJo4MOWFgy/kurrvvJvljaHkuIHovabvvJo0MOWFgy/lnIgv5Lq677yb5rC05ruR5ryC77yaNzDlhYMv5Lq677ybPGJyIC8+5b+r6ImH77yaMzDlhYMv5ZyIL+S6uu+8m+aegemAn+mjnumxvO+8mjEwMOWFgy/lnIgv5Lq677yb6ISa6LiP6Ii5MzDlhYMv5Lq677yb5ruR6I2J77yaNjDlhYMv5Lq6L+asoe+8m+eisOeisOiIue+8mjQw5YWDL+S6ui/mrKHnrYlkAgEPZBYCZg8VAgzotLnnlKjljIXlkKvKBDHjgIHkuqTpgJrvvJrlvoDov5Tlm73kuqfnqbrosIPml4XmuLjovabvvIjmoLnmja7lrp7pmYXkurrmlbDosIPmlbTovablnovvvIk8YnIgLz4y44CB6Zeo56Wo77ya5pmv54K556ys5LiA5aSn6Zeo56Wo77yI5riF5rOJ5bGx44CB5a2k5bGx5a+o6aaW6YGT5aSn6Zeo56Wo77yJPGJyIC8+M+OAgeS9j+Wuv++8muWGnOWutuWuvummhjItM+S6uumXtO+8iOiHquWkh+a0l+a8seeUqOWTge+8jOeLrOeri+WNq+eUn+mXtOOAgeWumuaXtuWkqumYs+iDveeDreawtO+8iTxiciAvPjTjgIHnlKjppJDvvJox5pepMuato+mkkO+8iOWNgeS6uuS4gOahjOWFq+iPnOS4gOaxpO+8jOi1oOmAge+8jOS4jeeUqOmkkOS4jemAgOi0ue+8jOWcqOS4jeWHj+WwkeeUqOmkkOasoeaVsOeahOaDheWGteS4i++8jOaIkeekvuS/neeVmeiwg+aVtDxiciAvPueUqOmkkOmhuuW6j+eahOadg+WIqe+8iTxiciAvPjXjgIHlr7zmuLjvvJrlhajnqIvkvJjotKjlr7zmuLjmnI3liqE8YnIgLz4244CB6LWg6YCB77yaMeaXqTLmraPppJDjgIHnq7nnrY/miI/msLTjgIHkuZ3mm7LmuqrngJHluIPnvqTvvIjotaDpgIHpobnnm67kuI3lj4LliqDkuI3pgIDotLnvvIlkAgMPFgIfAAICFgRmD2QWAmYPFQIM5Y+R6L2m5Zyw54K5+QY8cD4NCiDlj5Hovabnur/ot6/vvJo8L3A+DQo8cD4NCiAoMSnluILlhoXmlrnlkJHvvJo8L3A+DQo8cD4NCiDvvIjnrKzkuIDnq5nvvIkwNTo1MOWkqea0peaXpeaKpeWkp+WOpu+8iOWbtOWgpOmBk+S4juWkp+ayvei3r+S6pOWPo++8iSZtZGFzaDvvvIjnrKzkuoznq5nvvIkwNjowMOWNl+S6rOi3r+WPi+iwiuWuvummhiZtZGFzaDvvvIjnrKzkuInnq5nvvIkwNjoyMOm8k+alvOaXhea4uOi2heW4gu+8iOa1puWPkemTtuihjOmXqOWPo++8iSZtZGFzaDvvvIjnrKzlm5vnq5nvvIkwNjo0MOWMl+i+sOWMuuaenOWbreWMl+mBk+iCr+W+t+WfuumXqOWPoyZtZGFzaDvvvIjnrKzkupTnq5nvvIkwNzoxMOatpua4heWMuuadqOadkeS4nOaWueS5i+ePoOmXqOWPozwvcD4NCjxwPg0KIO+8iDLvvInloZjmsr3mlrnlkJHvvJo8L3A+DQo8cD4NCiDvvIjnrKzkuIDnq5nvvIkwNTowMOWhmOayvea0i+i0p+W4guWcuu+8iOWkqeahpeS4i++8iSZtZGFzaDvluILlhoXvvIjnrKzkuIDnq5nvvIk8L3A+DQo8cD4NCiDvvIgz77yJ5aSn5rivK+a0peWNl+aWueWQke+8mjwvcD4NCjxwPg0KIO+8iOesrOS4gOerme+8iTA1OjAw5aSn5riv5LiW57qq5bm/5Zy677yI5Yac6KGM5a+56Z2i77yJJm1kYXNoO++8iOesrOS6jOerme+8iTA1OjA15rSl5Y2X5Yy65bCP56uZ5Yy76Zmi6Zeo5Y+jJm1kYXNoO++8iOesrOS4ieerme+8iTA1OjIw5rSl5Y2X5Yy65ZK45rC05rK95pyI5Z2b77yI5pyI5Z2b5ZWG5Y6m77yJJm1kYXNoO+W4guWGhe+8iOesrOS4gOerme+8iTwvcD4NCjxwPg0KIO+8iDTvvInopb/pnZLmlrnlkJHvvJo8L3A+DQo8cD4NCiDvvIjnrKzkuIDnq5nvvIkwNjo0MOilv+mdkuWMuue7tOS5n+e6s+mFkuW6l+mXqOWPoyZtZGFzaDvluILlhoXvvIjnrKzkuIDnq5nvvIk8L3A+ZAIBD2QWAmYPFQIM5Lqn5ZOB6K+05piO+gflj5Hovabnur/ot6/vvJrov5TnqIvnu5/kuIDovabovobjgIHml7bpl7TmjqXpgIHvvIzkuI3lm7rlrprovablnovjgILlpoLlrqLkurrkuI3mhL/nrYnlvoXvvIzlj6/oh6rooYzov5Tlm57vvIzmiJHnpL7kuI3mib/mi4Xnm7jlupTotKPku7vjgII8YnIgLz7imIXmuKnppqjmj5DphpLvvJrnlLHkuo7kupTkuIDlsI/plb/lgYfmnJ/pl7TkurrlpJrovablpJrvvIzmjqXnq5nml7bpl7TkvJrpgILlvZPmj5DliY3vvIzlhbfkvZPpm4blkIjml7bpl7Tku6Xlr7zmuLjpgJrnn6XkuLrlh4bvvIE8YnIgLz7igLvloZjmsr3mlrnlkJHvvIjmraTnur/ot6/liqAyMOW+gOi/lOaOpemAgei0ue+8ie+8mjA1OjAw5aGY5rK95rSL6LSn5aSp5qGl5LiLPGJyIC8+4oC75aSn5riv5pa55ZCR77yI5q2k57q/6Lev5YqgMjDlvoDov5TmjqXpgIHotLnvvInvvJo0OjMw5Lm+5rGH5aSn6YWS5bqXLTTvvJo0MOa4uOazs+mmhi0177yaMDDlpKfmuK/kuJbnuqrlub/lnLotPGJyIC8+Ne+8mjA15bCP56uZ5Yy76ZmiLTXvvJoyMOa0peWNl+WSuOawtOayveaciOWdmzxiciAvPuKAu+mdmea1t+aWueWQke+8iOatpOe6v+i3r+WKoDIw5b6A6L+U5o6l6YCB6LS577yJ77yaNTowMOmdmea1t+WuvummhumXqOWJjeKAlDA1OjIw5byg56qdIC0wNjo0MOilv+mdkuWMu+mZojxiciAvPuKAu+W4guWMuuaWueWQke+8iOWFjei0ueaOpemAge+8ie+8mjA1OjIw5Lic5Li96LeD6L+b6Lev5paw5Y2O5Lmm5bqXLTA1OjUw5Y2X5qW85Zu9576O55S15Zmo6Zeo5YmNLTA277yaMjDln47ljqLkuJzot6/pvJPmpbzml4XmuLjotoXluII8YnIgLz4tMDY6IDQw5YyX6L6w5p6c5Zut5YyX6YGT6IKv5b635Z+6LS0wNzogMDXmnajmnZHkuJzmlrnkuYvnj6A8YnIgLz7kuJzkuL3jgIHluILlhoXjgIHljJfovrDjgIHmrabmuIXlnYflhY3otLnmjqXpgIHvvJvku6XkuIrkuIDkuozml6XmuLjnur/ot6/pg4rljr/lrqLkurrmnInlj6/og73kvJrlh7rnjrDkuK3ovazmjaLkuZjlpKflt7TnjrDosaHvvIzmlazor7fosIXop6PjgII8YnIgLz4zZAIEDxYCHwACARYCZg9kFgJmDxUCDOetvuivgeS/oeaBrwBkAgUPFgIfAAIBFgJmD2QWAmYPFQIM5rOo5oSP5LqL6aG5pgw8YnIgLz48YnIgLz4xLiDmuLjlrqLlh7rmuLjor7fmkLrluKbouqvku73or4HnrYnmnInmlYjor4Hku7bjgILlrabnlJ/or4HjgIHogIHlubTor4HnrYnku7vkvZXor4Hku7bml6DmlYjvvIzkuI3lnKjkuqvlj5fpop3lpJbkvJjmg6DmlL/nrZbjgII8YnIgLz4yLuWboOacrOihjOeoi+a2ieWPiueZu+WxseOAgeerueetj+etiei+g+i0ueS9k+WKm+mhueebru+8jOaVhTY15bKB5Lul5LiK5a6i5Lq65LiN6YCC5a6c5Y+C5Yqg77yM5pWs6K+36LCF6Kej77yBPGJyIC8+My4g6K+35pC65bim5pyJ5pWI6K+B5Lu277yI6Lqr5Lu96K+BL+mpvumptuivgS/miLflj6PmnKznrYnvvInjgIHml4XmuLjlkIjlkIzkuIrovabvvIzor7flkYrnn6XmuLjlrqLlh7rlm6LliY3kuIDlpKkxNu+8mjAwLTIyOjAw77yM5Yqh5b+F5L+d5oyB55S16K+d5byA5py677yM5a+85ri45Lya5o+Q5YmN5Lul55+t5L+h5b2i5byP5ZGK55+l6IGU57O75pa55byP44CB6L2m54mM5Y+377yb77yI5Lul5pS25Yiw55+t5L+h5Li65YeG77yJ77yM5Ye65Zui5b2T5aSp6K+36IGU57O75a+85ri477yBPGJyIC8+5b2T6IGU57O75LiN5Yiw5a+85ri45pe277yM5YaN5ouo5omT57Sn5oCl55S16K+d77yaMTU1MjIzMTUxMTDvvIHkuZjovablnLDngrnku6Xnoa7orqTku7bkuLrlh4bvvIzkuI3lvpfpmo/mhI/mm7TmlLnvvIEgPGJyIC8+NC7mnKzml4XmuLjlm6LkuLrmlaPlrqLmi7zlm6LvvIzmuLjlrqLpobvoh6rooYzliY3lvoDpm4blkIjlnLDngrnpm4blkIjkuIrovabvvIznlLHkuo7lrqLkurroh6rouqvljp/lm6DmnKrog73lj4rml7bmirXovr7pm4blkIjlnLDngrnnmoTvvIzotoXov4flj5Hovabml7bpl7QxNemSn++8jOS4jeWGjeetieW+he+8jOinhuS4uuiHquWKqOaUvuW8g++8jOi0ueeUqOS4jemAgOOAgjxiciAvPjUuIOmbhuWQiOagh+W/l++8muingeKAnOmRq+ebiumAmuWBh+acn+KAneapmOm7hOiJsuWvvOa4uOaXlyDjgIIgICA8YnIgLz42LuacrOaXhea4uOWboumcgDIw5Lq65Lul5LiK5pa55Y+v5oiQ5Zui77yM5aaC5oKo5omA5oql5ZCN55qE5Zui5pyf5pyq6L6+5oiQ5Zui5Lq65pWw77yM5oiR56S+5Lya5o+Q5YmN5LiA5aSp6YCa55+l5oKo6YCA5Zui5oiW5bu25pyf77yM5oiR56S+5LiN5om/5ouF5Lu75L2V6LSj5Lu777yM5pWs6K+36LCF6Kej77yB6KGM56iL5Lit5pmv54K544CB6aSQ44CB5L2P5a6/44CB5Lqk6YCa562J5Lu75L2V6aG555uu5a6i5Lq66Ieq5oS/5pS+5byD5Z2H5LiN6YCA6LS577yM5Y+C5Zui5Lit5aaC5pyJ5Lu75L2V6Zeu6aKY5Y+v5ouo5omTMTg2MjIxMTMzNjblnKjlvZPlnLDov5vooYzmipXor4nop6PlhrPvvIzlm57lm6LlkI7kuI3lj5fnkIbku7vkvZXmipXor4nvvIE8YnIgLz4377yO5Zug5pyJ56u5562P5rC05LiK5aix5LmQ6aG555uu77yM6K+36Ieq5aSH5ouW6Z6L5Y+K5pu05o2i6KGj54mp77yBPGJyIC8+OOOAgeWmgumBh+S4i+mbqOWkqeawlOaIluS6uuWKm+S4jeWPr+aKl+WboOe0oOWvvOiHtOS4jeiDvea4uOiniOeOu+eSg+agiOmBk++8jOaIkeekvuacieadg+WIqeiwg+aVtOaIkOa8gua1gemhueebru+8jOaVrOivt+iwheino++8gTxiciAvPmRkiA5EURjjTTx/lITqk8sTl/KVaMYHPEuZiRIa2+MC+KI=" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="05E0F5E4" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAB5pwUsDawJ28gxZDos9R7LCrveqzCBhJbvTzdPgaQJjSriSqYokB6i+8OT8DeXP6NgnoKCEhu1njHFU7UyX48VVLR0C71r/tSjt278dVKB+PotjTxLLYrCB+w8bbmUV+9crpniKRcSXLEPfVIItb198Ap9S5v9jLz99etU5b8uKt8ArA+HaA13VMQ8Pz8ZXKqXU8W9hVmcNTNH0RJatVixwU4R8j291ume7k/v+mfTsFEryVTlURn8x+yeCITNaqLrAl5pPtRlKwlOz/QuMfFItL9vLkMASWrEUnRWwZ/Ggw6zhgx1JfLImHblLAY6xa6jmecRErOHYT/YAM1qaUZrfV5ZC84TojI4jNGohQVT1WEFbNVK4PSx98RJY0bfrdkp21Cz9KVO/H4/LpmFo4rM+dc6p3K2Nv6WNc56c+7YGoPMsiTZGQozZGHHRcOCjocz7A5X965iGdJzKWuhdVFTZr5pgGf8BvsVLdePzsK9WPIOo9DFYDTCo20mAC24AVeWBU5WvGJjyYgttPWlJoqma1CbNpzZgaLiMfMo3lJmY+RjJAe7u0V37jg37I8nz2ySFKkReoLvrS/rIPOytpVQdXHMy+IDl9rmZuyQCiR2B1idht2z3PWFG8B/FFWXchXaIALUWZNhUb8Gs6Jrhk5fhjCFzo3ybhP1kik6YstIJKg==" />
+</div>
+        <img src="image/logo-img1.png" tppabs="http://m.jx516.com/image/logo-img1.png" alt="" style="width:0px;height:0px;" />
+        
+            <div id="loading">
+     	        <div class="spinner">
+  			        <div class="double-bounce1"></div>
+  			        <div class="double-bounce2"></div>
+		        </div>
+	        </div>
+        
+        
+    <div id="Mcont" class="Maincontent">
+        <!--头部-->
+        <div class="head" id="head">
+            <a href="javascript:history.go(-1);"><span class="head-return" style="width: 10%;">
+                <img src="image/return.jpg" tppabs="http://m.jx516.com/image/return.jpg" style="width: 30px; height: 30px;" alt="" /></span></a>
+            <span class="head-tit" style="width: 75%;">产品信息</span>
+            <a href="Index.aspx.htm" tppabs="http://m.jx516.com/Index.aspx" style="color:#fff;text-decoration:none;"><span style="width: 10%; font-size: 16px;">首页</span></a>
+        </div>
+
+        <!--可用连图-->
+        <div style="width:100%;height:auto;float:left;">
+            <img onerror="func(this,0,1)" src="../image.jx516.com/product/pcphoto/239_1.jpg" tppabs="http://image.jx516.com/product/pcphoto/239_1.jpg" style="width: 100%; height: 150px;" alt="" />
+        </div>
+        
+        <script type="text/javascript">
+            $(".slideBox").slide({ mainCell: ".bd ul", effect: "fold", autoPlay: true, touch: "touchSlider" });
+        </script>
+
+        <div class="detail-tit" style="border-bottom: 1px solid #ccc;">
+            <div>【散拼，休闲】野三坡清泉山、十渡风景区、孤山寨休闲二日游</div>
+            <div style="color:#898989;">出发地：天津&nbsp;&nbsp;&nbsp;&nbsp;区域：</div>
+        </div>
+        <div class="detail-tit-sign">
+            <div class="detail-sign-left" style="width:36%;">产品编号：239</div>
+            <div class="detail-sign-left" style="width:25%;text-align: center;">&nbsp;</div>
+            <div class="detail-sign-left" style="width: 33%;height:2em; padding: 4px;background: #f00; border-radius: 5px;">
+                <div style="background: #fff; color: #f00;width:8%;height:2em; padding: 3px; border-top-left-radius: 3px; border-bottom-left-radius: 3px; line-height: 1em; font-size: 10px; float: left;">
+                    <span style="float: left;">预</span><br />
+                    <span style="float: left;">定</span>
+                </div>
+                <div class="detail-money-left" style="height:2em;color: #fff;"><b style="font-weight: 500; font-size: 10px; padding-left: 5px;">￥</b>268.00</div>
+            </div>
+        </div>
+        <div style="float: left; width: 100%; height: .3em; background: #F1F1F1; border-top: 1px solid #ccc;"></div>
+        <!--团期价格-->
+       
+        <div class="detail-time" onclick="GetPost()">
+            <div class="detail-time-tit">
+                <span style="padding-top:6px;padding-right:5px;"><img src="Image/det-time.png" tppabs="http://m.jx516.com/Image/det-time.png" style="width:30px;height:30px;"/></span>
+                <span>团期/价格</span>
+            </div>
+            <div class="detail-time-cont"><span>2016-08-04、2016-08-05、></span><span style="padding: 0 5px;"></span></div>
+        </div>
+
+        <div style="float: left; width: 100%; height: .3em; background: #F1F1F1; border-top: 1px solid #ccc;"></div>
+
+        <!--选择日期,暂时隐藏-->
+        <div style="display: none;">
+            <div class="detail-choose" id="showChoose">
+                <span style="font-weight: bold; padding-left: 5px;">立即预定</span>
+                <span style="margin-right: 10px;" id="showbtn"></span>
+                <span id="hidebtn" style="display: none; margin-right: 10px;"></span>
+            </div>
+            <div class="detail-choose-hide" id="hidechoose">
+                <div style="width: 100%; float: left; line-height: 2em; font-size: 14px;">请选择日期</div>
+                
+                <div class="detail-date">
+                    
+                    <select name="ctl00$ContentPlaceHolder1$dpl_groupDate" id="dpl_groupDate" class="order-input" onchange="updatePeople()">
+	<option value="-1">请选择团期</option>
+	<option value="100,202597">2016-08-04---价格：268.00</option>
+	<option value="100,202598">2016-08-05---价格：268.00</option>
+	<option value="100,202599">2016-08-06---价格：268.00</option>
+	<option value="100,202600">2016-08-07---价格：268.00</option>
+	<option value="100,202601">2016-08-08---价格：268.00</option>
+	<option value="100,202602">2016-08-09---价格：268.00</option>
+	<option value="100,202603">2016-08-10---价格：268.00</option>
+	<option value="100,202604">2016-08-11---价格：268.00</option>
+	<option value="100,202605">2016-08-12---价格：268.00</option>
+	<option value="100,202606">2016-08-13---价格：268.00</option>
+	<option value="100,202607">2016-08-14---价格：268.00</option>
+	<option value="100,202608">2016-08-15---价格：268.00</option>
+	<option value="100,202609">2016-08-16---价格：268.00</option>
+	<option value="100,202610">2016-08-17---价格：268.00</option>
+	<option value="100,202611">2016-08-18---价格：268.00</option>
+	<option value="100,202612">2016-08-19---价格：268.00</option>
+	<option value="100,202613">2016-08-20---价格：268.00</option>
+	<option value="100,202614">2016-08-21---价格：268.00</option>
+	<option value="100,202615">2016-08-22---价格：268.00</option>
+	<option value="100,202616">2016-08-23---价格：268.00</option>
+	<option value="100,202617">2016-08-24---价格：268.00</option>
+	<option value="100,202618">2016-08-25---价格：268.00</option>
+	<option value="100,202619">2016-08-26---价格：268.00</option>
+	<option value="100,202620">2016-08-27---价格：268.00</option>
+	<option value="100,202621">2016-08-28---价格：268.00</option>
+	<option value="100,202622">2016-08-29---价格：268.00</option>
+	<option value="100,202623">2016-08-30---价格：268.00</option>
+	<option value="100,202624">2016-08-31---价格：268.00</option>
+
+</select>
+                </div>
+                <div class="detail-pep" id="div_showPeopleCount"></div>
+                <div style="width: 100%; float: left; line-height: 2em; font-size: 14px;">请选择人数</div>
+                <div style="width: 100%; float: left; line-height: 2em; font-size: 14px;">
+                    <div class="detail-pep">成人：</div>
+                    <div class="detail-input">
+                        <select class="detail-input" id="dpl_adultsNum" onchange="calcMoney()">
+                            <option value="1">1</option>
+                            <option value="2" selected="selected">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                    </div>
+                    <div class="detail-pep" style="padding-left: 20px;">儿童：</div>
+                    <div class="detail-input">
+                        <select class="detail-input" id="dpl_childNum" onchange="calcMoney()">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="choose-money">
+                    <div class="choose-moneyLeft" id="div_showAllMoney">--</div>
+                    <div class="choose-moneyRight" onclick="order()">开始预订</div>
+                </div>
+            </div>
+        </div>
+        <!--线路特色-->
+        <div id="Msg">
+            <div id="pordAttr" class="detail-line">
+                <ul>
+                    <li id="line1" onclick="setTab(1)" style="border-right: 1px solid #ccc;border-bottom:3px solid  #3db4ff; ">行程介绍</li>
+                    <li id="line2" onclick="setTab(2)" style="border-right: 1px solid #ccc;">费用说明</li>
+                    <li id="line3" onclick="setTab(3)">线路特色</li>
+                </ul>
+            </div>
+            <div class="line-cont">
+                <div class="line-cont-one" id="cont1">
+                    <div id="showDay">
+                        <p style="color:#3EB4FD;">
+                            <span style="color:#3EB4FD;padding-right:10px;">第1天</span>
+                            <span style="color:#3EB4FD;padding-right:10px;">出发地：</span>
+                            <span style="color:#3EB4FD;padding-right:10px;">目的地：</span>
+                        </p>
+                        <p>
+                            <span style="color:#3EB4FD;padding-right:10px;">住宿信息：河北 河北</span>
+                        </p>
+                        <p style="color: #3EB4FD;border-bottom:1px solid #ccc;">详细信息</p>
+                        <p>
+                            十渡风景区-孤山寨<br />早按约定时间在指定地点集合乘车赴十渡风景区，客人可自费参加拒马河上漂流，充分体验<br />“船在水上走，人在画中游”的亲水乐趣，还可自费体验双人飞翼、卡丁车、哈哈乐园、5D<br />超动感电影、快艇等娱乐项目。之后游览孤山寨风景区。孤山寨内步步皆景，四季如画。初春<br />，山花烂漫，香飘万里；夏季，绿意欲滴，泉眼喷流，这里的最高气温不超过25摄氏度；秋<br />风送爽，枫栌如火，柿闹枝头；冬季，瑞雪素裹，青松点翠。这里旅游资源得天独厚，有著名<br />的“一线天”，流传千古的“劈山救母”的传说就发生在这里，还有 “山门迎客”、“仙女浴<br />潭”、“九龙抱石”、“碧池戏水”、“五老峰”、“海龟砣”、“鹰嘴石”、“石中石”、“银川冰谷”、<br />“玉柱笋天”、“歌泉涌流”等景观。满眼尽是赏心悦目的异石奇景。赠竹筏戏水1小时，瀑布<br />群景区。土特产超市自由购物40分钟，晚餐后赴宾馆休息。<br /><br />
+                        </p>
+                    </div>
+                    <div id="hide_1" class="a" style="display: none;">
+                        
+                                <div>
+                                    <p style="color: #3db4ff;">
+                                        第2天
+                                    </p>
+                                    <p>
+                                        野三坡-清泉山<br />早餐之后游览清泉山；清泉山景区以景观之多，瀑布之雄景色秀美，植被丰富而著称。景区内有：一泉、六瀑、三十八景、奇峰林立，由于尚未遭受人为因素的破坏，峡谷内仍然保留着有原始次生林的名贵植物。进入山门 自然景观次第展开在眼前:葫芦潭.泉源.清石谷.望风台。目力所及之处 是清爽宜人的绿.有深清的绿.浅碧的绿.浓翠的绿 将山恋渲染得秀美异常.这醉人的绿好像在山谷 天空不停的飘逸 周围的大山就像一块绿色的水帕。游览结束后返津，结束愉快旅程！注：具体行程以出游当天实际情况决定，导游有权利根据当天天气、路程时间、人数等实际条件进行行程调整。
+							    住宿：无 无</p>
+                                </div>
+                            
+                    </div>
+                    <p style="padding:.5em 0;">
+                        <span style="width:100%;line-height:3em;border-radius:3px;text-align:center;color:#fff;font-size:14px;background:#3db4ff; cursor:pointer;" id="open_1">展开∨</span>
+                        <span style="width:100%;line-height:3em;border-radius:3px;text-align:center;color:#fff;font-size:14px;background:#3db4ff;cursor:pointer;display:none;" id="clos_1">收起∧</span>
+                    </p>
+                </div>
+                <div style="display:none;" class="line-cont-one" id="cont2">
+                    <div style="color: #3db4ff; font-weight: bold; font-size: 16px; padding-bottom: 5px;">费用说明</div>
+                    <div>
+                        
+                                <div class="lines_xclist">
+                                    费用不包含
+                                    我们承诺十渡自费封顶200元/人，绝无强制消费！<br />客人在当地增加的自费项目及其他个人消费。拒马河上漂流：98元/人；80元/人；<br />十渡野三坡风景区是京津翼周边综合性非常强的一个景点，隶属房山世界地质公园，历时二十多年经久不衰，除<br />了有纯自然的风景区外，还有历史悠久的千年古刹，浪漫为主题的薰衣草婚纱摄影基地以及各种水上，空中，陆<br />地的各种娱乐项目供大家选择参加，也是周边朋友自驾及家庭出游最爱去的景区之一。<br />云居寺：40元/人（不含讲解费）；双人飞翼：80元/人；卡丁车：40元/圈/人；水滑漂：70元/人；<br />快艇：30元/圈/人；极速飞鱼：100元/圈/人；脚踏船30元/人；滑草：60元/人/次；碰碰船：40元/人/次等
+                                    <br />
+                                </div>
+                            
+                                <div class="lines_xclist">
+                                    费用包含
+                                    1、交通：往返国产空调旅游车（根据实际人数调整车型）<br />2、门票：景点第一大门票（清泉山、孤山寨首道大门票）<br />3、住宿：农家宾馆2-3人间（自备洗漱用品，独立卫生间、定时太阳能热水）<br />4、用餐：1早2正餐（十人一桌八菜一汤，赠送，不用餐不退费，在不减少用餐次数的情况下，我社保留调整<br />用餐顺序的权利）<br />5、导游：全程优质导游服务<br />6、赠送：1早2正餐、竹筏戏水、九曲溪瀑布群（赠送项目不参加不退费）
+                                    <br />
+                                </div>
+                            
+                    </div>
+                    <div>
+                        <br />
+                        <hr />
+                    </div>
+                    <div>
+                        
+                                <div class="lines_xclist">
+                                    发车地点
+                                    <p>
+ 发车线路：</p>
+<p>
+ (1)市内方向：</p>
+<p>
+ （第一站）05:50天津日报大厦（围堤道与大沽路交口）&mdash;（第二站）06:00南京路友谊宾馆&mdash;（第三站）06:20鼓楼旅游超市（浦发银行门口）&mdash;（第四站）06:40北辰区果园北道肯德基门口&mdash;（第五站）07:10武清区杨村东方之珠门口</p>
+<p>
+ （2）塘沽方向：</p>
+<p>
+ （第一站）05:00塘沽洋货市场（天桥下）&mdash;市内（第一站）</p>
+<p>
+ （3）大港+津南方向：</p>
+<p>
+ （第一站）05:00大港世纪广场（农行对面）&mdash;（第二站）05:05津南区小站医院门口&mdash;（第三站）05:20津南区咸水沽月坛（月坛商厦）&mdash;市内（第一站）</p>
+<p>
+ （4）西青方向：</p>
+<p>
+ （第一站）06:40西青区维也纳酒店门口&mdash;市内（第一站）</p>
+                                    <br />
+                                </div>
+                            
+                                <div class="lines_xclist">
+                                    产品说明
+                                    发车线路：返程统一车辆、时间接送，不固定车型。如客人不愿等待，可自行返回，我社不承担相应责任。<br />★温馨提醒：由于五一小长假期间人多车多，接站时间会适当提前，具体集合时间以导游通知为准！<br />※塘沽方向（此线路加20往返接送费）：05:00塘沽洋货天桥下<br />※大港方向（此线路加20往返接送费）：4:30乾汇大酒店-4：40游泳馆-5：00大港世纪广场-<br />5：05小站医院-5：20津南咸水沽月坛<br />※静海方向（此线路加20往返接送费）：5:00静海宾馆门前—05:20张窝 -06:40西青医院<br />※市区方向（免费接送）：05:20东丽跃进路新华书店-05:50南楼国美电器门前-06：20城厢东路鼓楼旅游超市<br />-06: 40北辰果园北道肯德基--07: 05杨村东方之珠<br />东丽、市内、北辰、武清均免费接送；以上一二日游线路郊县客人有可能会出现中转换乘大巴现象，敬请谅解。<br />3
+                                    <br />
+                                </div>
+                            
+                    </div>
+                    <div>
+                        <br />
+                        <hr />
+                    </div>
+                    <div>
+                        
+                                <div class="lines_xclist">
+                                    签证信息
+                                    
+                                    <br />
+                                </div>
+                            
+                    </div>
+                    <div>
+                        <br />
+                        <hr />
+                    </div>
+                    <div>
+                        
+                                <div class="lines_xclist">
+                                    注意事项
+                                    <br /><br />1. 游客出游请携带身份证等有效证件。学生证、老年证等任何证件无效，不在享受额外优惠政策。<br />2.因本行程涉及登山、竹筏等较费体力项目，故65岁以上客人不适宜参加，敬请谅解！<br />3. 请携带有效证件（身份证/驾驶证/户口本等）、旅游合同上车，请告知游客出团前一天16：00-22:00，务必保持电话开机，导游会提前以短信形式告知联系方式、车牌号；（以收到短信为准），出团当天请联系导游！<br />当联系不到导游时，再拨打紧急电话：15522315110！乘车地点以确认件为准，不得随意更改！ <br />4.本旅游团为散客拼团，游客须自行前往集合地点集合上车，由于客人自身原因未能及时抵达集合地点的，超过发车时间15钟，不再等待，视为自动放弃，费用不退。<br />5. 集合标志：见“鑫益通假期”橘黄色导游旗 。   <br />6.本旅游团需20人以上方可成团，如您所报名的团期未达成团人数，我社会提前一天通知您退团或延期，我社不承担任何责任，敬请谅解！行程中景点、餐、住宿、交通等任何项目客人自愿放弃均不退费，参团中如有任何问题可拨打18622113366在当地进行投诉解决，回团后不受理任何投诉！<br />7．因有竹筏水上娱乐项目，请自备拖鞋及更换衣物！<br />8、如遇下雨天气或人力不可抗因素导致不能游览玻璃栈道，我社有权利调整成漂流项目，敬请谅解！<br />
+                                    <br />
+                                </div>
+                            
+                    </div>
+                </div>
+                <div style="display:none;" class="line-cont-one" id="cont3">
+                    <div style="color: #3db4ff; font-weight: bold; font-size: 16px; padding-bottom: 5px;">线路特色</div>
+                     登临清泉山，魅力野三坡，逛孤山寨，走十渡风光
+                </div>
+            </div>
+            <!--签证信息-->
+            <div style="float: left; width: 100%; height: .3em; background: #F1F1F1; border-top: 1px solid #ccc;"></div>
+            <div class="detail-time">
+                <div class="detail-time-tit">
+                    <span style="padding-top:6px;padding-right:5px;"><img src="Image/det-visa.png" tppabs="http://m.jx516.com/Image/det-visa.png" style="width:27px;height:30px;"/></span>
+                    <span>签证/信息</span>
+                </div>
+                <div id="open_2" class="detail-time-cont">></div>
+                <div id="clos_2" style="display:none;" class="detail-time-cont">∧</div>
+            </div>
+            <div id="hide_2" class="a" style="display:none; width:100%;height:auto; float:left;border-top: 1px solid #ccc;">无</div>
+            <div style="float: left; width: 100%; height: .3em; background: #F1F1F1; border-top: 1px solid #ccc;"></div>
+            <!--购物/自费-->
+            <div class="detail-time">
+                <div class="detail-time-tit">
+                    <span style="padding-top:6px;padding-right:5px;"><img src="Image/det-buy.png" tppabs="http://m.jx516.com/Image/det-buy.png" style="width:30px;height:30px;"/></span>
+                    <span>购物/自费</span>
+                </div>
+                <div id="open_3" class="detail-time-cont">></div>
+                <div id="clos_3" style="display:none;" class="detail-time-cont">∧</div>
+            </div>
+            <div id="hide_3" class="a" style="display:none; width:100%;height:auto; float:left;border-top: 1px solid #ccc;"></div>
+            <div style="float: left; width: 100%; height: .3em; background: #F1F1F1; border-top: 1px solid #ccc;"></div>
+            <!--预定须知-->
+            <div class="detail-time">
+                <div class="detail-time-tit">
+                    <span style="padding-top:6px;padding-right:5px;"><img src="Image/det-order.png" tppabs="http://m.jx516.com/Image/det-order.png" style="width:30px;height:30px;"/></span>
+                    <span>预定须知</span>
+                </div>
+                <div id="open_4" class="detail-time-cont">></div>
+                <div id="clos_4" style="display:none;" class="detail-time-cont">∧</div>
+            </div>
+            <div id="hide_4" class="a" style="display:none; width:100%;height:auto; float:left;border-top: 1px solid #ccc;"></div>
+            <div style="float: left; width: 100%; height: .3em; background: #F1F1F1; border-top: 1px solid #ccc;"></div>
+            <!--注意事项-->
+            <div class="detail-time">
+                <div class="detail-time-tit">
+                    <span style="padding-top:6px;padding-right:5px;"><img src="Image/det-act.png" tppabs="http://m.jx516.com/Image/det-act.png" style="width:30px;height:30px;"/></span>
+                    <span>注意事项</span>
+                </div>
+                <div id="open_5" class="detail-time-cont">></div>
+                <div id="clos_5" style="display:none;" class="detail-time-cont">∧</div>
+            </div>
+            <div id="hide_5" class="a" style="display:none; width:100%;height:auto; float:left;border-top: 1px solid #ccc;"></div>
+            <div style="float: left; width: 100%; height: .3em; background: #F1F1F1; border-top: 1px solid #ccc;"></div>
+        </div>
+        <!--相关产品推荐-->
+        <div class="detail-time" style="border-bottom:1px solid #ccc;">
+            <div class="detail-time-tit">
+                <span style="padding-top:6px;padding-right:5px;"><img src="Image/det-tui.png" tppabs="http://m.jx516.com/Image/det-tui.png" style="width:30px;height:30px;"/></span>
+                <span>相关推荐</span>
+            </div>
+        </div>
+        <div class="product-list" id="travel">
+            <ul>
+                <li> <div class="list-img">     <span></span>     <img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/7629_1.jpg" tppabs="http://image.jx516.com/product/mphoto/7629_1.jpg" alt="" /> </div> <div class="list-show">     <div class="list-pro-tit"> 品读黄山之黄山、西递宏村、九华山双高五日游（D5）</div>     <div class="list-show-msg"><span>区域：安徽黄山</span><span>出发地：天津</span>     </div>     <div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">      线路编号：7629   </b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>2590.00</b><b style="font-size:8px;font-weight:500;">起</b></span>     </div> </div> <a class="click-url" href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=7629  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=7629%27" tppabs="http://m.jx516.com/Detail.aspx?id=7629"></a></li><li> <div class="list-img">     <span></span>     <img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/7626_1.jpg" tppabs="http://image.jx516.com/product/mphoto/7626_1.jpg" alt="" /> </div> <div class="list-show">     <div class="list-pro-tit">品读黄山之黄山、西递宏村双高四日游（D2）</div>     <div class="list-show-msg"><span>区域：安徽黄山</span><span>出发地：天津</span>     </div>     <div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">      线路编号：7626   </b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>2170.00</b><b style="font-size:8px;font-weight:500;">起</b></span>     </div> </div> <a class="click-url" href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=7626  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=7626%27" tppabs="http://m.jx516.com/Detail.aspx?id=7626"></a></li><li> <div class="list-img">     <span></span>     <img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/5351_1.jpg" tppabs="http://image.jx516.com/product/mphoto/5351_1.jpg" alt="" /> </div> <div class="list-show">     <div class="list-pro-tit">黄山（观日出）+千岛湖中心湖区双高4日游</div>     <div class="list-show-msg"><span>区域：安徽黄山</span><span>出发地：天津</span>     </div>     <div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">      线路编号：5351   </b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>2480.00</b><b style="font-size:8px;font-weight:500;">起</b></span>     </div> </div> <a class="click-url" href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=5351  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=5351%27" tppabs="http://m.jx516.com/Detail.aspx?id=5351"></a></li><li> <div class="list-img">     <span></span>     <img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/4008_1.jpg" tppabs="http://image.jx516.com/product/mphoto/4008_1.jpg" alt="" /> </div> <div class="list-show">     <div class="list-pro-tit">黄山（观日出）+西递、宏村双高4日游</div>     <div class="list-show-msg"><span>区域：安徽黄山</span><span>出发地：天津</span>     </div>     <div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">      线路编号：4008   </b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>2380.00</b><b style="font-size:8px;font-weight:500;">起</b></span>     </div> </div> <a class="click-url" href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=4008  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=4008%27" tppabs="http://m.jx516.com/Detail.aspx?id=4008"></a></li>
+                </ul>
+            </div>
+
+        <!--回到顶部-->
+        <button id="ScrollToTop" class="btnimg Button2 WhiteButton Offscreen" >
+            <img src="image/arrow_top.png" tppabs="http://m.jx516.com/image/arrow_top.png" alt="" style="width:50px;height:50px;"/>
+        </button>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                ScrollToTop.setup();
+            });
+        </script>
+        <div class="detail-foot">
+           <div style="float:left;width:15%;padding:0 5%;border-right:1px solid #ccc;">
+               <a id="tel" href="tel:4001566776 ">
+                    <div style="width: 100%; text-align: center;">
+                        <span>
+                            <img src="Image/foot-our.png" tppabs="http://m.jx516.com/Image/foot-our.png" style="width: 22px; height: 20px;padding-top:5px;" alt="" /></span><br />
+                        <span>电话</span>
+                    </div>
+                </a>
+           </div>
+            <div style="float:left;width:12%;padding:0 3%;border-right:1px solid #ccc;">
+                <div id="Hcoll" onclick="collect()" style="width:100%;text-align: center;">
+                    <span>
+                        <img src="Image/foot-coll1.png" tppabs="http://m.jx516.com/Image/foot-coll1.png" style="width: 22px; height: 20px;" alt="" />
+                    </span><br />
+                    <span>收藏</span>
+                </div>
+                <div id="Scoll" style="display:none; width:100%;text-align: center;">
+                    <span>
+                        <img src="Image/foot-coll.png" tppabs="http://m.jx516.com/Image/foot-coll.png" style="width: 22px; height: 20px;" alt="" />
+                    </span><br />
+                    <span>收藏</span>
+                </div>
+            </div>
+        
+            <div  style="float:left;width:45%;padding-left:5%;cursor:pointer;">
+                 <span style="width:100%;float:left; background:#ff6a00;border-radius:5px;text-align:center;line-height:3em;color:#fff;" onclick="GetPost();return false;">开始预订</span>
+            </div>
+        </div>
+    </div>
+
+        <div class="foot">
+            <div class="foot-line"></div>
+            <div class="foot-name">©2009-2016 嘉信旅游<img src="../z10.cnzz.com/stat.htm-id=1253409067&r=http---m.jx516.com-Search.aspx-key=&iw=1&showp=0x0&lg=undefined&cnzz_eid=none&p=http---m.jx516.com-Detail.aspx-id=239&rnd=287409276.gif" tppabs="http://c.cnzz.com/wapstat.php?siteid=1253409067&r=http%3a%2f%2fm.jx516.com%2fSearch.aspx%3fkey%3d&rnd=1029229145" width="0" height="0" alt=""/>
+                <script type="text/javascript">
+                    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                    document.write(unescape("%3Cspan id='cnzz_stat_icon_1253409067'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s6.cnzz.com/stat.php%3Fid%3D1253409067%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+                        </script>
+            </div>
+          <div class="foot-name"><a href="javascript:if(confirm(%27http://www.miibeian.gov.cn/  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.miibeian.gov.cn/%27" tppabs="http://www.miibeian.gov.cn/" style="cursor:pointer;">津ICP备12004526号</a><a href="javascript:if(confirm(%27http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12010102000048  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12010102000048%27" tppabs="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12010102000048" style="cursor:pointer;" ><img style="margin-bottom:-4px;" src="Image/beian.png" tppabs="http://m.jx516.com/Image/beian.png" /></a><br />公安备案号：12010102000048</div>
+                        
+        </div>
+        <div style="width:100%;height:3em;float:left;"></div>
+      <div style="width:100%;background-color:#fff;height:auto;position:fixed;top:0px;left:0px;float:left;z-index:30;height:100%;display:none;cursor:pointer;" id="site">
+                <div style="text-align:center;color:black;background-color:#ccc;line-height:30px;height:30px;"><span style="text-align:left;float:left;padding-left:10px;color:#43b1f0" onclick="hideSite()">X</span> 选择城市</div>
+                <div style="text-align:left;color:#808080;padding-left:10px;line-height:30px;height:30px;float:left;">
+                    热门城市
+                </div>
+                <div style="width:100%;float:left;">
+                    <ul id="hot">
+                        <li><div key="W01">天津</div></li>
+
+                        <li><div key="W02">吉林</div></li>
+
+                    </ul>
+                </div>
+                <div style="text-align:left;color:#000;padding-left:10px;line-height:30px;height:30px;float:left;display:none;">
+                    选择城市
+                </div>
+                <div style="width:100%;float:left;display:none;">
+                    <ul>
+                        <li><div style="background-color:#43b1f0;color:#000;" onclick="setTab('1')" id="bt1">A-G</div></li>
+                        <li><div style="background-color:#c7dbeb;color:#000;" onclick="setTab('2')" id="bt2">H-L</div></li>
+                        <li><div style="background-color:#c7dbeb;color:#000;" onclick="setTab('3')" id="bt3">M-Q</div></li>
+                        <li><div style="background-color:#c7dbeb;color:#000;" onclick="setTab('4')" id="bt4">R-Z</div></li>
+                    </ul>
+                    <div id="st1">
+                        <ul>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        </ul>
+                        <ul>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        </ul>
+                        <ul>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        </ul>
+                    </div>
+                    <div id="st2" style="display:none;">
+                        <ul>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        </ul>
+                        <ul>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        </ul>
+                        <ul>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        </ul>
+                    </div>
+                    <div id="st3" style="display:none;">
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                    </div>
+                    <div id="st4" style="display:none;">
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="width:100%;float:left;height:20px;"></div>
+            </div>
+    </form>
+</body>
+</html>

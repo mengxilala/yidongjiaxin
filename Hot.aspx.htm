@@ -1,0 +1,535 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/javascript"> var _tcopentime = new Date().getTime(); var _hmt = _hmt || []; </script>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="format-detection" content="telephone=no" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" /><meta name="apple-mobile-web-app-capable" content="yes" /><meta name="apple-mobile-web-app-status-bar-style" content="black" /><meta name="apple-mobile-web-app-title" content="嘉信旅游" /><meta name="keywords" content="旅游,嘉信国旅,嘉信旅游,天津嘉信，旅游社，旅游线路,旅游网站,自助游,国内游,出境游,景点门票，出境度假" /><meta name="description" content="嘉信旅游是中国领先的手机一站式旅游预订平台，提供30000多家景点门票、特价机票、特惠酒店等预订服务；专业服务、品质保障，让您的旅行更安心；实惠的价格、简单的流程，让您的旅行更贴心！" />
+    <!-- UC默认竖屏 ，UC强制全屏 -->
+    <meta name="full-screen" content="yes" /><meta name="browsermode" content="application" />
+    <!-- QQ强制竖屏 QQ强制全屏 -->
+    <meta name="x5-orientation" content="portrait" /><meta name="x5-fullscreen" content="true" /><meta name="x5-page-mode" content="app" /><title>
+	【嘉信旅游】一路欢笑一生情
+</title><link href="style/public.css" tppabs="http://m.jx516.com/style/public.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        #site ul li{
+        width:20%;
+        padding:8px 2.5%;
+        float:left;
+        }
+        #site ul li div{
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        
+        }
+        #st1 li{
+        border:none;
+        background-color:#FFF;
+        color:#000;
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        }
+        #st2 li{
+        border:none;
+        background-color:#FFF;
+        color:#000;
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        }
+        #st3 li{
+        border:none;
+        background-color:#FFF;
+        color:#000;
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        }
+        #st4 li{
+        border:none;
+        background-color:#FFF;
+        color:#000;
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        }
+        .bd1 {
+            border:1px solid #c7dbeb;
+        }
+        .bd2 {
+            border:1px solid #43b1f0;
+        }
+    </style>
+    <script type="text/javascript">
+       
+        document.onreadystatechange = loading;
+        function loading() {
+            if (document.readyState == "complete") {
+                $("#loading").hide();
+                $("#Mcont").show();
+            }
+        }
+        function setTab(name) {
+            for (var i = 1; i < 5; i++) {
+                var menu = document.getElementById("st" + i);
+                var menubt = document.getElementById("bt" + i);
+                if (i == name) {
+                    menu.style.display = "inline";
+                    menubt.style.backgroundColor = "#43b1f0";
+                }
+                else {
+                    menu.style.display = "none";
+                    menubt.style.backgroundColor = "#c7dbeb";
+                }
+            }
+        }
+        function showSite() {
+            $("#site").show();
+        }
+        function hideSite() {
+            $("#site").hide();
+        }
+        function setSite() {
+            if (site_txt == "" || site_val == "") {
+                alert(请选择出发地);
+            } else {
+                $.ajax({
+                    type: "Post",
+                    url: "/Index.aspx/SetSite",
+                    data: "{'txt':'" + site_txt + "','val':'" + site_val + "'}",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        location.href = location.href;
+                    },
+                    error: function (d, e, f) {
+                    }
+                });
+            }
+        }
+        function defaultSite() {
+            if (site_txt == "" || site_val == "") {
+                alert(请选择出发地);
+            } else {
+                $.ajax({
+                    type: "Post",
+                    url: "/Index.aspx/defaultSite",
+                    data: "{'txt':'" + site_txt + "','val':'" + site_val + "'}",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        location.href = location.href;
+                    },
+                    error: function (d, e, f) {
+                    }
+                });
+            }
+        }
+
+        //图片加载失败，用默认图片
+        function func(obj, id, index) {
+            if (index == 1) {
+                obj.src = "Image_product/a.jpg"/*tpa=http://m.jx516.com/Image_product/a.jpg*/;
+            } else {
+                //var filespec = "/Image_product/" + id + "_1.jpg";
+                //var fso,s = filespec; // filespec="C:/path/myfile.txt"
+                //fso = new ActiveXObject("Scripting.FileSystemObject");
+                //if (fso.FileExists(filespec)) {
+                //    obj.src = "/Image_product/" + id + "_1.jpg";
+                //} else {
+                //    obj.src = "Image_product/a.jpg"/*tpa=http://m.jx516.com/Image_product/a.jpg*/;
+                //}
+                obj.src = "Image_product/a.jpg"/*tpa=http://m.jx516.com/Image_product/a.jpg*/;
+            }
+        }
+    </script>
+    
+    <link href="style/hot.css" tppabs="http://m.jx516.com/style/hot.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery.min.js" tppabs="http://m.jx516.com/js/jquery.min.js"></script>
+    <script type="text/javascript">
+        var tel = "tel:4001566776";
+        var site_val = "";
+        var site_txt = "";
+        $(document).ready(function () {
+            var id = '';
+            var sid = '';
+
+            var site = "W01";
+            $("#hot div").each(function (a, b) {
+                if (site == $(b).attr("key")) {
+                    $(b).addClass("bd2");
+                } else {
+                    $(b).addClass("bd1");
+                }
+                $(b).click(function () {
+                    site_val = $(b).attr("key");
+                    site_txt = $(b).html();
+                    setSite();
+                });
+            });
+
+            $("#st1 div").each(function (a, b) {
+                if (site == $(b).attr("key")) {
+                    $(b).addClass("bd2");
+                } else {
+                    $(b).addClass("bd1");
+                }
+                $(b).click(function () {
+                    site_val = $(b).attr("key");
+                    site_txt = $(b).html();
+                    setSite();
+                });
+            });
+            $("#st2 div").each(function (a, b) {
+                if (site == $(b).attr("key")) {
+                    $(b).addClass("bd2");
+                } else {
+                    $(b).addClass("bd1");
+                }
+                $(b).click(function () {
+                    site_val = $(b).attr("key");
+                    site_txt = $(b).html();
+                    setSite();
+                });
+            });
+            $("#st3 div").each(function (a, b) {
+                if (site == $(b).attr("key")) {
+                    $(b).addClass("bd2");
+                } else {
+                    $(b).addClass("bd1");
+                }
+                $(b).click(function () {
+                    site_val = $(b).attr("key");
+                    site_txt = $(b).html();
+                    setSite();
+                });
+            });
+            $("#st4 div").each(function (a, b) {
+                if (site == $(b).attr("key")) {
+                    $(b).addClass("bd2");
+                } else {
+                    $(b).addClass("bd1");
+                }
+                $(b).click(function () {
+                    site_val = $(b).attr("key");
+                    site_txt = $(b).html();
+                    setSite();
+                });
+            });
+            if (id.length > 0) {
+                $("#txt").html("会员中心");
+                $("#cus_login").show();
+                $("#staff_login").hide();
+            } else
+                if (sid.length > 0) {
+                    $("#cus_login").hide();
+                    $("#staff_login").show();
+                    $("#txt").html("登录/注册");
+                } else {
+                    $("#cus_login").show();
+                    $("#staff_login").hide();
+                    $("#txt").html("登录/注册");
+                }
+            $("#login").click(function () {
+                if (id.length > 0 || sid.length > 0) {
+                    location.href = "login.aspx.htm"/*tpa=http://m.jx516.com/Member.aspx*/;
+                } else {
+                    location.href = "login.aspx.htm"/*tpa=http://m.jx516.com/login.aspx*/;
+                }
+            });
+            $("#tel").attr("href", tel);
+            var sid = '';
+            var supp = '';
+            if (sid != "") {
+                var i = 0;
+                //$("div .list-show-msg").each(function (a, b) {
+                //    $(b).find("span").each(function (c, d) {
+                //        $(d).html(supp.split(",")[i++]);
+                //    });
+                //});
+                $("div .list-show-money").each(function (a, b) {
+                    $(b).find("span").each(function (c, d) {
+                        if (c == 0) {
+                            $(d).hide();
+                        }
+                    });
+                });
+            }
+        });
+
+        function txtChage() {
+            var reg = /[^\u4E00-\u9FA5]/g
+            var str = $("#txtarea").val();
+            if (!reg.test(str)) {
+                keyArea_Click();
+            } else {
+                alert("请输入中文！");
+                $("#txtarea").val("");
+            }
+        }
+    </script>
+</head>
+<body>
+    <form method="post" action="http://m.jx516.com/Hot.aspx" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTc2NzY0ODEzOWRkzctt6ASbI5BfHOJMeB/uYtK4/PuBfQBxVXe8VWOHa9Y=" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="A34FDC8D" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAOMaMxBrt+gwRljTM3XikYAnG36TTtIcEa0Q2pJocoHopG9NzBpomRZFmIeU9yKN186C8MXeN8BE42BaRqMwwmq7vdef7hS1ZE0JRpYga14aA==" />
+</div>
+        <img src="image/logo-img1.png" tppabs="http://m.jx516.com/image/logo-img1.png" alt="" style="width:0px;height:0px;" />
+        
+            <div id="loading">
+     	        <div class="spinner">
+  			        <div class="double-bounce1"></div>
+  			        <div class="double-bounce2"></div>
+		        </div>
+	        </div>
+        
+        
+    <div id="Mcont" class="Maincontent">
+        
+       <!--搜索-->
+        <div style="float:left;width:100%; border:2px solid #fff;">
+            <div style="width:24%;float:left;text-align:left;color:#f71077;cursor:pointer;height:2.3em;"  onclick ="showSite()"><img src="Image/city.png" tppabs="http://m.jx516.com/Image/city.png" style="border-radius:0px;border:0px;color:#808080;height:0.9em;padding:0.7em 0 0.6em 0;float:left;" /><span style="margin:0.4em .3em;height:1.5em;line-height:1.5em;float:left;">天津</span><img src="Image/st.png" tppabs="http://m.jx516.com/Image/st.png" style="border-radius:0px;border:0px;color:#808080;padding:0.6em 0 0.2em 0;height:1em;float:left;color:#f71077;" /></div>
+            <div class="head-search" id="search" style="width:63%;">
+                <span style="width:12%;"><img src="image/head-search1.png" tppabs="http://m.jx516.com/image/head-search1.png" style="width:18px;height:20px;padding-top:0.4em;padding-left:.7em;" alt=""  /></span>
+                <span style="width:86%;">
+                   <input name="ctl00$ContentPlaceHolder1$txtarea" type="text" id="ContentPlaceHolder1_txtarea" value="搜索旅游目的地/热门景区" onfocus="this.style.color=&#39;#000&#39;;if (value ==&#39;搜索旅游目的地/热门景区&#39;){value =&#39;&#39;}" onblur="if (value ==&#39;&#39;){value=&#39;搜索旅游目的地/热门景区&#39;;this.style.color=&#39;#B6B6B6&#39;;}" />
+                    </span>
+                <input type="submit" name="ctl00$ContentPlaceHolder1$areaKey" value="" id="ContentPlaceHolder1_areaKey" style="display:none;" /> 
+            </div>
+            <div style="width:10%;float:left;text-align:right;padding-top:.3em;">
+                <a href="Login-1.aspx.htm" tppabs="http://m.jx516.com/Login.aspx">
+                <img src="image/search-login.png" tppabs="http://m.jx516.com/image/search-login.png" alt=""  style="width:23px;height:25px;"/></a>
+            </div>
+            
+        </div>
+
+         <!--嘉信名片-->
+        <div class="index-name">
+            <div style="width:25%;border-radius:50px;float:left;padding-left:2%;"><img src="image/jiaxin-0307.png" tppabs="http://m.jx516.com/image/jiaxin-0307.png" alt="" style="width:90px;height:40px;margin-top:.7em;"/></div>
+            <div style="width:65%;float:left;height:4em;font-size:12px;text-align:center;"><b style="white-space:nowrap; line-height:2.5em;font-weight:500; font-size:14px;">天津嘉信商旅国际旅行社有限公司</b><br />最优质的服务最热门的旅游线路</div>
+            
+        </div>
+        <!--热门海报-->
+        <div class="poster-list">
+            <div class="poster-list-left" >
+                <div class="poster-list-rightTop">
+                    <a href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=6274  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=6274%27" tppabs="http://m.jx516.com/Detail.aspx?id=6274">
+                    <img src="image_theme/hot-one-5.6.jpg" tppabs="http://m.jx516.com/image_theme/hot-one-5.6.jpg" alt="" style="width: 100%; height: 6.5em;" /></a>
+                </div>
+                <div class="poster-list-rightBottom">
+                    <a href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=8007  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=8007%27" tppabs="http://m.jx516.com/Detail.aspx?id=8007">
+                    <img src="image_theme/hot-there-5.6.jpg" tppabs="http://m.jx516.com/image_theme/hot-there-5.6.jpg" alt="" style="width: 100%; height: 6.5em;" /></a>
+                </div>
+            </div>
+            <div class="poster-list-right">
+                <div class="poster-list-rightTop" style="border-left:5px solid #fff;">
+                    <a href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=8185  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=8185%27" tppabs="http://m.jx516.com/Detail.aspx?id=8185">
+                    <img src="image_theme/hot-two-5.6.jpg" tppabs="http://m.jx516.com/image_theme/hot-two-5.6.jpg" alt="" style="width: 100%; height: 6.5em;" /></a>
+                </div>
+                <div class="poster-list-rightBottom" style="border-left:5px solid #fff;">
+                    <a href="Detail.aspx-id=8126.htm" tppabs="http://m.jx516.com/Detail.aspx?id=8126">
+                    <img src="image_theme/hot-four-5.6.jpg" tppabs="http://m.jx516.com/image_theme/hot-four-5.6.jpg" alt="" style="width: 100%; height: 6.5em;" /></a>
+                </div>
+            </div>
+        </div>
+        <!--热门推荐-->
+        <div class="nav-list">
+            <span style="float: left;">
+                <img  src="image/hot_sign1.png" tppabs="http://m.jx516.com/image/hot_sign1.png" alt="" style="width: 30px; height: 30px; margin-top: 5px;" /></span>
+            <span style="float: left;">热门推荐</span>
+        </div>
+        <div class="product-list">
+            <ul>
+                <li><div class="list-img"><span></span><img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/8126_1-1.jpg" tppabs="http://image.jx516.com/product/mphoto/8126_1.jpg" alt="" /></div><div class="list-show"><div class="list-pro-tit">我和草原有个约定----希拉穆仁草原、库布齐沙漠、鄂尔多斯亲子双飞四日</div><div class="list-show-msg"><span style="padding-right:20px;">出发地：天津</span><span>区域：内蒙</span></div><div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">线路编号：8126</b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>1980</b><b style="font-size:8px;font-weight:500;">起</b></span></div></div><a class="click-url" href="Detail.aspx-id=8126.htm" tppabs="http://m.jx516.com/Detail.aspx?id=8126"></a></li><li><div class="list-img"><span></span><img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/8185_1.jpg" tppabs="http://image.jx516.com/product/mphoto/8185_1.jpg" alt="" /></div><div class="list-show"><div class="list-pro-tit">【花见东瀛-自在本州】日本本州+九州7晚8天（东京一天半自由活动）</div><div class="list-show-msg"><span style="padding-right:20px;">出发地：天津</span><span>区域：日本</span></div><div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">线路编号：8185</b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>7999</b><b style="font-size:8px;font-weight:500;">起</b></span></div></div><a class="click-url" href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=8185  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=8185%27" tppabs="http://m.jx516.com/Detail.aspx?id=8185"></a></li><li><div class="list-img"><span></span><img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/6274_1.jpg" tppabs="http://image.jx516.com/product/mphoto/6274_1.jpg" alt="" /></div><div class="list-show"><div class="list-pro-tit">【国航正班】韩国首尔一地3+2半自助5日游（四花）</div><div class="list-show-msg"><span style="padding-right:20px;">出发地：天津</span><span>区域：韩国</span></div><div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">线路编号：6274</b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>2180</b><b style="font-size:8px;font-weight:500;">起</b></span></div></div><a class="click-url" href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=6274  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=6274%27" tppabs="http://m.jx516.com/Detail.aspx?id=6274"></a></li><li><div class="list-img"><span></span><img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/8007_1.jpg" tppabs="http://image.jx516.com/product/mphoto/8007_1.jpg" alt="" /></div><div class="list-show"><div class="list-pro-tit">【双飞】黄山、徽州大峡谷、屯溪老街、潜口民宅博物馆4日（2线）</div><div class="list-show-msg"><span style="padding-right:20px;">出发地：天津</span><span>区域：安徽黄山</span></div><div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">线路编号：8007</b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>售罄</b><b style="font-size:8px;font-weight:500;">起</b></span></div></div><a class="click-url" href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=8007  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=8007%27" tppabs="http://m.jx516.com/Detail.aspx?id=8007"></a></li><li><div class="list-img"><span></span><img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/7695_1.jpg" tppabs="http://image.jx516.com/product/mphoto/7695_1.jpg" alt="" /></div><div class="list-show"><div class="list-pro-tit">希拉穆仁大草原、库布其沙漠、席力图召双卧五日游</div><div class="list-show-msg"><span style="padding-right:20px;">出发地：天津</span><span>区域：呼市包头草原</span></div><div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">线路编号：7695</b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>售罄</b><b style="font-size:8px;font-weight:500;">起</b></span></div></div><a class="click-url" href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=7695  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=7695%27" tppabs="http://m.jx516.com/Detail.aspx?id=7695"></a></li><li><div class="list-img"><span></span><img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/6333_1-1.jpg" tppabs="http://image.jx516.com/product/mphoto/6333_1.jpg" alt="" /></div><div class="list-show"><div class="list-pro-tit">【嘉信亲子】上海、同里、迪士尼、苏州双高4日</div><div class="list-show-msg"><span style="padding-right:20px;">出发地：天津</span><span>区域：华东上海</span></div><div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">线路编号：6333</b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>3580</b><b style="font-size:8px;font-weight:500;">起</b></span></div></div><a class="click-url" href="Detail.aspx-id=6333.htm" tppabs="http://m.jx516.com/Detail.aspx?id=6333"></a></li><li><div class="list-img"><span></span><img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/5572_1.jpg" tppabs="http://image.jx516.com/product/mphoto/5572_1.jpg" alt="" /></div><div class="list-show"><div class="list-pro-tit">【国航正班-尊享日本】东京大阪5晚6天</div><div class="list-show-msg"><span style="padding-right:20px;">出发地：天津</span><span>区域：日本</span></div><div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">线路编号：5572</b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>4999</b><b style="font-size:8px;font-weight:500;">起</b></span></div></div><a class="click-url" href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=5572  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=5572%27" tppabs="http://m.jx516.com/Detail.aspx?id=5572"></a></li><li><div class="list-img"><span></span><img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/1756_1.jpg" tppabs="http://image.jx516.com/product/mphoto/1756_1.jpg" alt="" /></div><div class="list-show"><div class="list-pro-tit">【国航正班-尊享日本】大阪东京5晚6天游</div><div class="list-show-msg"><span style="padding-right:20px;">出发地：天津</span><span>区域：日本</span></div><div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">线路编号：1756</b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>4699</b><b style="font-size:8px;font-weight:500;">起</b></span></div></div><a class="click-url" href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=1756  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=1756%27" tppabs="http://m.jx516.com/Detail.aspx?id=1756"></a></li><li><div class="list-img"><span></span><img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/5527_1.jpg" tppabs="http://image.jx516.com/product/mphoto/5527_1.jpg" alt="" /></div><div class="list-show"><div class="list-pro-tit">【一价全含】德法意瑞4国15天</div><div class="list-show-msg"><span style="padding-right:20px;">出发地：天津</span><span>区域：欧洲</span></div><div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">线路编号：5527</b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>15799</b><b style="font-size:8px;font-weight:500;">起</b></span></div></div><a class="click-url" href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=5527  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=5527%27" tppabs="http://m.jx516.com/Detail.aspx?id=5527"></a></li><li><div class="list-img"><span></span><img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/6376_1.jpg" tppabs="http://image.jx516.com/product/mphoto/6376_1.jpg" alt="" /></div><div class="list-show"><div class="list-pro-tit">8月22日“海洋赞礼号”日本福冈4晚5天</div><div class="list-show-msg"><span style="padding-right:20px;">出发地：天津</span><span>区域：邮轮</span></div><div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">线路编号：6376</b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>4899</b><b style="font-size:8px;font-weight:500;">起</b></span></div></div><a class="click-url" href="javascript:if(confirm(%27http://m.jx516.com/Steamer_detail.aspx?id=6376  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Steamer_detail.aspx?id=6376%27" tppabs="http://m.jx516.com/Detail.aspx?id=6376"></a></li><li><div class="list-img"><span></span><img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/5306_1.jpg" tppabs="http://image.jx516.com/product/mphoto/5306_1.jpg" alt="" /></div><div class="list-show"><div class="list-pro-tit">9月6日“海洋赞礼号”韩国仁川，首尔4晚5天</div><div class="list-show-msg"><span style="padding-right:20px;">出发地：天津</span><span>区域：邮轮</span></div><div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">线路编号：5306</b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>3550</b><b style="font-size:8px;font-weight:500;">起</b></span></div></div><a class="click-url" href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=5306  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=5306%27" tppabs="http://m.jx516.com/Detail.aspx?id=5306"></a></li><li><div class="list-img"><span></span><img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/8005_1.jpg" tppabs="http://image.jx516.com/product/mphoto/8005_1.jpg" alt="" /></div><div class="list-show"><div class="list-pro-tit">【双飞】黄山、宏村、屯溪老街双飞3日（A1线）</div><div class="list-show-msg"><span style="padding-right:20px;">出发地：天津</span><span>区域：安徽黄山</span></div><div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">线路编号：8005</b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>售罄</b><b style="font-size:8px;font-weight:500;">起</b></span></div></div><a class="click-url" href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=8005  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=8005%27" tppabs="http://m.jx516.com/Detail.aspx?id=8005"></a></li><li><div class="list-img"><span></span><img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/8175_1.jpg" tppabs="http://image.jx516.com/product/mphoto/8175_1.jpg" alt="" /></div><div class="list-show"><div class="list-pro-tit">大理、苍山、双朗、束河古镇、拉市海、丽江、玉龙雪山双飞六日 </div><div class="list-show-msg"><span style="padding-right:20px;">出发地：天津</span><span>区域：云南</span></div><div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">线路编号：8175</b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>6250</b><b style="font-size:8px;font-weight:500;">起</b></span></div></div><a class="click-url" href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=8175  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=8175%27" tppabs="http://m.jx516.com/Detail.aspx?id=8175"></a></li><li><div class="list-img"><span></span><img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/8197_1-1.jpg" tppabs="http://image.jx516.com/product/mphoto/8197_1.jpg" alt="" /></div><div class="list-show"><div class="list-pro-tit">天津-海参崴双飞五日半自助</div><div class="list-show-msg"><span style="padding-right:20px;">出发地：天津</span><span>区域：欧洲</span></div><div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">线路编号：8197</b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>3800</b><b style="font-size:8px;font-weight:500;">起</b></span></div></div><a class="click-url" href="Detail.aspx-id=8197.htm" tppabs="http://m.jx516.com/Detail.aspx?id=8197"></a></li><li><div class="list-img"><span></span><img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/6376_1.jpg" tppabs="http://image.jx516.com/product/mphoto/6376_1.jpg" alt="" /></div><div class="list-show"><div class="list-pro-tit">8月22日“海洋赞礼号”日本福冈4晚5天</div><div class="list-show-msg"><span style="padding-right:20px;">出发地：天津</span><span>区域：邮轮</span></div><div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">线路编号：6376</b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>4899</b><b style="font-size:8px;font-weight:500;">起</b></span></div></div><a class="click-url" href="javascript:if(confirm(%27http://m.jx516.com/Steamer_detail.aspx?id=6376  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Steamer_detail.aspx?id=6376%27" tppabs="http://m.jx516.com/Detail.aspx?id=6376"></a></li><li><div class="list-img"><span></span><img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/5306_1.jpg" tppabs="http://image.jx516.com/product/mphoto/5306_1.jpg" alt="" /></div><div class="list-show"><div class="list-pro-tit">9月6日“海洋赞礼号”韩国仁川，首尔4晚5天</div><div class="list-show-msg"><span style="padding-right:20px;">出发地：天津</span><span>区域：邮轮</span></div><div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">线路编号：5306</b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>3550</b><b style="font-size:8px;font-weight:500;">起</b></span></div></div><a class="click-url" href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=5306  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=5306%27" tppabs="http://m.jx516.com/Detail.aspx?id=5306"></a></li>
+            </ul>
+        </div>
+      
+         <!--客户登录底部浮动层-->
+        <div class="foot-float" id="cus_login">
+            <ul>
+                <a href="Index.aspx.htm" tppabs="http://m.jx516.com/Index.aspx">
+                <li style="border-right:1px solid #ccc;">
+                   <img src="image/foot-home.png" tppabs="http://m.jx516.com/image/foot-home.png" style="width:33px;height:30px;" alt="" /><br /><b style="font-weight:500;">首页</b>
+                </li>
+                </a>
+                <a href="Search.aspx.htm" tppabs="http://m.jx516.com/Search.aspx"><li style="border-right:1px solid #ccc;">
+                   <img src="image/foot-line.png" tppabs="http://m.jx516.com/image/foot-line.png" style="width:33px;height:30px;" alt="" /><br /><b style="font-weight:500;">线路搜索</b>
+                </li>
+                </a>
+                <li style="border-right:1px solid #ccc;cursor:pointer;" id="login">
+                   <img src="image/foot-login.png" tppabs="http://m.jx516.com/image/foot-login.png" style="width:33px;height:30px;" alt="" /><br /><b style="font-weight:500;" id="txt">登录/注册</b>
+                </li>
+                <a id="tel" href="tel:4001566776 ">
+                <li>
+                   <img src="image/foot-we.png" tppabs="http://m.jx516.com/image/foot-we.png" style="width:33px;height:30px;" alt="" /><br /><b style="font-weight:500;">联系我们</b>
+                </li>
+                </a>
+            </ul>
+        </div>
+        <!--员工登录底部浮动层-->
+        <div class="foot-float" style="display:none;" id="staff_login">
+            <ul>
+                <a href="Index.aspx.htm" tppabs="http://m.jx516.com/Index.aspx">
+                <li style="border-right:1px solid #ccc;">
+                   <img src="image/home.png" tppabs="http://m.jx516.com/image/home.png" style="width:33px;height:30px;" alt="" /><br /><b style="font-weight:500;">首页</b>
+                </li>
+                </a>
+                <a href="Search.aspx.htm" tppabs="http://m.jx516.com/Search.aspx"><li style="border-right:1px solid #ccc;">
+                   <img src="image/sear.png" tppabs="http://m.jx516.com/image/sear.png" style="width:33px;height:30px;" alt="" /><br /><b style="font-weight:500;">线路搜索</b>
+                </li>
+                </a>
+                <a href="Qr_code.aspx.htm" tppabs="http://m.jx516.com/Qr_code.aspx">
+                <li style="border-right:1px solid #ccc;">
+                   <img src="image/erweima.png" tppabs="http://m.jx516.com/image/erweima.png" style="width:33px;height:30px;" alt="" /><br /><b style="font-weight:500;">生成二维码</b>
+                </li>
+                 </a>
+                <a  href="Login-1.aspx.htm" tppabs="http://m.jx516.com/Login.aspx">
+                <li>
+                   <img src="image/qiehuan.png" tppabs="http://m.jx516.com/image/qiehuan.png" style="width:33px;height:30px;" alt="" /><br /><b style="font-weight:500;">切换帐号</b>
+                </li>
+                </a>
+            </ul>
+        </div>
+    </div>
+
+        <div class="foot">
+            <div class="foot-line"></div>
+            <div class="foot-name">©2009-2016 嘉信旅游<img src="../z10.cnzz.com/stat.htm-id=1253409067&r=http---m.jx516.com-&iw=1&showp=0x0&lg=undefined&cnzz_eid=none&p=http---m.jx516.com-Hot.aspx&rnd=453892406.gif" tppabs="http://c.cnzz.com/wapstat.php?siteid=1253409067&r=http%3a%2f%2fm.jx516.com%2f&rnd=1116701900" width="0" height="0" alt=""/>
+                <script type="text/javascript">
+                    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                    document.write(unescape("%3Cspan id='cnzz_stat_icon_1253409067'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s6.cnzz.com/stat.php%3Fid%3D1253409067%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+                        </script>
+            </div>
+          <div class="foot-name"><a href="javascript:if(confirm(%27http://www.miibeian.gov.cn/  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.miibeian.gov.cn/%27" tppabs="http://www.miibeian.gov.cn/" style="cursor:pointer;">津ICP备12004526号</a><a href="javascript:if(confirm(%27http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12010102000048  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12010102000048%27" tppabs="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12010102000048" style="cursor:pointer;" ><img style="margin-bottom:-4px;" src="Image/beian.png" tppabs="http://m.jx516.com/Image/beian.png" /></a><br />公安备案号：12010102000048</div>
+                        
+        </div>
+        <div style="width:100%;height:3em;float:left;"></div>
+      <div style="width:100%;background-color:#fff;height:auto;position:fixed;top:0px;left:0px;float:left;z-index:30;height:100%;display:none;cursor:pointer;" id="site">
+                <div style="text-align:center;color:black;background-color:#ccc;line-height:30px;height:30px;"><span style="text-align:left;float:left;padding-left:10px;color:#43b1f0" onclick="hideSite()">X</span> 选择城市</div>
+                <div style="text-align:left;color:#808080;padding-left:10px;line-height:30px;height:30px;float:left;">
+                    热门城市
+                </div>
+                <div style="width:100%;float:left;">
+                    <ul id="hot">
+                        <li><div key="W01">天津</div></li>
+
+                        <li><div key="W02">吉林</div></li>
+
+                    </ul>
+                </div>
+                <div style="text-align:left;color:#000;padding-left:10px;line-height:30px;height:30px;float:left;display:none;">
+                    选择城市
+                </div>
+                <div style="width:100%;float:left;display:none;">
+                    <ul>
+                        <li><div style="background-color:#43b1f0;color:#000;" onclick="setTab('1')" id="bt1">A-G</div></li>
+                        <li><div style="background-color:#c7dbeb;color:#000;" onclick="setTab('2')" id="bt2">H-L</div></li>
+                        <li><div style="background-color:#c7dbeb;color:#000;" onclick="setTab('3')" id="bt3">M-Q</div></li>
+                        <li><div style="background-color:#c7dbeb;color:#000;" onclick="setTab('4')" id="bt4">R-Z</div></li>
+                    </ul>
+                    <div id="st1">
+                        <ul>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        </ul>
+                        <ul>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        </ul>
+                        <ul>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        </ul>
+                    </div>
+                    <div id="st2" style="display:none;">
+                        <ul>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        </ul>
+                        <ul>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        </ul>
+                        <ul>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        </ul>
+                    </div>
+                    <div id="st3" style="display:none;">
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                    </div>
+                    <div id="st4" style="display:none;">
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="width:100%;float:left;height:20px;"></div>
+            </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,930 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/javascript"> var _tcopentime = new Date().getTime(); var _hmt = _hmt || []; </script>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="format-detection" content="telephone=no" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" /><meta name="apple-mobile-web-app-capable" content="yes" /><meta name="apple-mobile-web-app-status-bar-style" content="black" /><meta name="apple-mobile-web-app-title" content="嘉信旅游" /><meta name="keywords" content="旅游,嘉信国旅,嘉信旅游,天津嘉信，旅游社，旅游线路,旅游网站,自助游,国内游,出境游,景点门票，出境度假" /><meta name="description" content="嘉信旅游是中国领先的手机一站式旅游预订平台，提供30000多家景点门票、特价机票、特惠酒店等预订服务；专业服务、品质保障，让您的旅行更安心；实惠的价格、简单的流程，让您的旅行更贴心！" />
+    <!-- UC默认竖屏 ，UC强制全屏 -->
+    <meta name="full-screen" content="yes" /><meta name="browsermode" content="application" />
+    <!-- QQ强制竖屏 QQ强制全屏 -->
+    <meta name="x5-orientation" content="portrait" /><meta name="x5-fullscreen" content="true" /><meta name="x5-page-mode" content="app" /><title>
+	【嘉信旅游】一路欢笑一生情
+</title><link href="style/public.css" tppabs="http://m.jx516.com/style/public.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        #site ul li{
+        width:20%;
+        padding:8px 2.5%;
+        float:left;
+        }
+        #site ul li div{
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        
+        }
+        #st1 li{
+        border:none;
+        background-color:#FFF;
+        color:#000;
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        }
+        #st2 li{
+        border:none;
+        background-color:#FFF;
+        color:#000;
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        }
+        #st3 li{
+        border:none;
+        background-color:#FFF;
+        color:#000;
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        }
+        #st4 li{
+        border:none;
+        background-color:#FFF;
+        color:#000;
+        width:98%;
+        text-align:center;
+        font-size:12px;
+        line-height:30px;
+        height:30px;
+        }
+        .bd1 {
+            border:1px solid #c7dbeb;
+        }
+        .bd2 {
+            border:1px solid #43b1f0;
+        }
+    </style>
+    <script type="text/javascript">
+       
+        document.onreadystatechange = loading;
+        function loading() {
+            if (document.readyState == "complete") {
+                $("#loading").hide();
+                $("#Mcont").show();
+            }
+        }
+        function setTab(name) {
+            for (var i = 1; i < 5; i++) {
+                var menu = document.getElementById("st" + i);
+                var menubt = document.getElementById("bt" + i);
+                if (i == name) {
+                    menu.style.display = "inline";
+                    menubt.style.backgroundColor = "#43b1f0";
+                }
+                else {
+                    menu.style.display = "none";
+                    menubt.style.backgroundColor = "#c7dbeb";
+                }
+            }
+        }
+        function showSite() {
+            $("#site").show();
+        }
+        function hideSite() {
+            $("#site").hide();
+        }
+        function setSite() {
+            if (site_txt == "" || site_val == "") {
+                alert(请选择出发地);
+            } else {
+                $.ajax({
+                    type: "Post",
+                    url: "/Index.aspx/SetSite",
+                    data: "{'txt':'" + site_txt + "','val':'" + site_val + "'}",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        location.href = location.href;
+                    },
+                    error: function (d, e, f) {
+                    }
+                });
+            }
+        }
+        function defaultSite() {
+            if (site_txt == "" || site_val == "") {
+                alert(请选择出发地);
+            } else {
+                $.ajax({
+                    type: "Post",
+                    url: "/Index.aspx/defaultSite",
+                    data: "{'txt':'" + site_txt + "','val':'" + site_val + "'}",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        location.href = location.href;
+                    },
+                    error: function (d, e, f) {
+                    }
+                });
+            }
+        }
+
+        //图片加载失败，用默认图片
+        function func(obj, id, index) {
+            if (index == 1) {
+                obj.src = "Image_product/a.jpg"/*tpa=http://m.jx516.com/Image_product/a.jpg*/;
+            } else {
+                //var filespec = "/Image_product/" + id + "_1.jpg";
+                //var fso,s = filespec; // filespec="C:/path/myfile.txt"
+                //fso = new ActiveXObject("Scripting.FileSystemObject");
+                //if (fso.FileExists(filespec)) {
+                //    obj.src = "/Image_product/" + id + "_1.jpg";
+                //} else {
+                //    obj.src = "Image_product/a.jpg"/*tpa=http://m.jx516.com/Image_product/a.jpg*/;
+                //}
+                obj.src = "Image_product/a.jpg"/*tpa=http://m.jx516.com/Image_product/a.jpg*/;
+            }
+        }
+    </script>
+    
+    <link href="style/search.css" tppabs="http://m.jx516.com/style/search.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery.min.js" tppabs="http://m.jx516.com/js/jquery.min.js"></script>
+    <script type="text/javascript">
+        var areaid = "";
+        var day = "";
+        var page = "";
+        var type = "1";
+        var tel = "tel:4001566776";
+        var i_b = 0;
+        $(document).ready(function () {
+            //var strt = "";
+            $("#up").click(function () {
+                $("#down").show();
+                $("#up").hide();
+                $("#area").slideDown();
+            });
+            $("#down").click(function () {
+                $("#up").show();
+                $("#down").hide();
+                $("#area").slideUp();
+            });
+
+            $("#tel").attr("href", tel);
+            
+            //$(".main ul li").click(function () {
+            //    $(this).addClass("on").siblings().removeClass("on")
+            //})
+            areaid = "a%";
+            $("#cont1 li").each(function (a, b) {
+                if ($(b).attr("key") != null) {
+                    $(b).click(function () {
+                        $("#cont1 li").each(function (c, d) {
+                            $(d).removeClass("on");
+                            $("#search").show();
+                            $("#search1").hide();
+                        });
+                        areaid = $(b).attr("key");
+                        $(b).addClass("on");
+                    });
+                }
+            });
+            $("#cont2 li").each(function (a, b) {
+                if ($(b).attr("key") != null) {
+                    $(b).click(function () {
+                        $("#cont2 li").each(function (c, d) {
+                            $(d).removeClass("on");
+                            $("#search").show();
+                            $("#search1").hide();
+                        });
+                        areaid = $(b).attr("key");
+                        $(b).addClass("on");
+                    });
+                }
+            });
+            $("#cont3 li").each(function (a, b) {
+                if ($(b).attr("key") != null) {
+                    $(b).click(function () {
+                        $("#cont3 li").each(function (c, d) {
+                            $(d).removeClass("on");
+                            $("#search").show();
+                            $("#search1").hide();
+                        });
+                        areaid = $(b).attr("key");
+                        $(b).addClass("on");
+                    });
+                }
+            });
+            
+            day = "1-99";
+            $("#ul li").each(function (a, b) {
+                if ($(b).attr("key") != null) {
+                    $(b).click(function () {
+                        $("#ul li").each(function (c, d) {
+                            $(d).removeClass("on");
+                            $("#search").show();
+                            $("#search1").hide();
+                        });
+                        day = $(b).attr("key");
+                        $(b).addClass("on");
+                    });
+                }
+            });
+            //$(".main ul").on("click", "li", function (e) {
+            //    $(e.currentTarget).css("background-color", "red").siblings().css("background-color", "white");
+            //});
+
+            if ("" != "" &&i_b==0) {
+                i_b++;
+                var menu = document.getElementById("line1");
+                menu.style.borderBottom = "2px";
+                menu.style.borderBottom = "solid";
+                menu.style.borderBottomColor = "#ececec";
+                menu.style.color = "#000";
+
+                menu = document.getElementById("line2");
+                menu.style.borderBottom = "2px";
+                menu.style.borderBottom = "solid";
+                menu.style.borderBottomColor = "#ff6a00";
+                menu.style.color = "#ff6a00";
+
+                $("#cont1").hide();
+                $("#cont2").show();
+                $("#cont2 li").each(function (c, d) {
+                    $("#Lil" + c).removeClass("on");
+                });
+                $("#Lil29").addClass("on");
+                $("#showList").html("");
+                $.ajax({
+                    type: "Post",
+                    url: "/search.aspx/productList",
+                    data: "{'area':'" + "B09" + "','page':'" + 1 + "','travlDays':'" + day + "','type':'" + "1" + "'}",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        var info = data.d + "";
+                        $("#clickTypeShow").show();
+                        $("#clickTypeHide").hide();
+                        var dying = [];
+                        dying = info.split("|");
+                        if (dying[1] == "" || dying[1] == null) {
+                            $("#flagList").show();
+                            $("#flagLoad").hide();
+                            $("#nomore").hide();
+                        }
+                        $("#product_list").html(dying[0]);
+
+                        if (dying[2] == "123" || dying[3] == "123" || dying[1] == "<li>没有更多了</li>") {
+                            $("#flagLoad").hide();
+                            $("#nomore").show();
+                            $("#nomore").html(dying[1]);
+                            $("#flagList").hide();
+                        }
+                        $(document).scrollTop(550);
+
+                    },
+                    error: function (d, e, f) {
+                        alert(f);
+                    }
+                });
+            }
+        });
+        function search()
+        {
+            $("#showList").html("");
+            $("#search").hide();
+            $("#search1").show();
+                $.ajax({
+                    type: "Post",
+                    url: "/search.aspx/productList",
+                    data: "{'area':'" + areaid + "','page':'" + 1 + "','travlDays':'" + day + "','type':'" + type + "'}",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        var info = data.d + "";
+                        $("#clickTypeShow").show();
+                        $("#clickTypeHide").hide();
+                        var dying = [];
+                        dying = info.split("|");
+                        if (dying[1] == "" || dying[1] == null) {
+                            $("#flagList").show();
+                            $("#flagLoad").hide();
+                            $("#nomore").hide();
+                            $("#search").show();
+                            $("#search1").hide();
+                        }
+                        $("#product_list").html(dying[0]);
+                        
+                        if (dying[2] == "123" || dying[3] == "123" || dying[1] == "<li>没有更多了</li>") {
+                            $("#flagLoad").hide();
+                            $("#nomore").show();
+                            $("#search").show();
+                            $("#search1").hide();
+                            $("#nomore").html(dying[1]);
+                            $("#flagList").hide();
+                        }
+                        $(document).scrollTop(700);
+
+                    },
+                    error: function (d, e, f) {
+                        alert(f);
+                    }
+                });
+           
+        }
+        //function click() {
+        //    alert(1)
+        //    document.getElementById("a_").click();
+        //}
+        page = "2";
+        function loaddata()
+        {
+            $("#flagList").hide();
+            $("#flagLoad").show();
+                $.ajax({
+                    type: "Post",
+                    url: "/search.aspx/productList",
+                    data: "{'area':'" + areaid + "','page':'" + page + "','travlDays':'" + day + "','type':'" + type + "'}",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        var info = data.d + "";
+                        $("#clickTypeShow").show();
+                        $("#clickTypeHide").hide();
+                        var dying = [];
+                        dying = info.split("|");
+                        if (dying[1] == "" || dying[1] == null) {
+                            $("#flagList").show();
+                            $("#flagLoad").hide();
+                        }
+                        var product_list = $("#product_list").html();
+                        $("#product_list").html(product_list + dying[0]);
+                        if (dying[2] == "123" || dying[3] == "123" || dying[1] == "<li>没有更多了</li>") {
+                            $("#flagLoad").hide();
+                            $("#nomore").show();
+                            $("#nomore").html(dying[1]);
+                            $("#flagList").hide();
+                        }
+
+                    },
+                    error: function (d, e, f) {
+                        alert(f);
+                    }
+                });
+            page++;
+        }
+        /*选项卡切换*/
+        function setTab(name) {
+            for (var i = 1; i < 6; i++) {
+                var menu = document.getElementById("line" + i);
+                var menudiv = document.getElementById("cont" + i);
+                if (i == name) {
+                    if (i == 1)
+                    {
+                        type = "1";
+                        $("list").removeClass("on");
+                        page = "2";
+                        areaid = "a%";
+                        $("#product_list").html("");
+                        $("#nomore").hide();
+                        $("#flagList").hide();
+                        $("#showList").html("");
+                        $("#cont1 li").each(function (c, d) {
+                            $("#li" + (c+2)).removeClass("on");
+                        });
+                        ////$("#li1").addClass("on");
+                    } else if (i == 2) {
+                        type = "1";
+                        page = "2";
+                        areaid = "b%";
+                        $("#product_list").html("");
+                        $("#nomore").hide();
+                        $("#flagList").hide();
+                        $("#showList").html("");
+                        $("#cont2 li").each(function (c, d) {
+                            $("#Lil" + (c+3)).removeClass("on");
+                        });
+                        $("#Lil1").addClass("on");
+                    } else if (i == 3) {
+                        type = "0";
+                        page = "2";
+                        areaid = "%";
+                        $("#product_list").html("");
+                        $("#nomore").hide();
+                        $("#flagList").hide();
+                        $("#showList").html("");
+                        $("#cont3 li").each(function (c, d) {
+                            $("#free" + c).removeClass("on");
+                        });
+                        $("#free1").addClass("on");
+                    }
+                    $("#search").show();
+                    $("#search1").hide();
+                    menudiv.style.display = "inline";
+                    menu.style.borderBottom = "2px";
+                    menu.style.borderBottom = "solid";
+                    menu.style.borderBottomColor = "#ff6a00";
+                    menu.style.color = "#ff6a00";
+                }
+                else {
+                    menudiv.style.display = "none";
+                    menu.style.borderBottom = "2px";
+                    menu.style.borderBottom = "solid";
+                    menu.style.borderBottomColor = "#ececec";
+                    menu.style.color = "#000";
+                }
+            }
+        }
+        function setNav(name) {
+            for (var i = 1; i < 6; i++) {
+                var menu = document.getElementById("trv" + i);
+                var menudiv = document.getElementById("nam" + i);
+                if (i == name) {
+                    menudiv.style.display = "inline";
+                    menu.style.color = "#fff";
+                    menu.style.bordercolor = "#ff6a00";
+                    menu.style.backgroundColor = "#ff6a00";
+                }
+                else {
+                    menudiv.style.display = "none";
+                    menu.style.color = "#000";
+                    menu.style.border = "1px solid #ff6a00";
+                    menu.style.backgroundColor = "#fff";
+                }
+            }
+        }
+        function setMeu(name) {
+            for (var i = 1; i < 6; i++) {
+                var menu = document.getElementById("lan" + i);
+                var menudiv = document.getElementById("lam" + i);
+                if (i == name) {
+                    menudiv.style.display = "inline";
+                    menu.style.color = "#fff";
+                    menu.style.bordercolor = "#ff6a00";
+                    menu.style.backgroundColor = "#ff6a00";
+                }
+                else {
+                    menudiv.style.display = "none";
+                    menu.style.color = "#000";
+                    menu.style.border = "1px solid #ff6a00";
+                    menu.style.backgroundColor = "#fff";
+                }
+            }
+        }
+        function setTit(name) {
+            for (var i = 1; i < 6; i++) {
+                var menu = document.getElementById("fre" + i);
+                var menudiv = document.getElementById("fon" + i);
+                if (i == name) {
+                    menudiv.style.display = "inline";
+                    menu.style.color = "#fff";
+                    menu.style.bordercolor = "#ff6a00";
+                    menu.style.backgroundColor = "#ff6a00";
+                }
+                else {
+                    menudiv.style.display = "none";
+                    menu.style.color = "#000";
+                    menu.style.border = "1px solid #ff6a00";
+                    menu.style.backgroundColor = "#fff";
+                }
+            }
+        }
+    </script>
+   
+</head>
+<body>
+    <form method="post" action="javascript:if(confirm(%27http://m.jx516.com/Search.aspx?__VIEWSTATE=/wEPDwUKMTI2MTE3MDY0N2RkGwpan8teGYwBcASM4QFPlKSPl6MRc8j1VaJldiXVOAw=&__VIEWSTATEGENERATOR=BBBC20B8  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Search.aspx?__VIEWSTATE=/wEPDwUKMTI2MTE3MDY0N2RkGwpan8teGYwBcASM4QFPlKSPl6MRc8j1VaJldiXVOAw=&__VIEWSTATEGENERATOR=BBBC20B8%27" tppabs="http://m.jx516.com/Search.aspx?__VIEWSTATE=/wEPDwUKMTI2MTE3MDY0N2RkGwpan8teGYwBcASM4QFPlKSPl6MRc8j1VaJldiXVOAw=&__VIEWSTATEGENERATOR=BBBC20B8" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTI2MTE3MDY0N2RkGwpan8teGYwBcASM4QFPlKSPl6MRc8j1VaJldiXVOAw=" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="BBBC20B8" />
+</div>
+        <img src="image/logo-img1.png" tppabs="http://m.jx516.com/image/logo-img1.png" alt="" style="width:0px;height:0px;" />
+        
+            <div id="loading">
+     	        <div class="spinner">
+  			        <div class="double-bounce1"></div>
+  			        <div class="double-bounce2"></div>
+		        </div>
+	        </div>
+        
+        
+    <div id="Mcont" class="Maincontent">
+        <div class="head">
+            <a href="javascript:history.go(-1);"><span class="head-return">
+                <img src="image/return.jpg" tppabs="http://m.jx516.com/image/return.jpg" style="width: 30px; height: 30px;" alt="" /></span></a>
+            <span class="head-tit">产品搜索页</span>
+            <a id="tel" href="tel:4001566776 "><span class="head-phone">
+                <img src="image/phone.jpg" tppabs="http://m.jx516.com/image/phone.jpg" style="width: 30px; height: 30px;" alt="" /></span></a>
+            <a href="Index.aspx.htm" tppabs="http://m.jx516.com/Index.aspx"><span class="head-more">首页</span></a>
+        </div>
+        <div id="up" style="width:100%;float:left;text-align:center;cursor:pointer; height:3em;line-height:3em;border-bottom:1px solid #ccc;">请选择目的地&nbsp;∨</div>
+        <div id="down" style="display:none; width:100%;float:left;text-align:center;cursor:pointer;height:3em;line-height:3em;border-bottom:1px solid #ccc;">请选择目的地&nbsp;∧</div>
+        <!--区域-->
+        <div id="area" style="display:none;">
+            <div class="detail-line">
+                <ul>
+                    <li id="line1" onclick="setTab('1')" style="width:33%;color:#ff6a00; border-bottom:3px solid #ff6a00;">国内跟团游</li>
+                    <li id="line2" style="width:33%;" onclick="setTab('2')">出境跟团游</li>
+                    <li id="line3" style="width:33%;" onclick="setTab('3')">自由行</li>
+                </ul>
+                <div class="back" ></div>  
+            </div>
+            <div id="cont1" class="main">
+                <div style="float:left;color:#3db4ff;width:100%;line-height:2.5em;padding-top:3px;font-size:14px; border-bottom:3px solid #ECECEC;padding-left:3%;">推荐目的地</div>
+                <ul>
+                    <li id="li1" key="A051">  安徽黄山  </li>
+                    <li id="li17" key="A23">  广东  </li>
+                    <li id="li46" key="A064">  白洋淀    </li>
+                    <li id="li47" key="A101">  包头草原  </li>
+                    <li id="li48" key="A01">  北京  </li>
+                    <li id="li49" key="A062">  承德/草原  </li>
+                    <li id="li50" key="A132"> 大连丹东      </li>
+                    <li id="li51" key="A14"> 福建      </li>
+                </ul>
+                <ul style="border-bottom:3px solid #ECECEC;height:.5em;"></ul>
+                
+                <ul style="font-size:16px;">
+                    <li id="trv1" onclick="setNav('1')" style="color:#fff;background:#ff6a00;border:1px solid #ff6a00;">A-G</li>
+                    <li id="trv2" style="border:1px solid #ff6a00;" onclick="setNav('2')">H-J</li>
+                    <li id="trv3" style="border:1px solid #ff6a00;" onclick="setNav('3')">K-S</li>
+                    <li id="trv4" style="border:1px solid #ff6a00;" onclick="setNav('4')">T-Z</li>
+                </ul>
+                    
+                <ul id="nam1">
+                    
+                    <li id="li2" key="A051">  安徽黄山  </li>
+                    <li id="li3" key="A064">  白洋淀    </li>
+                    <li id="li4" key="A101">  包头草原  </li>
+                    <li id="li5" key="A01">  北京  </li>
+                    <li id="li6" key="A062">  承德/草原  </li>
+                    <li id="li7" key="A132"> 大连丹东      </li>
+                    <li id="li8" key="A14"> 福建      </li>
+                    <li id="li9" key="A20"> 甘肃青海      </li>
+                    <li id="li10" key="A23"> 广东            </li>
+                    <li id="li11" key="A16">广西       </li>
+                    <li id="li12" key="A25">贵州    </li>
+                </ul>
+                <ul id="nam2" style="display:none;">
+                    <li id="li13" key="A03">海南    </li>
+                    <li id="li14" key="A06">河北        </li>
+                    <li id="li16" key="A07"> 河南            </li>
+                    <li id="li18" key="A11"> 黑龙江      </li>
+                    <li id="li19" key="A102">呼伦贝尔       </li>
+                    <li id="li20" key="A241">湖北       </li>
+                    <li id="li21" key="A15">湖南       </li>
+                    <li id="li22" key="A05"> 华东       </li>
+                    <li id="li23" key="A053">华东上海       </li>
+                    <li id="li24" key="A12">吉林          </li>
+                    <li id="li25" key="A091"> 济南泰安       </li>
+                    <li id="li26" key="A18"> 江西       </li>
+                </ul>
+                <ul id="nam3" style="display:none;">
+                    <li id="li27" key="A13"> 辽宁          </li>
+                    <li id="li28" key="A061">南北戴河       </li>
+                    <li id="li29" key="A10">内蒙          </li>
+                    <li id="li30" key="A052">普陀浙东       </li>
+                    <li id="li31" key="A092"> 青岛烟台      </li>
+                     <li id="li67" key="A065"> 其它      </li>
+                    <li id="li32" key="A243"> 三峡      </li>
+                    <li id="li33" key="A09"> 山东          </li>
+                    <li id="li34" key="A19"> 陕西      </li>
+                    <li id="li35" key="A133"> 沈阳         </li>
+                    <li id="li36" key="A17"> 四川      </li>
+                </ul>
+                <ul id="nam4" style="display:none;">
+                    <li id="li37" key="A02"> 天津       </li>
+                    <li id="li38" key="A22"> 西藏        </li>
+                    <li id="li39" key="A21"> 新疆        </li>
+                    <li id="li40" key="A131"> 兴城           </li>
+                    <li id="li41" key="A063"> 野三坡         </li>
+                    <li id="li42" key="A093">沂水日照   </li>
+                    <li id="li43" key="A04">云南   </li>
+                    <li id="li44" key="A242">重庆   </li>
+                    <li id="li45" key="A24"> 重庆三峡   </li>
+                </ul>
+            </div>
+            <div id="cont2" style="display:none;" class="main">
+                <div style="float:left;color:#3db4ff;width:100%;line-height:2.5em;padding-top:3px;font-size:14px; border-bottom:3px solid #ECECEC;padding-left:3%;">推荐目的地</div>
+                <ul>
+                    <li id ="Li15" key="B06"> 澳洲      </li>
+                    <li id ="Li52" key="B09">  邮轮    </li>
+                    <li id ="Li53" key="B07"> 美加      </li>
+                    <li id ="Li54" key="B034"> 冲绳/济州  </li>
+                    <li id ="Li55" key="B022"> 东南亚    </li>
+                    <li id ="Li57" key="B011"> 港澳      </li>
+                    <li id ="Li58" key="B03">海岛     </li>
+                    <li id ="Li56" key="B023">越柬     </li>
+                </ul>
+                <ul style="border-bottom:3px solid #ECECEC;height:.5em;"></ul>
+                
+                <ul style="font-size:16px;">
+                    <li id="lan1" onclick="setMeu('1')" style="color:#fff;background:#ff6a00;border:1px solid #ff6a00;">A-G</li>
+                    <li id="lan2" style="border:1px solid #ff6a00;" onclick="setMeu('2')">H-N</li>
+                    <li id="lan3" style="border:1px solid #ff6a00;" onclick="setMeu('3')">O-S</li>
+                    <li id="lan4" style="border:1px solid #ff6a00;" onclick="setMeu('4')">T-Z</li>
+                </ul>
+                <ul id="lam1">
+                    
+                    <li id ="Lil3" key="B06"> 澳洲      </li>
+                    <li id ="Lil4" key="B033">  巴厘岛    </li>
+                    <li id ="Lil5" key="B053"> 北欧      </li>
+                    <li id ="Lil6" key="B034"> 冲绳/济州  </li>
+                    <li id ="Lil7" key="B02"> 东南亚    </li>
+                    <li id ="Lil8" key="B039"  style="width:33%;">  斐济/大溪地  </li>
+                    <li id ="Lil9" key="B011"> 港澳      </li>
+                </ul>
+                <ul id="lam2" style="display:none;">
+                    <li id ="Lil10" key="B03">海岛     </li>
+                    <li id ="Lil11" key="B042">韩国      </li>
+                    <li id ="Lil12" key="B036">兰卡威    </li>
+                    <li id ="Lil13" key="B031">马尔代夫  </li>
+                    <li id ="Lil14" key="B038">毛里求斯   </li>
+                    <li id ="Lil15" key="B07">美加       </li>
+                    <li id ="Lil16" key="B021">南亚       </li>
+                </ul>
+                <ul id="lam3" style="display:none;">
+                    <li id ="Lil18" key="B05"> 欧洲      </li>
+                    <li id ="Lil19" key="B051">欧洲多国  </li>
+                    <li id ="Lil21" key="B052">欧洲深度  </li>
+                    <li id ="Lil22" key="B032"> 普吉/苏梅  </li>
+                    <li id ="Lil23" key="B041">日本      </li>
+                    <li id ="Lil24" key="B04">日韩      </li>
+                    <li id ="Lil25" key="B037">塞班/关岛  </li>
+                </ul>
+                <ul id="lam4" style="display:none;">
+                    <li id ="Lil26" key="B022"> 泰新马         </li>
+                    <li id ="Lil27" key="B09"> 邮轮           </li>
+                    <li id ="Lil28" key="B023"> 越柬           </li>
+                    <li id ="Lil29" key="B035"> 长滩/宿雾       </li>
+                    <li id ="Lil17" key="B08" >中东非 </li>
+                </ul>
+            </div>
+            <div id="cont3" style="display:none;" class="main">
+                <div style="float:left;color:#3db4ff;width:100%;line-height:2.5em;padding-top:3px; font-size:14px; border-bottom:3px solid #ECECEC;padding-left:3%;">推荐目的地</div>
+                <ul>
+                    <li id ="Li59" key="A051">  安徽黄山  </li>
+                    <li id ="Li60" key="B06">  澳洲      </li>
+                    <li id ="Li61" key="B033">  巴厘岛    </li>
+                    <li id ="Li62" key="A064">  白洋淀    </li>
+                    <li id ="Li63" key="A101">  包头草原  </li>
+                    <li id ="Li64" key="A01"> 北京      </li>
+                    <li id ="Li65" key="B053"> 北欧      </li>
+                    <li id ="Li66" key="A062"> 承德/草原 </li>
+                </ul>
+                <ul style="border-bottom:3px solid #ECECEC;height:.5em;"></ul>
+                <ul style="font-size:16px;">
+                    <li id="fre1" onclick="setTit('1')" style="color:#fff;background:#ff6a00;border:1px solid #ff6a00;">A-G</li>
+                    <li id="fre2" style="border:1px solid #ff6a00;" onclick="setTit('2')">H-L</li>
+                    <li id="fre3" style="border:1px solid #ff6a00;" onclick="setTit('3')">M-R</li>
+                    <li id="fre4" style="border:1px solid #ff6a00;" onclick="setTit('4')">S-Z</li>
+                </ul>
+                <ul id="fon1">
+                    <li id ="free2" key="A051">  安徽黄山  </li>
+                    <li id ="free3" key="B06">  澳洲      </li>
+                    <li id ="free4" key="B033">  巴厘岛    </li>
+                    <li id ="free5" key="A064">  白洋淀    </li>
+                    <li id ="free6" key="A101">  包头草原  </li>
+                    <li id ="free7" key="A01"> 北京      </li>
+                    <li id ="free8" key="B053"> 北欧      </li>
+                    <li id ="free9" key="A062"> 承德/草原 </li>
+                    <li id ="free10" key="B034"> 冲绳/济州 </li>
+                    <li id ="free11" key="A132">大连丹东  </li>
+                    <li id ="free12" key="B02">东南亚    </li>
+                    <li id ="free13" key="A14">福建 </li>
+                    <li id ="free14" key="B039" style="width:33%;">斐济/大溪地      </li>
+                    <li id ="free16" key="A20"> 甘肃青海  </li>
+                    <li id ="free17" key="B011"> 港澳      </li>
+                    <li id ="free18" key="A23"> 广东      </li>
+                    <li id ="free19" key="A16">广西      </li>
+                    <li id ="free20" key="A25">贵州      </li>
+                </ul>
+                <ul id="fon2" style="display:none;">
+                    <li id ="free21" key="B03">海岛      </li>
+                    <li id ="free22" key="A03"> 海南      </li>
+                    <li id ="free23" key="B042">韩国      </li>
+                    <li id ="free24" key="A06">河北      </li>
+                    <li id ="free25" key="A07"> 河南      </li>
+                    <li id ="free26" key="A11"> 黑龙江    </li>
+                    <li id ="free27" key="A102"> 呼伦贝尔  </li>
+                    <li id ="free28" key="A241">湖北      </li>
+                    <li id ="free29" key="A15">湖南      </li>
+                    <li id ="free30" key="A05">华东      </li>
+                    <li id ="free31" key="A053"> 华东上海  </li>
+                    <li id ="free32" key="A12"> 吉林      </li>
+                    <li id ="free33" key="A091"> 济南泰安  </li>
+                    <li id ="free34" key="A18"> 江西      </li>
+                    <li id ="free35" key="B036"> 兰卡威    </li>
+                    <li id ="free36" key="A13"> 辽宁      </li>
+                </ul>
+                <ul id="fon3" style="display:none;">
+                    <li id ="free37" key="B031"> 马尔代夫  </li>
+                    <li id ="free38" key="B038"> 毛里求斯  </li>
+                    <li id ="free39" key="B07"> 美加      </li>
+                    <li id ="free40" key="A061"> 南北戴河  </li>
+                    <li id ="free41" key="B021"> 南亚      </li>
+                    <li id ="free42" key="A10">内蒙      </li>
+                    <li id ="free43" key="B05">欧洲      </li>
+                    <li id ="free44" key="B051">欧洲多国  </li>
+                    <li id ="free45" key="B052"> 欧洲深度  </li>
+                    <li id ="free47" key="B032">普吉/苏梅 </li>
+                    <li id ="free48" key="A052"> 普陀浙东   </li>
+                    <li id ="free49" key="A092">青岛烟台   </li>
+                    <li id ="free50" key="B041">日本       </li>
+                    <li id ="free51" key="B04">日韩        </li>
+                </ul>
+                <ul id="fon4" style="display:none;">
+                    <li id ="free52" key="B037"> 塞班/关岛  </li>
+                    <li id ="free53" key="A243">三峡        </li>
+                    <li id ="free54" key="A09">山东         </li>
+                    <li id ="free55" key="A08">山西        </li>
+                    <li id ="free56" key="A19">陕西         </li>
+                    <li id ="free57" key="A133">沈阳         </li>
+                    <li id ="free58" key="A17">四川        </li>
+                    <li id ="free59" key="B022">泰新马        </li>
+                    <li id ="free60" key="A02">天津         </li>
+                    <li id ="free62" key="A22"> 西藏       </li>
+                    <li id ="free63" key="A21">新疆       </li>
+                    <li id ="free64" key="A131">兴城       </li>
+                    <li id ="free65" key="A063"> 野三坡     </li>
+                    <li id ="free66" key="A093">沂水日照    </li>
+                    <li id ="free67" key="B09">邮轮        </li>
+                    <li id ="free68" key="B023">越柬        </li>
+                    <li id ="free69" key="A04"> 云南        </li>
+                    <li id ="free70" key="B035"> 长滩/宿雾   </li>
+                    <li id ="free71" key="B08"> 中东非       </li>
+                    <li id ="free72" key="A242"> 重庆        </li>
+                    <li id ="free61" key="A24" >重庆三峡</li>
+                </ul>
+            </div>
+        
+            <!--天数-->
+            <div class="detail-line">
+                <ul>
+                    <li  style="width:100%;color:#ff6a00;text-align:left;padding-left:3%;">天数选择</li>
+                </ul>
+                <div class="back"></div>  
+            </div>
+       
+            <div id="ul" class="main">
+                <ul>
+                    <li key="1-99" class="on">天数不限</li>
+                    <li key="1-3">1-3天</li>
+                    <li key="4-7">4-7天</li>
+                    <li key="8-99">8天以上</li>
+                </ul>
+            </div>
+            <!--开始搜索-->
+            
+            <div onclick="search()"  id="search" style="float:left;width:100%;margin-top:3%; text-align: center; cursor: pointer;font-size:16px;color:#fff; height:3em;line-height:3em;background-color:#3db4ff;">开始搜索</div>
+            <div id="search1" style="float:left;width:100%;margin-top:2%;text-align: center; cursor: pointer;font-size:16px;color:#fff; height:3em;line-height:3em;display: none;background-color:#3db4ff;">请稍候...</div>
+
+            
+        </div>
+
+        <!--出境游推荐-->
+        <div class="product-list" id="product_list">
+            <ul ><li> <div class="list-img"><span></span>  <img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/8205_1.jpg" tppabs="http://image.jx516.com/product/mphoto/8205_1.jpg" alt="" /></div><div class="list-show"><div class="list-pro-tit">【皇家加勒比邮轮-海洋赞礼号】2016年9月26日天津-福冈-釜山-天津 5晚6日游 </div> <div class="list-show-msg"><span style="padding-right:20px;">出发地：天津</span><span>区域：邮轮</span></div><div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">      线路编号：8205   </b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>5299.00</b><b style="font-size:8px;font-weight:500;"></b></span></div></div><a class="click-url" href="javascript:if(confirm(%27http://m.jx516.com/Steamer_detail.aspx?id=8205  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Steamer_detail.aspx?id=8205%27" tppabs="http://m.jx516.com/Detail.aspx?id=8205"></a></li></ul> <ul ><li> <div class="list-img"><span></span>  <img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/6376_1.jpg" tppabs="http://image.jx516.com/product/mphoto/6376_1.jpg" alt="" /></div><div class="list-show"><div class="list-pro-tit">8月22日“海洋赞礼号”日本福冈4晚5天 </div> <div class="list-show-msg"><span style="padding-right:20px;">出发地：天津</span><span>区域：邮轮</span></div><div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">      线路编号：6376   </b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>4899.00</b><b style="font-size:8px;font-weight:500;"></b></span></div></div><a class="click-url" href="javascript:if(confirm(%27http://m.jx516.com/Steamer_detail.aspx?id=6376  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Steamer_detail.aspx?id=6376%27" tppabs="http://m.jx516.com/Detail.aspx?id=6376"></a></li></ul> <ul ><li> <div class="list-img"><span></span>  <img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/6373_1.jpg" tppabs="http://image.jx516.com/product/mphoto/6373_1.jpg" alt="" /></div><div class="list-show"><div class="list-pro-tit">9月15日 “COSTA大西洋号”  韩国济州日本福冈5晚6天 </div> <div class="list-show-msg"><span style="padding-right:20px;">出发地：天津</span><span>区域：邮轮</span></div><div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">      线路编号：6373   </b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>3299.00</b><b style="font-size:8px;font-weight:500;"></b></span></div></div><a class="click-url" href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=6373  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=6373%27" tppabs="http://m.jx516.com/Detail.aspx?id=6373"></a></li></ul> <ul ><li> <div class="list-img"><span></span>  <img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/5431_1.jpg" tppabs="http://image.jx516.com/product/mphoto/5431_1.jpg" alt="" /></div><div class="list-show"><div class="list-pro-tit">10月12日 “COSTA大西洋号”   韩国、日本10晚11天 </div> <div class="list-show-msg"><span style="padding-right:20px;">出发地：天津</span><span>区域：邮轮</span></div><div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">      线路编号：5431   </b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>5500.00</b><b style="font-size:8px;font-weight:500;"></b></span></div></div><a class="click-url" href="javascript:if(confirm(%27http://m.jx516.com/Steamer_detail.aspx?id=5431  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Steamer_detail.aspx?id=5431%27" tppabs="http://m.jx516.com/Detail.aspx?id=5431"></a></li></ul> <ul ><li> <div class="list-img"><span></span>  <img onerror="func(this,0,1)" src="../image.jx516.com/product/mphoto/6411_1.jpg" tppabs="http://image.jx516.com/product/mphoto/6411_1.jpg" alt="" /></div><div class="list-show"><div class="list-pro-tit">9月1日“海洋赞礼号”日本长崎，韩国釜山5晚6天 </div> <div class="list-show-msg"><span style="padding-right:20px;">出发地：天津</span><span>区域：邮轮</span></div><div class="list-show-money"><span style="width:60%;float:left;text-align:center; word-wrap:normal;overflow:hidden;"><b style="float:left;font-weight:500;padding:0 3px; border:1px solid #ff6a00;border-radius:5px;">      线路编号：6411   </b></span><span style="width:37%;text-align:right; float:right;color:#FA225F;font-size:16px;padding-right:3%;word-wrap:normal;"><b style="font-size:12px;font-weight:500;">￥</b><b>3899.00</b><b style="font-size:8px;font-weight:500;"></b></span></div></div><a class="click-url" href="javascript:if(confirm(%27http://m.jx516.com/Detail.aspx?id=6411  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://m.jx516.com/Detail.aspx?id=6411%27" tppabs="http://m.jx516.com/Detail.aspx?id=6411"></a></li></ul> 
+             
+        </div>
+        
+        <div class="product-list" id="showList"></div>
+        <div id="flagList" style="float:left;width:100%;margin-top:2%;text-align: center; cursor: pointer;font-size:16px;color:#fff; height:3em;line-height:3em;display: none;background-color:#3db4ff;" onclick="loaddata();">更多产品</div>
+        <div id="flagLoad" style="float:left;width:100%;margin-top:2%;text-align: center; cursor: pointer;font-size:16px;color:#fff; height:3em;line-height:3em;display: none;background-color:#3db4ff;">正在加载...</div>
+        <div id ="nomore"  style="float:left;width:100%;margin-top:2%;text-align: center; cursor: pointer;font-size:16px;height:3em;line-height:3em;display: none;"> </div>
+    </div>
+
+        <div class="foot">
+            <div class="foot-line"></div>
+            <div class="foot-name">©2009-2016 嘉信旅游<img src="../z10.cnzz.com/stat.htm-id=1253409067&r=http---m.jx516.com-&iw=1&showp=0x0&lg=undefined&cnzz_eid=none&p=http---m.jx516.com-Search.aspx&rnd=535768269.gif" tppabs="http://c.cnzz.com/wapstat.php?siteid=1253409067&r=http%3a%2f%2fm.jx516.com%2f&rnd=1616785084" width="0" height="0" alt=""/>
+                <script type="text/javascript">
+                    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                    document.write(unescape("%3Cspan id='cnzz_stat_icon_1253409067'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s6.cnzz.com/stat.php%3Fid%3D1253409067%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+                        </script>
+            </div>
+          <div class="foot-name"><a href="javascript:if(confirm(%27http://www.miibeian.gov.cn/  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.miibeian.gov.cn/%27" tppabs="http://www.miibeian.gov.cn/" style="cursor:pointer;">津ICP备12004526号</a><a href="javascript:if(confirm(%27http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12010102000048  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12010102000048%27" tppabs="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12010102000048" style="cursor:pointer;" ><img style="margin-bottom:-4px;" src="Image/beian.png" tppabs="http://m.jx516.com/Image/beian.png" /></a><br />公安备案号：12010102000048</div>
+                        
+        </div>
+        <div style="width:100%;height:3em;float:left;"></div>
+      <div style="width:100%;background-color:#fff;height:auto;position:fixed;top:0px;left:0px;float:left;z-index:30;height:100%;display:none;cursor:pointer;" id="site">
+                <div style="text-align:center;color:black;background-color:#ccc;line-height:30px;height:30px;"><span style="text-align:left;float:left;padding-left:10px;color:#43b1f0" onclick="hideSite()">X</span> 选择城市</div>
+                <div style="text-align:left;color:#808080;padding-left:10px;line-height:30px;height:30px;float:left;">
+                    热门城市
+                </div>
+                <div style="width:100%;float:left;">
+                    <ul id="hot">
+                        <li><div key="W01">天津</div></li>
+
+                        <li><div key="W02">吉林</div></li>
+
+                    </ul>
+                </div>
+                <div style="text-align:left;color:#000;padding-left:10px;line-height:30px;height:30px;float:left;display:none;">
+                    选择城市
+                </div>
+                <div style="width:100%;float:left;display:none;">
+                    <ul>
+                        <li><div style="background-color:#43b1f0;color:#000;" onclick="setTab('1')" id="bt1">A-G</div></li>
+                        <li><div style="background-color:#c7dbeb;color:#000;" onclick="setTab('2')" id="bt2">H-L</div></li>
+                        <li><div style="background-color:#c7dbeb;color:#000;" onclick="setTab('3')" id="bt3">M-Q</div></li>
+                        <li><div style="background-color:#c7dbeb;color:#000;" onclick="setTab('4')" id="bt4">R-Z</div></li>
+                    </ul>
+                    <div id="st1">
+                        <ul>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        </ul>
+                        <ul>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        </ul>
+                        <ul>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        <li><div key="W01">天津</div></li>
+                        </ul>
+                    </div>
+                    <div id="st2" style="display:none;">
+                        <ul>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        </ul>
+                        <ul>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        </ul>
+                        <ul>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        <li><div key="W02">吉林</div></li>
+                        </ul>
+                    </div>
+                    <div id="st3" style="display:none;">
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                    </div>
+                    <div id="st4" style="display:none;">
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                        <ul>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                       <li><div key="W03">上海</div></li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="width:100%;float:left;height:20px;"></div>
+            </div>
+    </form>
+</body>
+</html>
